@@ -5,9 +5,7 @@ import { ColorMeaningGrid } from '@/components/ColorMeaningGrid';
 import { CopyBundles } from '@/components/CopyBundles';
 import { EmojiCard } from '@/components/EmojiCard';
 import { FaqAccordion } from '@/components/FaqAccordion';
-import { KeywordExplorer } from '@/components/KeywordExplorer';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
-import { MegaHeartGenerator } from '@/components/MegaHeartGenerator';
 import { QuickCopyPanel } from '@/components/QuickCopyPanel';
 import { TextArtShowcase } from '@/components/TextArtShowcase';
 import { HEART_EMOJIS } from '@/data/emojis';
@@ -126,52 +124,46 @@ export default function LocaleHomePage({ params }: LocaleHomePageProps) {
 
       <section id="color-meanings" aria-labelledby="color-meanings-heading">
         <h2 className="section-heading" id="color-meanings-heading">
-          Heart emoji color meanings
+          {dictionary.home.colorHeading}
         </h2>
         <p className="card-description">
-          Compare what different color heart emojis mean at a glance. This guide covers popular searches like “emoji heart
-          color meanings”, “meaning of colored heart emojis”, and nuanced questions such as what the blue, white, black, or
-          purple heart emoji mean in texting.
+          {dictionary.home.colorDescription}
         </p>
         <ColorMeaningGrid locale={locale} items={COLOR_GUIDE} />
       </section>
 
       <section id="copy-bundles" aria-labelledby="copy-bundles-heading">
         <h2 className="section-heading" id="copy-bundles-heading">
-          Heart emoji copy and paste packs
+          {dictionary.home.copyHeading}
         </h2>
-        <p className="card-description">
-          Build your own heart emoji copy and paste stash—from pink heart emoji strings to friendship bundles with yellow
-          hearts. Tap any combo to copy, then drop them into bios, tweets, or captions.
-        </p>
-        <CopyBundles dictionary={dictionary} />
+        <p className="card-description">{dictionary.home.copyDescription}</p>
+        <CopyBundles dictionary={dictionary} locale={locale} />
       </section>
 
       <section id="text-art" aria-labelledby="text-art-heading">
         <h2 className="section-heading" id="text-art-heading">
-          Heart text emoji & ASCII art
+          {dictionary.home.textArtHeading}
         </h2>
-        <p className="card-description">
-          Need text heart emoji ideas, outline heart symbols, or aesthetic kaomoji? Grab these ready-made snippets for
-          headers, keyboards without emoji, or cute copy-and-paste art.
-        </p>
+        <p className="card-description">{dictionary.home.textArtDescription}</p>
         <TextArtShowcase dictionary={dictionary} />
       </section>
 
-      <MegaHeartGenerator dictionary={dictionary} />
+      <section className="cta-panel" aria-label={dictionary.common.nav.generator}>
+        <div className="cta-card">
+          <h3>{dictionary.pages.generator.title}</h3>
+          <p>{dictionary.pages.generator.description}</p>
+          <Link className="cta-button" href={`/${locale}/generator/200`}>
+            {dictionary.common.nav.generator}
+          </Link>
+        </div>
+      </section>
 
       <section id="using-hearts" className="detail-wrapper" aria-label="Guidance">
         <AdSlot label={dictionary.common.adPlaceholder} slotId="mid-rectangle" />
         <div>
           <h2 className="section-heading">{dictionary.home.usageTitle}</h2>
-          <p className="card-description">
-            {dictionary.detail.metadataDescription}
-          </p>
-          <p className="card-description">
-            {locale === 'en'
-              ? 'Need brand-guided assets? Build your own collection by remixing these hearts with gradients, stickers, and fonts.'
-              : '打造自定义品牌素材？将这些心形表情与渐变、贴纸和字体搭配，轻松延伸出更多风格。'}
-          </p>
+          <p className="card-description">{dictionary.detail.metadataDescription}</p>
+          <p className="card-description">{dictionary.home.usageBody}</p>
           <Link href={`/${locale}/emoji/red-heart`} className="card-link">
             {dictionary.common.viewDetails} →
           </Link>
@@ -180,12 +172,10 @@ export default function LocaleHomePage({ params }: LocaleHomePageProps) {
 
       <section id="emoji-faq" aria-labelledby="emoji-faq-heading">
         <h2 className="section-heading" id="emoji-faq-heading">
-          Heart emoji meanings & FAQs
+          {dictionary.home.faqHeading}
         </h2>
-        <FaqAccordion />
+        <FaqAccordion locale={locale} />
       </section>
-
-      <KeywordExplorer />
     </div>
   );
 }

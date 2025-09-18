@@ -15,7 +15,7 @@ export function ColorMeaningGrid({ locale, items }: ColorMeaningGridProps) {
             <span className="color-card__emoji" aria-hidden="true">
               {item.emoji}
             </span>
-            <h3>{item.title}</h3>
+            <h3>{item.title[locale]}</h3>
           </header>
           <p>{item.description[locale]}</p>
           <ul className="color-card__keywords">

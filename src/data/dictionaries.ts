@@ -15,6 +15,13 @@ export type Dictionary = {
     backToList: string;
     localeLabel: string;
     copiedToast: string;
+    nav: {
+      home: string;
+      colors: string;
+      copy: string;
+      textArt: string;
+      generator: string;
+    };
   };
   home: {
     heroTitle: string;
@@ -26,6 +33,14 @@ export type Dictionary = {
     usageTitle: string;
     quickTitle: string;
     quickSubtitle: string;
+    colorHeading: string;
+    colorDescription: string;
+    copyHeading: string;
+    copyDescription: string;
+    textArtHeading: string;
+    textArtDescription: string;
+    faqHeading: string;
+    usageBody: string;
     seoDescription: string;
   };
   detail: {
@@ -34,6 +49,10 @@ export type Dictionary = {
     metadataDescription: string;
     relatedHeading: string;
     unicodeLabel: string;
+    guideHeading: string;
+    usageListHeading: string;
+    combosHeading: string;
+    alsoSearched: string;
   };
   footer: {
     tagline: string;
@@ -41,6 +60,23 @@ export type Dictionary = {
       about: string;
       feedback: string;
       privacy: string;
+    };
+  };
+  pages: {
+    copy: {
+      title: string;
+      description: string;
+      bundlesIntro: string;
+    };
+    textArt: {
+      title: string;
+      description: string;
+    };
+    generator: {
+      title: string;
+      description: string;
+      countLabel: string;
+      helperText: string;
     };
   };
   emojiContent: Record<string, EmojiDictionaryEntry>;
@@ -54,7 +90,14 @@ const en: Dictionary = {
     adPlaceholder: 'Sponsored placement',
     backToList: 'Back to all heart emojis',
     localeLabel: 'Languages',
-    copiedToast: 'Copied {name}! Ready to paste 💌'
+    copiedToast: 'Copied {name}! Ready to paste 💌',
+    nav: {
+      home: 'Home',
+      colors: 'Color meanings',
+      copy: 'Copy packs',
+      textArt: 'Text art',
+      generator: 'Heart generator'
+    }
   },
   home: {
     heroTitle: 'Heart emojis, curated for instant copy & deeper meaning',
@@ -67,6 +110,18 @@ const en: Dictionary = {
     usageTitle: 'Usage tips',
     quickTitle: 'Tap to copy hearts instantly',
     quickSubtitle: 'Popular hearts at your fingertips. Tap any icon to copy it straight to your clipboard.',
+    colorHeading: 'Heart emoji color meanings',
+    colorDescription:
+      'Compare what different color heart emojis mean. From red to rainbow hearts, understand how each shade lands in chats, captions, and campaigns.',
+    copyHeading: 'Heart emoji copy and paste packs',
+    copyDescription:
+      'Build your own heart emoji copy paste stash—romance strings, friendship gradients, minimalist hearts, and fandom reactions.',
+    textArtHeading: 'Heart text emoji & ASCII art',
+    textArtDescription:
+      'Need text-only heart symbols or kaomoji? Grab outlined hearts, emoticons, and typography art ready to copy.',
+    faqHeading: 'Heart emoji meanings & FAQs',
+    usageBody:
+      'Need brand-guided assets? Build your own collection by remixing these hearts with gradients, stickers, and fonts.',
     seoDescription:
       'Copy every heart emoji in seconds and learn the nuance behind each color and symbol. Optimized for SEO, speed, and multilingual audiences.'
   },
@@ -76,7 +131,11 @@ const en: Dictionary = {
     metadataDescription:
       'Full breakdown of meanings, use cases, and related emojis. Copy any heart emoji directly from heartemojis.org.',
     relatedHeading: 'Related hearts',
-    unicodeLabel: 'Unicode'
+    unicodeLabel: 'Unicode',
+    guideHeading: 'Meanings at a glance',
+    usageListHeading: 'How people use it',
+    combosHeading: 'Copy trending combos',
+    alsoSearched: 'Also searched as'
   },
   footer: {
     tagline: 'heartemojis.org — human curated guides for every heart symbol.',
@@ -84,6 +143,27 @@ const en: Dictionary = {
       about: 'About',
       feedback: 'Send feedback',
       privacy: 'Privacy'
+    }
+  },
+  pages: {
+    copy: {
+      title: 'Heart emoji copy and paste library',
+      description:
+        'Curated heart emoji copy and paste collections for romance, friendship, gradients, fandoms, and minimalist designs.',
+      bundlesIntro:
+        'Choose a pack below to instantly copy emoji hearts tailored for different moods and storytelling styles.'
+    },
+    textArt: {
+      title: 'Heart text emoji & ASCII art',
+      description:
+        'Copy text-based heart symbols, kaomoji, and decorative ASCII combos for bios, captions, or no-emoji keyboards.'
+    },
+    generator: {
+      title: 'Heart emoji generator',
+      description:
+        'Create massive strings of ❤️ emojis. Perfect for fan projects, typography art, or celebratory comment storms.',
+      countLabel: 'Number of hearts',
+      helperText: 'Adjust the count (10–1000) to refresh the preview and copy your custom heart line.'
     }
   },
   emojiContent: {
@@ -308,7 +388,14 @@ const zh: Dictionary = {
     adPlaceholder: '广告位招租',
     backToList: '返回心形表情总览',
     localeLabel: '语言',
-    copiedToast: '已复制 {name}！尽情粘贴 💌'
+    copiedToast: '已复制 {name}！尽情粘贴 💌',
+    nav: {
+      home: '首页',
+      colors: '颜色含义',
+      copy: '复制合集',
+      textArt: '字符艺术',
+      generator: '心形生成器'
+    }
   },
   home: {
     heroTitle: '心形表情一站式收藏，快速复制又懂含义',
@@ -320,6 +407,14 @@ const zh: Dictionary = {
     usageTitle: '使用建议',
     quickTitle: '快速复制心形表情',
     quickSubtitle: '热门爱心一键复制，立即发送给你的朋友。',
+    colorHeading: '心形表情的颜色含义',
+    colorDescription: '整理常见问题：不同颜色的爱心 emoji 意味着什么？从红心到彩虹心，一次看懂聊天与社群贴文的使用方式。',
+    copyHeading: '心形表情复制合集',
+    copyDescription: '精选恋爱、友情、渐层、极简与应援风格的爱心组合，一键复制、随处贴上。',
+    textArtHeading: '心形字符与文字图案',
+    textArtDescription: '没有 emoji 键盘也能用！这里提供空心爱心、颜文字与 ASCII 小作品，复制就能用在简介或贴文。',
+    faqHeading: '心形表情常见问题',
+    usageBody: '需要更多素材？将这些爱心搭配渐层、贴纸或字体，就能延伸出符合品牌风格的视觉内容。',
     seoDescription: 'heartemojis.org 为多语言用户打造的心形表情资料库，支持快速复制、SEO 友好且内容完善。'
   },
   detail: {
@@ -327,7 +422,11 @@ const zh: Dictionary = {
     usageHeading: '常见用法',
     metadataDescription: '了解每一个心形表情的含义、情绪温度与相关搭配，并可直接复制使用。',
     relatedHeading: '相关表情',
-    unicodeLabel: 'Unicode 编码'
+    unicodeLabel: 'Unicode 编码',
+    guideHeading: '重点速览',
+    usageListHeading: '常见用法',
+    combosHeading: '热门组合',
+    alsoSearched: '常见搜索关键字'
   },
   footer: {
     tagline: 'heartemojis.org — 用心整理每一种心形符号的故事。',
@@ -335,6 +434,23 @@ const zh: Dictionary = {
       about: '关于我们',
       feedback: '意见反馈',
       privacy: '隐私政策'
+    }
+  },
+  pages: {
+    copy: {
+      title: '心形表情复制大全',
+      description: '收集适合恋爱告白、友情支持、渐层风格、粉丝应援与极简设计的爱心组合，一键复制随时使用。',
+      bundlesIntro: '从以下分类挑选喜欢的爱心串，点一下就能复制到剪贴板。'
+    },
+    textArt: {
+      title: '心形字符与 ASCII 艺术',
+      description: '提供空心爱心、颜文字、文字画等多款字符设计，适合用在无表情符号的环境或打造特别的标题。'
+    },
+    generator: {
+      title: '心形表情生成器',
+      description: '自订数量最多 1000 个 ❤️，生成属于你的爱心长条，用于粉丝应援、排版或庆祝留言。',
+      countLabel: '爱心数量',
+      helperText: '设定 10–1000 之间的数值，预览会即时更新，复制后即可使用。'
     }
   },
   emojiContent: {
@@ -562,29 +678,52 @@ const dictionaries: Record<Locale, Dictionary> = {
       adPlaceholder: 'Espacio patrocinado',
       backToList: 'Volver a todos los emojis de corazón',
       localeLabel: 'Idiomas',
-      copiedToast: '¡Copiaste {name}! Lista para pegar 💌'
+      copiedToast: '¡Copiaste {name}! Lista para pegar 💌',
+      nav: {
+        home: 'Inicio',
+        colors: 'Significados de color',
+        copy: 'Packs para copiar',
+        textArt: 'Arte de texto',
+        generator: 'Generador de corazones'
+      }
     },
     home: {
       heroTitle: 'Emojis de corazón listos para copiar y entender al instante',
       heroSubtitle:
         'Explora una biblioteca multilingüe con cada emoji de corazón, aprende sus significados y cópialos al portapapeles con un toque.',
       heroCtaPrimary: 'Ver la colección',
-      heroCtaSecondary: 'Guía de significados',
-      spotlightTitle: 'Tendencia esta semana',
-      allHeading: 'Todos los emojis de corazón',
-      usageTitle: 'Consejos de uso',
-      quickTitle: 'Toca para copiar corazones al instante',
-      quickSubtitle: 'Los corazones más usados, listos para copiar y pegar donde quieras.',
-      seoDescription:
-        'Copia cualquier emoji de corazón en segundos y descubre el significado de cada color. Optimizado para SEO, velocidad y audiencias globales.'
-    },
+    heroCtaSecondary: 'Guía de significados',
+    spotlightTitle: 'Tendencia esta semana',
+    allHeading: 'Todos los emojis de corazón',
+    usageTitle: 'Consejos de uso',
+    quickTitle: 'Toca para copiar corazones al instante',
+    quickSubtitle: 'Los corazones más usados, listos para copiar y pegar donde quieras.',
+    colorHeading: 'Significado de los colores del corazón',
+    colorDescription:
+      'Compara qué significa cada color de corazón emoji. Del rojo al arcoíris, descubre cómo se interpreta cada tono en chats y campañas.',
+    copyHeading: 'Packs de emojis de corazón para copiar y pegar',
+    copyDescription:
+      'Arma tu propio repertorio: cadenas románticas, gradientes de amistad, corazones minimalistas y reacciones para fandoms.',
+    textArtHeading: 'Emojis de corazón en texto y arte ASCII',
+    textArtDescription:
+      '¿Sin teclado de emojis? Copia corazones delineados, kaomoji y figuras de texto listas para tus bios o publicaciones.',
+    faqHeading: 'Preguntas frecuentes sobre emojis de corazón',
+    usageBody:
+      '¿Buscas más recursos? Mezcla estos corazones con degradados, stickers o tipografías y crea visuales coherentes con tu marca.',
+    seoDescription:
+      'Copia cualquier emoji de corazón en segundos y descubre el significado de cada color. Optimizado para SEO, velocidad y audiencias globales.'
+  },
     detail: {
       meaningHeading: 'Significado',
       usageHeading: 'Cómo se usa',
       metadataDescription:
         'Descripción completa de los significados, usos y emojis relacionados. Copia cualquier emoji de corazón desde heartemojis.org.',
       relatedHeading: 'Corazones relacionados',
-      unicodeLabel: 'Unicode'
+      unicodeLabel: 'Unicode',
+      guideHeading: 'Resumen rápido',
+      usageListHeading: 'Usos habituales',
+      combosHeading: 'Combos destacados',
+      alsoSearched: 'También se busca como'
     },
     footer: {
       tagline: 'heartemojis.org — Guías cuidadas para cada símbolo de corazón.',
@@ -594,7 +733,223 @@ const dictionaries: Record<Locale, Dictionary> = {
         privacy: 'Privacidad'
       }
     },
-    emojiContent: {}
+    pages: {
+      copy: {
+        title: 'Biblioteca para copiar emojis de corazón',
+        description:
+          'Colecciones listas para copiar: corazones románticos, gradientes de amistad, minimalistas y reacciones para fandoms.',
+        bundlesIntro: 'Elige un paquete y toca el botón de copiar para llevarte la combinación directamente al portapapeles.'
+      },
+      textArt: {
+        title: 'Emojis de corazón en texto y arte ASCII',
+        description:
+          'Corazones delineados, kaomoji y diseños de caracteres listos para bios, subtítulos o cuando no tienes teclado de emoji.'
+      },
+      generator: {
+        title: 'Generador de emojis de corazón',
+        description:
+          'Crea cadenas de hasta 1000 corazones ❤️ para proyectos de fans, arte tipográfico o comentarios festivos.',
+        countLabel: 'Cantidad de corazones',
+        helperText: 'Elige un número entre 10 y 1000. El previo se actualizará y podrás copiarlo al instante.'
+      }
+    },
+    emojiContent: {
+      'red-heart': {
+        name: 'Corazón rojo ❤️',
+        meaning: 'El corazón más clásico: amor romántico y agradecimiento sincero.',
+        usage: 'Envíalo en aniversarios, propuestas o mensajes cariñosos.'
+      },
+      'pink-heart': {
+        name: 'Corazón rosa 🩷',
+        meaning: 'Ternura, autocuidado y sentimientos que florecen.',
+        usage: 'Perfecto para besties, crushes o publicaciones pastel.'
+      },
+      'orange-heart': {
+        name: 'Corazón naranja 🧡',
+        meaning: 'Apoyo cálido sin presión romántica.',
+        usage: 'Ideal para amistades cercanas o campañas colaborativas.'
+      },
+      'yellow-heart': {
+        name: 'Corazón amarillo 💛',
+        meaning: 'Luz, lealtad y energía de mejores amigos.',
+        usage: 'Úsalo al celebrar buenas noticias o agradecer a tu comunidad.'
+      },
+      'green-heart': {
+        name: 'Corazón verde 💚',
+        meaning: 'Renovación, naturaleza y crecimiento.',
+        usage: 'Acompaña mensajes de bienestar, sostenibilidad o apoyo amistoso.'
+      },
+      'blue-heart': {
+        name: 'Corazón azul 💙',
+        meaning: 'Confianza serena y apoyo constante.',
+        usage: 'Funciona bien en amistades a distancia o causas solidarias.'
+      },
+      'light-blue-heart': {
+        name: 'Corazón celeste 🩵',
+        meaning: 'Apoyo tranquilo, cielos soñadores y cariño platónico.',
+        usage: 'Añádelo a mensajes de ánimo o diseños suaves.'
+      },
+      'purple-heart': {
+        name: 'Corazón morado 💜',
+        meaning: 'Creatividad, admiración y fandom leal.',
+        usage: 'Úsalo en contenidos artísticos o para apoyar a tus ídolos.'
+      },
+      'brown-heart': {
+        name: 'Corazón marrón 🤎',
+        meaning: 'Calidez, inclusión y estética acogedora.',
+        usage: 'Perfecto para contenidos de café, chocolate o tonos tierra.'
+      },
+      'black-heart': {
+        name: 'Corazón negro 🖤',
+        meaning: 'Estilo gótico, humor oscuro o emociones intensas.',
+        usage: 'Combínalo con 💀 o 🕶️ para crear contraste dramático.'
+      },
+      'grey-heart': {
+        name: 'Corazón gris 🩶',
+        meaning: 'Equilibrio discreto y emociones suaves.',
+        usage: 'Ideal para branding minimalista o mensajes serenos.'
+      },
+      'white-heart': {
+        name: 'Corazón blanco 🤍',
+        meaning: 'Pureza, recuerdo y elegancia minimalista.',
+        usage: 'Se usa en bodas, homenajes o diseños invernales.'
+      },
+      'broken-heart': {
+        name: 'Corazón roto 💔',
+        meaning: 'Dolor, separación o decepción intensa.',
+        usage: 'Compártelo cuando quieras expresar tristeza o dramas románticos.'
+      },
+      'heart-exclamation': {
+        name: 'Signo de exclamación corazón ❣️',
+        meaning: 'Añade énfasis afectuoso a cualquier frase.',
+        usage: 'Perfecto para destacar noticias emocionantes o agradecimientos.'
+      },
+      'two-hearts': {
+        name: 'Dos corazones 💕',
+        meaning: 'Cariño compartido, amistad cercana o romance ligero.',
+        usage: 'Úsalos con tu persona favorita o mejores amigas.'
+      },
+      'revolving-hearts': {
+        name: 'Corazones girando 💞',
+        meaning: 'Amor que crece y gira de emoción.',
+        usage: 'Excelente para momentos felices o anuncios románticos.'
+      },
+      'beating-heart': {
+        name: 'Corazón latiendo 💓',
+        meaning: 'Emociones fuertes, adrenalina o salud cardiaca.',
+        usage: 'Añade ritmo a publicaciones de ejercicio o confesiones emocionantes.'
+      },
+      'growing-heart': {
+        name: 'Corazón en expansión 💗',
+        meaning: 'Sentimientos que crecen capa por capa.',
+        usage: 'Útil para agradecer apoyo o celebrar logros comunitarios.'
+      },
+      'sparkling-heart': {
+        name: 'Corazón brillante 💖',
+        meaning: 'Carisma, celebración y aprecio especial.',
+        usage: 'Úsalo en felicitaciones, fanart o éxitos personales.'
+      },
+      'heart-on-fire': {
+        name: 'Corazón en llamas ❤️‍🔥',
+        meaning: 'Pasión intensa y emociones ardientes.',
+        usage: 'Perfecto para amores intensos o momentos épicos.'
+      },
+      'mending-heart': {
+        name: 'Corazón vendado ❤️‍🩹',
+        meaning: 'Sanación emocional y cuidados sinceros.',
+        usage: 'Envíalo cuando apoyas a alguien en recuperación o te reconcilias contigo misma.'
+      },
+      'heart-hands': {
+        name: 'Manos corazón 🫶',
+        meaning: 'Gestos de gratitud y amor visible.',
+        usage: 'Ideal para fandoms, comunidades y agradecimientos públicos.'
+      },
+      'love-you-gesture': {
+        name: 'Señal “te amo” 🤟',
+        meaning: 'Signo inspirado en la lengua de señas que dice “I love you”.',
+        usage: 'Muestra apoyo inclusivo, cariño o energía de fandom.'
+      },
+      'anatomical-heart': {
+        name: 'Corazón anatómico 🫀',
+        meaning: 'Representación realista del órgano.',
+        usage: 'Úsalo en contextos médicos, educativos o artísticos.'
+      },
+      'couple-with-heart': {
+        name: 'Pareja con corazón 💑',
+        meaning: 'Pareja enamorada compartiendo un corazón.',
+        usage: 'Ideal para historias románticas, viajes en pareja o celebraciones.'
+      },
+      kiss: {
+        name: 'Beso 💏',
+        meaning: 'Dos personas besándose con un corazón flotante.',
+        usage: 'Acompaña anuncios de compromiso, bodas o momentos románticos.'
+      },
+      'kiss-mark': {
+        name: 'Marca de beso 💋',
+        meaning: 'Huella de labial con mucha actitud.',
+        usage: 'Úsalo en mensajes coquetos, moda o beauty.'
+      },
+      'heart-suit': {
+        name: 'Corazón de naipes ♥️',
+        meaning: 'Símbolo clásico de cartas y juegos.',
+        usage: 'Perfecto para noches de juego o diseños vintage.'
+      },
+      'love-letter': {
+        name: 'Carta de amor 💌',
+        meaning: 'Carta sellada con corazón que lleva buenas noticias.',
+        usage: 'Acompaña invitaciones románticas, sorpresas o fan mail.'
+      },
+      'heart-eyes-emoji': {
+        name: 'Emoji con ojos de corazón 😍',
+        meaning: 'Enamoramiento instantáneo y emoción total.',
+        usage: 'Reacciona a outfits, presentaciones o mascotas adorables.'
+      },
+      'face-with-hearts': {
+        name: 'Carita con corazones 🥰',
+        meaning: 'Sonrisa dulce rodeada de corazones.',
+        usage: 'Expresa cariño, empatía o gratitud sincera.'
+      },
+      'cat-heart-eyes': {
+        name: 'Gato con ojos de corazón 😻',
+        meaning: 'Versión felina y kawaii del clásico emoji enamorado.',
+        usage: 'Ideal para contenido de mascotas, plushies o estéticas cute.'
+      },
+      'face-blowing-a-kiss': {
+        name: 'Carita enviando beso 😘',
+        meaning: 'Un beso amistoso o coqueto con mini corazón.',
+        usage: 'Perfecto para despedidas cariñosas o agradecimientos con cariño.'
+      },
+      'hugging-heart': {
+        name: 'Carita abrazando corazón 🤗',
+        meaning: 'Abrazos digitales llenos de apoyo.',
+        usage: 'Envíalo a quien necesita ánimo o para decir “gracias por estar”.'
+      },
+      'finger-heart': {
+        name: 'Finger heart 🫰',
+        meaning: 'Mini corazón coreano que dice “love you”.',
+        usage: 'Útil en mensajes de fandom, agradecimientos o selfies backstage.'
+      },
+      'rainbow-heart': {
+        name: 'Corazón arcoíris ❤️‍🌈',
+        meaning: 'Celebración Pride y amor inclusivo.',
+        usage: 'Úsalo en mensajes de diversidad, eventos LGBTQIA+ o campañas coloridas.'
+      },
+      'heart-outline': {
+        name: 'Corazón delineado ♡',
+        meaning: 'Corazón estilo texto perfecto para diseños minimalistas.',
+        usage: 'Colócalo en bios, firmas o arte tipográfico.'
+      },
+      'double-heart': {
+        name: 'Corazones dobles 💞',
+        meaning: 'Amor que resuena y va en aumento.',
+        usage: 'Ideal para mejores amigas, parejas y celebraciones felices.'
+      },
+      'star-struck-heart': {
+        name: 'Carita deslumbrada 🤩',
+        meaning: 'Ojos brillantes de corazón que muestran fascinación.',
+        usage: 'Reacciona a shows, lanzamientos o cualquier cosa que te deje sin palabras.'
+      }
+    }
   }
 };
 

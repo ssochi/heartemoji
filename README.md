@@ -15,7 +15,7 @@ This is a multilingual, pre-rendered Next.js site for exploring every heart emoj
 - Rich emoji dataset with localized copy in `src/data`, extended guides, and keyword FAQ coverage
 - Instant copy-to-clipboard buttons implemented as client components
 - Dedicated advertising placeholders ready for ad manager integration
-- SEO enhancements including localized metadata and JSON-LD on detail pages
+- SEO enhancements including localized metadata, JSON-LD on detail pages, and standalone experiences for copy packs, text art, and heart generators
 
 ## Getting Started
 

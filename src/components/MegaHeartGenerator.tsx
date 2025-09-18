@@ -6,25 +6,24 @@ import { CopyButton } from './CopyButton';
 
 interface MegaHeartGeneratorProps {
   dictionary: Dictionary;
+  initialCount?: number;
 }
 
-export function MegaHeartGenerator({ dictionary }: MegaHeartGeneratorProps) {
-  const [count, setCount] = useState(200);
+export function MegaHeartGenerator({ dictionary, initialCount = 200 }: MegaHeartGeneratorProps) {
+  const [count, setCount] = useState(initialCount);
 
   const megaString = useMemo(() => '❤️'.repeat(Math.min(Math.max(count, 10), 1000)), [count]);
+  const config = dictionary.pages.generator;
 
   return (
     <section className="mega-heart" aria-labelledby="mega-heart-heading">
       <div className="mega-heart__header">
-        <h3 id="mega-heart-heading">1000 heart emojis copy and paste</h3>
-        <p>
-          Build massive strings of hearts for fan projects, typography art, or viral comment storms. Choose a number up to
-          1000 and tap copy when you are ready.
-        </p>
+        <h3 id="mega-heart-heading">{config.title}</h3>
+        <p>{config.description}</p>
       </div>
       <div className="mega-heart__controls">
         <label>
-          Count
+          {config.countLabel}
           <input
             type="number"
             min={10}
@@ -41,6 +40,7 @@ export function MegaHeartGenerator({ dictionary }: MegaHeartGeneratorProps) {
           showLabel
         />
       </div>
+      <p className="mega-heart__helper">{config.helperText}</p>
       <textarea
         readOnly
         value={megaString}

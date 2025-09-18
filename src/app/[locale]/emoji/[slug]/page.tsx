@@ -6,6 +6,7 @@ import { CopyButton } from '@/components/CopyButton';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { getDictionary } from '@/data/dictionaries';
 import { HEART_EMOJIS, getEmojiBySlug, getRelatedEmojis } from '@/data/emojis';
+import { COLOR_GUIDE } from '@/data/keywordContent';
 import { getEmojiGuide } from '@/data/emojiGuides';
 import { defaultLocale, getLocaleFromParam, locales, type Locale } from '@/lib/i18n';
 import { toneDescriptions, toneLabels } from '@/lib/tone';
@@ -95,6 +96,7 @@ export default function EmojiDetailPage({ params }: EmojiPageProps) {
   };
   const related = getRelatedEmojis(emoji.slug);
   const guide = getEmojiGuide(emoji.slug);
+  const colorCard = COLOR_GUIDE.find((entry) => entry.slugs.includes(emoji.slug));
   const toneLabel = toneLabels[locale][emoji.tone];
   const toneDescription = toneDescriptions[locale][emoji.tone];
   const canonical = `${locale === defaultLocale ? '' : `/${locale}`}/emoji/${emoji.slug}`;
@@ -127,17 +129,17 @@ export default function EmojiDetailPage({ params }: EmojiPageProps) {
           {guide ? (
             <div className="guide-block">
               <div className="guide-block__column">
-                <h2 className="section-heading">Meanings at a glance</h2>
+                <h2 className="section-heading">{dictionary.detail.guideHeading}</h2>
                 <ul>
-                  {guide.meaningBullets.map((bullet) => (
+                  {guide.meaningBullets[locale].map((bullet) => (
                     <li key={bullet}>{bullet}</li>
                   ))}
                 </ul>
               </div>
               <div className="guide-block__column">
-                <h3>How people use it</h3>
+                <h3>{dictionary.detail.usageListHeading}</h3>
                 <ul>
-                  {guide.usageIdeas.map((idea) => (
+                  {guide.usageIdeas[locale].map((idea) => (
                     <li key={idea}>{idea}</li>
                   ))}
                 </ul>
@@ -155,8 +157,27 @@ export default function EmojiDetailPage({ params }: EmojiPageProps) {
                 ))}
               </div>
               <p className="guide-block__aliases">
-                <strong>Also searched as:</strong> {guide.aliases.join(', ')}
+                <strong>{dictionary.detail.alsoSearched}:</strong> {guide.aliases.join(', ')}
               </p>
+            </div>
+          ) : null}
+          {colorCard ? (
+            <div className="color-detail-card">
+              <div className="color-card__header">
+                <span className="color-card__emoji" aria-hidden="true">
+                  {colorCard.emoji}
+                </span>
+                <h3>{colorCard.title[locale]}</h3>
+              </div>
+              <p>{colorCard.description[locale]}</p>
+              <ul className="color-card__keywords">
+                {colorCard.keywords.slice(0, 4).map((keyword) => (
+                  <li key={keyword}>#{keyword}</li>
+                ))}
+              </ul>
+              <Link className="card-link" href={`/${locale}#color-meanings`}>
+                {dictionary.home.colorHeading} →
+              </Link>
             </div>
           ) : null}
           <div className="detail-meta">
