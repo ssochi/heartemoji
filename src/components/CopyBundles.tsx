@@ -21,17 +21,18 @@ export function CopyBundles({ dictionary, locale, className }: CopyBundlesProps)
               <span key={`${bundle.id}-${snippet}`}>{snippet}</span>
             ))}
           </div>
-          <div className="bundle-card__actions">
+          <div className="bundle-card__snippets">
             {bundle.snippets.map((snippet, index) => (
-              <CopyButton
-                key={`${bundle.id}-${index}`}
-                value={snippet.replace(/\s{2,}/g, ' ').trim()}
-                label={dictionary.common.copy}
-                copiedLabel={dictionary.common.copied}
-                showLabel
-                size="small"
-                className="bundle-copy"
-              />
+              <div className="bundle-snippet" key={`${bundle.id}-${index}`}>
+                <span className="bundle-snippet__text">{snippet}</span>
+                <CopyButton
+                  value={snippet.replace(/\s{2,}/g, ' ').trim()}
+                  label={dictionary.common.copy}
+                  copiedLabel={dictionary.common.copied}
+                  showLabel={false}
+                  size="small"
+                />
+              </div>
             ))}
           </div>
         </article>

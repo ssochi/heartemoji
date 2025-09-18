@@ -17,7 +17,7 @@ export function TextArtShowcase({ dictionary }: TextArtShowcaseProps) {
             label={dictionary.common.copy}
             copiedLabel={dictionary.common.copied}
             size="small"
-            showLabel
+            showLabel={false}
           />
         </article>
       ))}

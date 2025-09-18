@@ -652,15 +652,27 @@ button {
   font-size: 1.1rem;
 }
 
-.bundle-card__actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+.bundle-card__snippets {
+  display: grid;
+  gap: 0.6rem;
 }
 
-.bundle-copy {
-  flex: 1;
-  min-width: 120px;
+.bundle-snippet {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 77, 109, 0.18);
+}
+
+.bundle-snippet__text {
+  font-size: 1rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow-x: auto;
 }
 
 .cta-panel {
@@ -865,6 +877,7 @@ button {
   margin: 0;
   font-family: 'Fira Code', 'Menlo', monospace;
   font-size: 1.1rem;
+  overflow-x: auto;
 }
 
 .mega-heart {
