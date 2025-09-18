@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { AdSlot } from '@/components/AdSlot';
 import { CopyButton } from '@/components/CopyButton';
-import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { getDictionary } from '@/data/dictionaries';
 import { HEART_EMOJIS, getEmojiBySlug, getRelatedEmojis, type HeartEmoji } from '@/data/emojis';
 import { COLOR_GUIDE } from '@/data/keywordContent';
@@ -108,7 +107,6 @@ export default function EmojiDetailPage({ params }: EmojiPageProps) {
 
   return (
     <div className="detail-page">
-      <LanguageSwitcher currentLocale={locale} dictionary={dictionary} path={`emoji/${emoji.slug}`} />
       <article className="detail-hero">
         <div className="detail-emoji">
           <span className="emoji-preview" aria-hidden="true">

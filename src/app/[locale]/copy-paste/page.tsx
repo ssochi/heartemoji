@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { CopyBundles } from '@/components/CopyBundles';
-import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { getDictionary } from '@/data/dictionaries';
 import { COLOR_GUIDE } from '@/data/keywordContent';
 import { defaultLocale, getLocaleFromParam, locales, type Locale } from '@/lib/i18n';
@@ -49,7 +48,6 @@ export default function CopyPage({ params }: CopyPageProps) {
   return (
     <div className="page-layout">
       <header className="page-hero">
-        <LanguageSwitcher currentLocale={locale} dictionary={dictionary} path="copy-paste" />
         <h1>{dictionary.pages.copy.title}</h1>
         <p>{dictionary.pages.copy.description}</p>
         <Link className="cta-button" href={`/${locale}/text-art`}>

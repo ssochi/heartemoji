@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { MegaHeartGenerator } from '@/components/MegaHeartGenerator';
-import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { getDictionary } from '@/data/dictionaries';
 import { defaultLocale, getLocaleFromParam, locales, type Locale } from '@/lib/i18n';
 
@@ -64,7 +63,6 @@ export default function GeneratorPage({ params }: GeneratorPageProps) {
   return (
     <div className="page-layout">
       <header className="page-hero">
-        <LanguageSwitcher currentLocale={locale} dictionary={dictionary} path={`generator/${count}`} />
         <h1>{dictionary.pages.generator.title}</h1>
         <p>{dictionary.pages.generator.description}</p>
       </header>

@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { TextArtShowcase } from '@/components/TextArtShowcase';
-import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { getDictionary } from '@/data/dictionaries';
 import { defaultLocale, getLocaleFromParam, locales, type Locale } from '@/lib/i18n';
 
@@ -48,7 +47,6 @@ export default function TextArtPage({ params }: TextArtPageProps) {
   return (
     <div className="page-layout">
       <header className="page-hero">
-        <LanguageSwitcher currentLocale={locale} dictionary={dictionary} path="text-art" />
         <h1>{dictionary.pages.textArt.title}</h1>
         <p>{dictionary.pages.textArt.description}</p>
         <Link className="cta-button" href={`/${locale}/copy-paste`}>

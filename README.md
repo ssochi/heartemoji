@@ -1,4 +1,4 @@
-# Heart Emojis (heartemojis.org)
+# Heart Emojis (https://www.heartemojis.org)
 
 This is a multilingual, pre-rendered Next.js site for exploring every heart emoji. It ships a modern landing page, programmatic detail routes for each emoji, and structured data for better SEO. All pages are statically generated at build time.
 

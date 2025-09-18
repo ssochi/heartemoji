@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { AdSlot } from '@/components/AdSlot';
 import { EmojiCard } from '@/components/EmojiCard';
 import { FaqAccordion } from '@/components/FaqAccordion';
-import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { QuickCopyPanel } from '@/components/QuickCopyPanel';
 import { TextArtShowcase } from '@/components/TextArtShowcase';
 import { HEART_EMOJIS } from '@/data/emojis';
@@ -75,8 +74,6 @@ export default function LocaleHomePage({ params }: LocaleHomePageProps) {
   return (
     <div>
       <header className="header" id="about">
-        <LanguageSwitcher currentLocale={locale} dictionary={dictionary} />
-
         <section className="quick-copy" aria-labelledby="quick-copy-heading">
           <div className="quick-copy-header">
             <h1 className="hero-title" id="quick-copy-heading">
