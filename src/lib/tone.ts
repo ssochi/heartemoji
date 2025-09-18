@@ -15,6 +15,13 @@ export const toneLabels: Record<Locale, Record<HeartEmoji['tone'], string>> = {
     neutral: '中性',
     playful: '俏皮',
     dark: '酷感'
+  },
+  es: {
+    warm: 'Cálido',
+    cool: 'Frío',
+    neutral: 'Neutro',
+    playful: 'Divertido',
+    dark: 'Intenso'
   }
 };
 
@@ -32,5 +39,12 @@ export const toneDescriptions: Record<Locale, Record<HeartEmoji['tone'], string>
     neutral: '中性平衡，含蓄又细腻。',
     playful: '俏皮活泼，充满节奏感。',
     dark: '酷感十足，带点戏剧冲击。'
+  },
+  es: {
+    warm: 'Energía cálida y afectuosa.',
+    cool: 'Serenidad fresca y equilibrada.',
+    neutral: 'Equilibrio neutro con encanto sutil.',
+    playful: 'Emociones alegres y divertidas.',
+    dark: 'Simbolismo intenso con un toque dramático.'
   }
 };

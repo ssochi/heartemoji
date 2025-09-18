@@ -6,6 +6,7 @@ import { CopyButton } from '@/components/CopyButton';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { getDictionary } from '@/data/dictionaries';
 import { HEART_EMOJIS, getEmojiBySlug, getRelatedEmojis } from '@/data/emojis';
+import { getEmojiGuide } from '@/data/emojiGuides';
 import { defaultLocale, getLocaleFromParam, locales, type Locale } from '@/lib/i18n';
 import { toneDescriptions, toneLabels } from '@/lib/tone';
 
@@ -13,7 +14,8 @@ const siteUrl = 'https://heartemojis.org';
 
 const localeCodes: Record<Locale, string> = {
   en: 'en-US',
-  zh: 'zh-CN'
+  zh: 'zh-CN',
+  es: 'es-ES'
 };
 
 type EmojiPageProps = {
@@ -92,6 +94,7 @@ export default function EmojiDetailPage({ params }: EmojiPageProps) {
     usage: emoji.usage
   };
   const related = getRelatedEmojis(emoji.slug);
+  const guide = getEmojiGuide(emoji.slug);
   const toneLabel = toneLabels[locale][emoji.tone];
   const toneDescription = toneDescriptions[locale][emoji.tone];
   const canonical = `${locale === defaultLocale ? '' : `/${locale}`}/emoji/${emoji.slug}`;
@@ -121,6 +124,41 @@ export default function EmojiDetailPage({ params }: EmojiPageProps) {
           <h1 className="hero-title">{content.name}</h1>
           <p className="card-description">{content.meaning}</p>
           <p className="card-description">{content.usage}</p>
+          {guide ? (
+            <div className="guide-block">
+              <div className="guide-block__column">
+                <h2 className="section-heading">Meanings at a glance</h2>
+                <ul>
+                  {guide.meaningBullets.map((bullet) => (
+                    <li key={bullet}>{bullet}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="guide-block__column">
+                <h3>How people use it</h3>
+                <ul>
+                  {guide.usageIdeas.map((idea) => (
+                    <li key={idea}>{idea}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="guide-block__combos">
+                {guide.combos.map((combo) => (
+                  <CopyButton
+                    key={`${emoji.slug}-${combo}`}
+                    value={combo.replace(/\s{2,}/g, ' ').trim()}
+                    label={dictionary.common.copy}
+                    copiedLabel={dictionary.common.copied}
+                    size="small"
+                    showLabel
+                  />
+                ))}
+              </div>
+              <p className="guide-block__aliases">
+                <strong>Also searched as:</strong> {guide.aliases.join(', ')}
+              </p>
+            </div>
+          ) : null}
           <div className="detail-meta">
             <div className="detail-meta-item">
               <strong>{dictionary.detail.unicodeLabel}</strong>

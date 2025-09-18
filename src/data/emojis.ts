@@ -362,6 +362,116 @@ export const HEART_EMOJIS: HeartEmoji[] = [
     usage: 'Messages of affection or Valentine vibes.',
     keywords: ['letter', 'valentines', 'message'],
     related: ['heart-with-arrow', 'kiss-mark', 'pink-heart']
+  },
+  {
+    id: 'heart-eyes-face',
+    emoji: '😍',
+    slug: 'heart-eyes-emoji',
+    unicode: '1F60D',
+    tone: 'playful',
+    meaning: 'Smiling face with heart eyes',
+    usage: 'Over-the-top adoration, fandom moments, or wow reactions.',
+    keywords: ['heart eyes emoji', 'emoji with hearts in eyes', 'love this'],
+    related: ['face-with-hearts', 'cat-heart-eyes', 'sparkling-heart']
+  },
+  {
+    id: 'face-with-hearts',
+    emoji: '🥰',
+    slug: 'face-with-hearts',
+    unicode: '1F970',
+    tone: 'warm',
+    meaning: 'Smiling face with hearts',
+    usage: 'Soft affection, gratitude, or wholesome replies.',
+    keywords: ['heart face emoji', 'face with hearts emoji', 'soft love'],
+    related: ['heart-eyes-emoji', 'pink-heart', 'heart-hands']
+  },
+  {
+    id: 'cat-heart-eyes',
+    emoji: '😻',
+    slug: 'cat-heart-eyes',
+    unicode: '1F63B',
+    tone: 'playful',
+    meaning: 'Smiling cat with heart eyes',
+    usage: 'Cute overload, pet love, or kawaii aesthetics.',
+    keywords: ['cat heart eyes emoji', 'heart eyes cat emoji', 'cute heart emoji'],
+    related: ['heart-eyes-emoji', 'sparkling-heart', 'pink-heart']
+  },
+  {
+    id: 'face-blowing-kiss',
+    emoji: '😘',
+    slug: 'face-blowing-a-kiss',
+    unicode: '1F618',
+    tone: 'warm',
+    meaning: 'Face blowing a kiss',
+    usage: 'Flirty sign-offs, thanks with love, or friendly affection.',
+    keywords: ['kiss emoji', 'emoji blowing heart', 'kissing heart emoji'],
+    related: ['heart-with-arrow', 'kiss-mark', 'heart-eyes-emoji']
+  },
+  {
+    id: 'hugging-heart',
+    emoji: '🤗',
+    slug: 'hugging-heart',
+    unicode: '1F917',
+    tone: 'warm',
+    meaning: 'Hugging face with heart hands',
+    usage: 'Supportive hugs, thanks, or “sending love” messages.',
+    keywords: ['hug heart emoji', 'heart hug emoji', 'healing heart emoji'],
+    related: ['heart-hands', 'face-with-hearts', 'mending-heart']
+  },
+  {
+    id: 'finger-heart',
+    emoji: '🫰',
+    slug: 'finger-heart',
+    unicode: '1FAF0',
+    tone: 'playful',
+    meaning: 'Finger heart gesture',
+    usage: 'K-pop style mini hearts, fandom love, or playful thanks.',
+    keywords: ['finger heart emoji', 'hand heart emoji', 'mini heart'],
+    related: ['heart-hands', 'love-you-gesture', 'pink-heart']
+  },
+  {
+    id: 'rainbow-heart',
+    emoji: '❤️‍🌈',
+    slug: 'rainbow-heart',
+    unicode: '2764 FE0F 200D 1F308',
+    tone: 'playful',
+    meaning: 'Rainbow heart',
+    usage: 'Celebrate Pride, inclusivity, or colorful positivity.',
+    keywords: ['rainbow heart emoji', 'colorful heart emoji', 'pride heart'],
+    related: ['pink-heart', 'sparkling-heart', 'purple-heart']
+  },
+  {
+    id: 'heart-outline',
+    emoji: '♡',
+    slug: 'heart-outline',
+    unicode: '2661',
+    tone: 'neutral',
+    meaning: 'Heart outline symbol',
+    usage: 'Minimalist love notes, text art, or aesthetic captions.',
+    keywords: ['heart outline emoji', 'text heart emoji', 'heart symbol'],
+    related: ['heart-suit', 'white-heart', 'pink-heart']
+  },
+  {
+    id: 'double-heart',
+    emoji: '💞',
+    slug: 'double-heart',
+    unicode: '1F49E',
+    tone: 'playful',
+    meaning: 'Double pink hearts',
+    usage: 'Echoing affection, best friends, or reverberating excitement.',
+    keywords: ['double heart emoji', 'two pink heart emoji', 'reverberating heart emoji'],
+    related: ['two-hearts', 'growing-heart', 'sparkling-heart']
+  },
+  {
+    id: 'star-struck-heart',
+    emoji: '🤩',
+    slug: 'star-struck-heart',
+    unicode: '1F929',
+    tone: 'playful',
+    meaning: 'Star-struck face with hearts',
+    usage: 'Obsessed excitement, fandom hype, or product reveals.',
+    keywords: ['heart eyes emoji meaning', 'heart on eyes emoji', 'emoji hearts in eyes'],
+    related: ['heart-eyes-emoji', 'sparkling-heart', 'face-with-hearts']
   }
 ];
 

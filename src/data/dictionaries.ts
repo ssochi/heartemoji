@@ -246,6 +246,56 @@ const en: Dictionary = {
       name: 'Love Letter',
       meaning: 'Envelope sealed with a heart for heartfelt messages.',
       usage: 'Send when you want to symbolise handwritten affection or big announcements.'
+    },
+    'heart-eyes-emoji': {
+      name: 'Heart Eyes Emoji',
+      meaning: 'Eyes replaced with hearts to show you are obsessed or in love.',
+      usage: 'React to jaw-dropping news, fandom reveals, pets, or people you adore.'
+    },
+    'face-with-hearts': {
+      name: 'Smiling Face with Hearts',
+      meaning: 'A soft smile surrounded by floating hearts for wholesome affection.',
+      usage: 'Send to comfort friends, celebrate kind deeds, or share cozy gratitude vibes.'
+    },
+    'cat-heart-eyes': {
+      name: 'Heart Eyes Cat Emoji',
+      meaning: 'A feline with heart-shaped eyes that screams “too cute!”.',
+      usage: 'Perfect for pet photos, kawaii aesthetics, or adorable product drops.'
+    },
+    'face-blowing-a-kiss': {
+      name: 'Face Blowing a Kiss',
+      meaning: 'Puckered lips and a floating heart to show flirty or friendly affection.',
+      usage: 'Use for goodnight texts, thank-yous with love, or playful replies.'
+    },
+    'hugging-heart': {
+      name: 'Hugging Heart Emoji',
+      meaning: 'Open hands and hearts radiating support and comfort.',
+      usage: 'Send as a virtual hug, emotional support, or “thinking of you” message.'
+    },
+    'finger-heart': {
+      name: 'Finger Heart Emoji',
+      meaning: 'Hand gesture forming a mini heart, inspired by Korean pop culture.',
+      usage: 'Great for fandom shout-outs, backstage selfies, or grateful thank-you posts.'
+    },
+    'rainbow-heart': {
+      name: 'Rainbow Heart',
+      meaning: 'A heart with a rainbow trail celebrating inclusion and pride.',
+      usage: 'Use for LGBTQIA+ pride, colorful campaigns, or messages about diversity.'
+    },
+    'heart-outline': {
+      name: 'Heart Outline',
+      meaning: 'A hollow heart used widely in text art and minimal aesthetics.',
+      usage: 'Great for captions, mood boards, or when you want a softer love symbol.'
+    },
+    'double-heart': {
+      name: 'Double Heart Emoji',
+      meaning: 'Two hearts together showing affection that keeps echoing outward.',
+      usage: 'Share with best friends, fandom mutuals, or whenever feelings keep growing.'
+    },
+    'star-struck-heart': {
+      name: 'Star-Struck Heart Eyes',
+      meaning: 'Sparkly heart eyes showing you are dazzled and impressed.',
+      usage: 'Respond to epic performances, new drops, or anything that deserves a wow.'
     }
   }
 };
@@ -447,13 +497,105 @@ const zh: Dictionary = {
       name: '情书 💌',
       meaning: '带着爱心封印的信。',
       usage: '象征纸本告白、重要讯息或浪漫公告。'
+    },
+    'heart-eyes-emoji': {
+      name: '爱心眼表情 😍',
+      meaning: '双眼变成爱心，表示彻底爱上或超强喜欢。',
+      usage: '看到超棒的消息、偶像或宠物时发送，表示“我太爱了”。'
+    },
+    'face-with-hearts': {
+      name: '环绕爱心笑脸 🥰',
+      meaning: '脸庞被爱心包围，散发温柔与感激。',
+      usage: '感谢朋友、回应暖心关怀或分享幸福时最适合。'
+    },
+    'cat-heart-eyes': {
+      name: '爱心眼猫咪 😻',
+      meaning: '猫咪露出爱心双眼，可爱到不行。',
+      usage: '晒宠物、分享萌物或强调“超可爱”时使用。'
+    },
+    'face-blowing-a-kiss': {
+      name: '飞吻表情 😘',
+      meaning: '嘟嘴送出爱心，用来表达暧昧或感谢。',
+      usage: '睡前、告白或友好的感谢讯息都很适合。'
+    },
+    'hugging-heart': {
+      name: '拥抱小心心 🤗',
+      meaning: '张开双手拥抱，释放关怀与支持。',
+      usage: '想给对方鼓励、安慰或说“给你一个抱抱”时发送。'
+    },
+    'finger-heart': {
+      name: '指心手势 🫰',
+      meaning: '韩流最爱的迷你爱心手势，代表“爱你”。',
+      usage: '粉丝应援、打招呼或表达感谢时非常可爱。'
+    },
+    'rainbow-heart': {
+      name: '彩虹爱心 ❤️‍🌈',
+      meaning: '拖着彩虹的爱心，象征多元与包容。',
+      usage: '庆祝 Pride、支持多元社群或传达多彩能量时使用。'
+    },
+    'heart-outline': {
+      name: '空心爱心 ♡',
+      meaning: '线条爱心，常见于文字艺术与极简风格。',
+      usage: '用于排版、签名或想要低调表达爱意时最适合。'
+    },
+    'double-heart': {
+      name: '双粉红心 💞',
+      meaning: '两颗心一前一后，感情不断扩散。',
+      usage: '送给闺蜜、情侣或任何感情持续升温的对象。'
+    },
+    'star-struck-heart': {
+      name: '星星爱心眼 🤩',
+      meaning: '闪亮的爱心眼，代表被惊艳到的喜欢。',
+      usage: '看到精彩演出、新品或任何“一秒圈粉”的东西时使用。'
     }
   }
 };
 
 const dictionaries: Record<Locale, Dictionary> = {
   en,
-  zh
+  zh,
+  es: {
+    common: {
+      copy: 'Copiar',
+      copied: '¡Copiado!',
+      viewDetails: 'Ver detalles',
+      adPlaceholder: 'Espacio patrocinado',
+      backToList: 'Volver a todos los emojis de corazón',
+      localeLabel: 'Idiomas',
+      copiedToast: '¡Copiaste {name}! Lista para pegar 💌'
+    },
+    home: {
+      heroTitle: 'Emojis de corazón listos para copiar y entender al instante',
+      heroSubtitle:
+        'Explora una biblioteca multilingüe con cada emoji de corazón, aprende sus significados y cópialos al portapapeles con un toque.',
+      heroCtaPrimary: 'Ver la colección',
+      heroCtaSecondary: 'Guía de significados',
+      spotlightTitle: 'Tendencia esta semana',
+      allHeading: 'Todos los emojis de corazón',
+      usageTitle: 'Consejos de uso',
+      quickTitle: 'Toca para copiar corazones al instante',
+      quickSubtitle: 'Los corazones más usados, listos para copiar y pegar donde quieras.',
+      seoDescription:
+        'Copia cualquier emoji de corazón en segundos y descubre el significado de cada color. Optimizado para SEO, velocidad y audiencias globales.'
+    },
+    detail: {
+      meaningHeading: 'Significado',
+      usageHeading: 'Cómo se usa',
+      metadataDescription:
+        'Descripción completa de los significados, usos y emojis relacionados. Copia cualquier emoji de corazón desde heartemojis.org.',
+      relatedHeading: 'Corazones relacionados',
+      unicodeLabel: 'Unicode'
+    },
+    footer: {
+      tagline: 'heartemojis.org — Guías cuidadas para cada símbolo de corazón.',
+      links: {
+        about: 'Nosotros',
+        feedback: 'Enviar comentarios',
+        privacy: 'Privacidad'
+      }
+    },
+    emojiContent: {}
+  }
 };
 
 export function getDictionary(locale: Locale): Dictionary {

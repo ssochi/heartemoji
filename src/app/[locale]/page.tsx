@@ -1,18 +1,26 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { AdSlot } from '@/components/AdSlot';
+import { ColorMeaningGrid } from '@/components/ColorMeaningGrid';
+import { CopyBundles } from '@/components/CopyBundles';
 import { EmojiCard } from '@/components/EmojiCard';
+import { FaqAccordion } from '@/components/FaqAccordion';
+import { KeywordExplorer } from '@/components/KeywordExplorer';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
+import { MegaHeartGenerator } from '@/components/MegaHeartGenerator';
 import { QuickCopyPanel } from '@/components/QuickCopyPanel';
+import { TextArtShowcase } from '@/components/TextArtShowcase';
 import { HEART_EMOJIS } from '@/data/emojis';
 import { getDictionary } from '@/data/dictionaries';
+import { COLOR_GUIDE } from '@/data/keywordContent';
 import { defaultLocale, getLocaleFromParam, locales, type Locale } from '@/lib/i18n';
 
 const siteUrl = 'https://heartemojis.org';
 
 const openGraphLocales: Record<Locale, string> = {
   en: 'en_US',
-  zh: 'zh_CN'
+  zh: 'zh_CN',
+  es: 'es_ES'
 };
 
 export function generateStaticParams() {
@@ -63,7 +71,7 @@ export default function LocaleHomePage({ params }: LocaleHomePageProps) {
   const locale = getLocaleFromParam(params.locale);
   const dictionary = getDictionary(locale);
   const spotlight = HEART_EMOJIS.slice(0, 4);
-  const quickCopy = HEART_EMOJIS.slice(0, 24).map((emoji) => ({
+  const quickCopy = HEART_EMOJIS.slice(0, 28).map((emoji) => ({
     slug: emoji.slug,
     emoji: emoji.emoji,
     name: dictionary.emojiContent[emoji.slug]?.name ?? emoji.meaning
@@ -116,6 +124,42 @@ export default function LocaleHomePage({ params }: LocaleHomePageProps) {
         </div>
       </section>
 
+      <section id="color-meanings" aria-labelledby="color-meanings-heading">
+        <h2 className="section-heading" id="color-meanings-heading">
+          Heart emoji color meanings
+        </h2>
+        <p className="card-description">
+          Compare what different color heart emojis mean at a glance. This guide covers popular searches like “emoji heart
+          color meanings”, “meaning of colored heart emojis”, and nuanced questions such as what the blue, white, black, or
+          purple heart emoji mean in texting.
+        </p>
+        <ColorMeaningGrid locale={locale} items={COLOR_GUIDE} />
+      </section>
+
+      <section id="copy-bundles" aria-labelledby="copy-bundles-heading">
+        <h2 className="section-heading" id="copy-bundles-heading">
+          Heart emoji copy and paste packs
+        </h2>
+        <p className="card-description">
+          Build your own heart emoji copy and paste stash—from pink heart emoji strings to friendship bundles with yellow
+          hearts. Tap any combo to copy, then drop them into bios, tweets, or captions.
+        </p>
+        <CopyBundles dictionary={dictionary} />
+      </section>
+
+      <section id="text-art" aria-labelledby="text-art-heading">
+        <h2 className="section-heading" id="text-art-heading">
+          Heart text emoji & ASCII art
+        </h2>
+        <p className="card-description">
+          Need text heart emoji ideas, outline heart symbols, or aesthetic kaomoji? Grab these ready-made snippets for
+          headers, keyboards without emoji, or cute copy-and-paste art.
+        </p>
+        <TextArtShowcase dictionary={dictionary} />
+      </section>
+
+      <MegaHeartGenerator dictionary={dictionary} />
+
       <section id="using-hearts" className="detail-wrapper" aria-label="Guidance">
         <AdSlot label={dictionary.common.adPlaceholder} slotId="mid-rectangle" />
         <div>
@@ -133,6 +177,15 @@ export default function LocaleHomePage({ params }: LocaleHomePageProps) {
           </Link>
         </div>
       </section>
+
+      <section id="emoji-faq" aria-labelledby="emoji-faq-heading">
+        <h2 className="section-heading" id="emoji-faq-heading">
+          Heart emoji meanings & FAQs
+        </h2>
+        <FaqAccordion />
+      </section>
+
+      <KeywordExplorer />
     </div>
   );
 }
