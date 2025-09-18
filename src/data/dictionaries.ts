@@ -67,16 +67,22 @@ export type Dictionary = {
       title: string;
       description: string;
       bundlesIntro: string;
+      toast: string;
     };
     textArt: {
       title: string;
       description: string;
+      toast: string;
     };
     generator: {
       title: string;
       description: string;
       countLabel: string;
       helperText: string;
+      emojiLabel: string;
+      emojiHelper: string;
+      previewLabel: string;
+      toast: string;
     };
   };
   emojiContent: Record<string, EmojiDictionaryEntry>;
@@ -90,7 +96,7 @@ const en: Dictionary = {
     adPlaceholder: 'Sponsored placement',
     backToList: 'Back to all heart emojis',
     localeLabel: 'Languages',
-    copiedToast: 'Copied {name}! Ready to paste 💌',
+    copiedToast: 'Copied {name}! Ready to paste.',
     nav: {
       home: 'Home',
       colors: 'Color meanings',
@@ -151,19 +157,25 @@ const en: Dictionary = {
       description:
         'Curated heart emoji copy and paste collections for romance, friendship, gradients, fandoms, and minimalist designs.',
       bundlesIntro:
-        'Choose a pack below to instantly copy emoji hearts tailored for different moods and storytelling styles.'
+        'Choose a pack below to instantly copy emoji hearts tailored for different moods and storytelling styles.',
+      toast: 'Copied! Heart combo ready to paste.'
     },
     textArt: {
       title: 'Heart text emoji & ASCII art',
       description:
-        'Copy text-based heart symbols, kaomoji, and decorative ASCII combos for bios, captions, or no-emoji keyboards.'
+        'Copy text-based heart symbols, kaomoji, and decorative ASCII combos for bios, captions, or no-emoji keyboards.',
+      toast: 'Copied! Your text art is ready to paste.'
     },
     generator: {
       title: 'Heart emoji generator',
       description:
         'Create massive strings of ❤️ emojis. Perfect for fan projects, typography art, or celebratory comment storms.',
       countLabel: 'Number of hearts',
-      helperText: 'Adjust the count (10–1000) to refresh the preview and copy your custom heart line.'
+      helperText: 'Adjust the count (10–1000) to refresh the preview and copy your custom heart line.',
+      emojiLabel: 'Choose heart style',
+      emojiHelper: 'Tap a different heart to change the vibe of your string.',
+      previewLabel: 'Live preview',
+      toast: 'Copied! {count} × {emoji} ready to paste.'
     }
   },
   emojiContent: {
@@ -388,7 +400,7 @@ const zh: Dictionary = {
     adPlaceholder: '广告位招租',
     backToList: '返回心形表情总览',
     localeLabel: '语言',
-    copiedToast: '已复制 {name}！尽情粘贴 💌',
+    copiedToast: '已复制 {name}，马上粘贴。',
     nav: {
       home: '首页',
       colors: '颜色含义',
@@ -440,17 +452,23 @@ const zh: Dictionary = {
     copy: {
       title: '心形表情复制大全',
       description: '收集适合恋爱告白、友情支持、渐层风格、粉丝应援与极简设计的爱心组合，一键复制随时使用。',
-      bundlesIntro: '从以下分类挑选喜欢的爱心串，点一下就能复制到剪贴板。'
+      bundlesIntro: '从以下分类挑选喜欢的爱心串，点一下就能复制到剪贴板。',
+      toast: '爱心组合已复制，马上粘贴。'
     },
     textArt: {
       title: '心形字符与 ASCII 艺术',
-      description: '提供空心爱心、颜文字、文字画等多款字符设计，适合用在无表情符号的环境或打造特别的标题。'
+      description: '提供空心爱心、颜文字、文字画等多款字符设计，适合用在无表情符号的环境或打造特别的标题。',
+      toast: '已复制文本爱心，马上粘贴。'
     },
     generator: {
       title: '心形表情生成器',
       description: '自订数量最多 1000 个 ❤️，生成属于你的爱心长条，用于粉丝应援、排版或庆祝留言。',
       countLabel: '爱心数量',
-      helperText: '设定 10–1000 之间的数值，预览会即时更新，复制后即可使用。'
+      helperText: '设定 10–1000 之间的数值，预览会即时更新，复制后即可使用。',
+      emojiLabel: '选择心形样式',
+      emojiHelper: '点击不同的爱心，就能快速切换成喜欢的风格。',
+      previewLabel: '即时预览',
+      toast: '{count} 个 {emoji} 已复制，马上粘贴。'
     }
   },
   emojiContent: {
@@ -678,7 +696,7 @@ const dictionaries: Record<Locale, Dictionary> = {
       adPlaceholder: 'Espacio patrocinado',
       backToList: 'Volver a todos los emojis de corazón',
       localeLabel: 'Idiomas',
-      copiedToast: '¡Copiaste {name}! Lista para pegar 💌',
+      copiedToast: '¡Copiaste {name}! Lista para pegar.',
       nav: {
         home: 'Inicio',
         colors: 'Significados de color',
@@ -738,19 +756,25 @@ const dictionaries: Record<Locale, Dictionary> = {
         title: 'Biblioteca para copiar emojis de corazón',
         description:
           'Colecciones listas para copiar: corazones románticos, gradientes de amistad, minimalistas y reacciones para fandoms.',
-        bundlesIntro: 'Elige un paquete y toca el botón de copiar para llevarte la combinación directamente al portapapeles.'
+        bundlesIntro: 'Elige un paquete y toca el botón de copiar para llevarte la combinación directamente al portapapeles.',
+        toast: '¡Combo copiado! Listo para pegar.'
       },
       textArt: {
         title: 'Emojis de corazón en texto y arte ASCII',
         description:
-          'Corazones delineados, kaomoji y diseños de caracteres listos para bios, subtítulos o cuando no tienes teclado de emoji.'
+          'Corazones delineados, kaomoji y diseños de caracteres listos para bios, subtítulos o cuando no tienes teclado de emoji.',
+        toast: 'Arte de texto copiado. Pégalo cuando quieras.'
       },
       generator: {
         title: 'Generador de emojis de corazón',
         description:
           'Crea cadenas de hasta 1000 corazones ❤️ para proyectos de fans, arte tipográfico o comentarios festivos.',
         countLabel: 'Cantidad de corazones',
-        helperText: 'Elige un número entre 10 y 1000. El previo se actualizará y podrás copiarlo al instante.'
+        helperText: 'Elige un número entre 10 y 1000. El previo se actualizará y podrás copiarlo al instante.',
+        emojiLabel: 'Elige el estilo de corazón',
+        emojiHelper: 'Toca cualquier corazón para ajustar el tono de tu cadena.',
+        previewLabel: 'Vista previa en vivo',
+        toast: '¡Copiaste {count} × {emoji}! Pégalo cuando quieras.'
       }
     },
     emojiContent: {

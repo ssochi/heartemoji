@@ -654,6 +654,11 @@ button {
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
+.bundle-panel {
+  display: grid;
+  gap: 1.5rem;
+}
+
 .bundle-grid--spacious {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
@@ -701,6 +706,11 @@ button {
   font-weight: 600;
   white-space: nowrap;
   overflow-x: auto;
+}
+
+.bundle-snippet .copy-button {
+  min-width: 88px;
+  justify-content: center;
 }
 
 .cta-panel {
@@ -891,6 +901,11 @@ button {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
+.textart-panel {
+  display: grid;
+  gap: 1.5rem;
+}
+
 .textart-card {
   border: 1px dashed rgba(255, 77, 109, 0.25);
   border-radius: 1.25rem;
@@ -914,9 +929,60 @@ button {
   border-radius: 1.5rem;
   border: 1px solid var(--border);
   box-shadow: var(--shadow-card);
-  padding: 1.5rem;
+  padding: clamp(1.5rem, 4vw, 2.25rem);
   display: grid;
-  gap: 1rem;
+  gap: 1.5rem;
+}
+
+.mega-heart__header {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.mega-heart__body {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .mega-heart__body {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+    align-items: start;
+  }
+}
+
+.mega-heart__preview {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.mega-heart__preview-label {
+  font-weight: 650;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.mega-heart__preview-card {
+  border-radius: 1.5rem;
+  border: 1px dashed rgba(255, 77, 109, 0.45);
+  background: linear-gradient(145deg, rgba(255, 245, 249, 0.9), rgba(255, 218, 231, 0.65));
+  min-height: 160px;
+  display: grid;
+  place-items: center;
+  padding: clamp(1.2rem, 5vw, 2rem);
+  text-align: center;
+}
+
+.mega-heart__preview-emoji {
+  font-size: clamp(2.1rem, 6vw, 3.2rem);
+  line-height: 1.15;
+  word-break: break-word;
+}
+
+.mega-heart__form {
+  display: grid;
+  gap: 1.25rem;
 }
 
 .mega-heart__controls {
@@ -926,21 +992,119 @@ button {
   align-items: center;
 }
 
+.mega-heart__field {
+  display: grid;
+  gap: 0.55rem;
+}
+
 .mega-heart__controls label {
   display: grid;
   gap: 0.25rem;
   font-weight: 600;
 }
 
-.mega-heart__controls input {
+.mega-heart__label {
+  font-weight: 650;
+  font-size: 0.95rem;
+}
+
+.mega-heart__sliders {
+  display: grid;
+  gap: 0.75rem;
+}
+
+@media (min-width: 520px) {
+  .mega-heart__sliders {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+  }
+}
+
+.mega-heart__slider {
+  accent-color: #ff4d6d;
+  width: 100%;
+}
+
+.mega-heart__number {
   width: 140px;
   border-radius: 999px;
   border: 1px solid rgba(255, 77, 109, 0.3);
   padding: 0.4rem 0.8rem;
+  font-weight: 600;
+  text-align: center;
 }
 
 .mega-heart__helper {
   font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.mega-heart__helper--footer {
+  margin-top: -0.5rem;
+}
+
+.mega-heart__emoji-picker {
+  display: grid;
+  gap: 0.6rem;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+}
+
+.mega-heart__emoji-button {
+  border: 1px solid rgba(255, 77, 109, 0.18);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.92);
+  padding: 0.6rem 0.75rem;
+  display: grid;
+  gap: 0.35rem;
+  justify-items: center;
+  cursor: pointer;
+  transition: border 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 4px 12px -10px rgba(45, 0, 22, 0.35);
+}
+
+.mega-heart__emoji-button:hover,
+.mega-heart__emoji-button:focus-visible {
+  border-color: rgba(255, 77, 109, 0.42);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 18px -14px rgba(45, 0, 22, 0.55);
+  outline: none;
+}
+
+.mega-heart__emoji-button--active {
+  border-color: rgba(255, 77, 109, 0.75);
+  background: linear-gradient(135deg, rgba(255, 77, 109, 0.16), rgba(255, 167, 189, 0.12));
+}
+
+.mega-heart__emoji-button span[aria-hidden='true'] {
+  font-size: 1.6rem;
+}
+
+.mega-heart__emoji-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.mega-heart__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.mega-heart__copy {
+  padding-inline: 1.2rem;
+  font-size: 0.92rem;
+}
+
+.mega-heart__count-badge {
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(45, 0, 22, 0.08);
+  font-size: 0.82rem;
+  font-weight: 600;
   color: var(--text-secondary);
 }
 

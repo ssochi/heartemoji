@@ -10,6 +10,8 @@ type CopyButtonProps = {
   showLabel?: boolean;
   className?: string;
   onCopy?: (value: string) => void;
+  hideValue?: boolean;
+  staticLabel?: boolean;
 };
 
 export function CopyButton({
@@ -19,7 +21,9 @@ export function CopyButton({
   size = 'default',
   showLabel = true,
   className,
-  onCopy
+  onCopy,
+  hideValue = false,
+  staticLabel = false
 }: CopyButtonProps) {
   const [copied, setCopied] = useState(false);
 
@@ -41,29 +45,34 @@ export function CopyButton({
   if (!showLabel) {
     classes.push('copy-button--icon');
   }
-  if (copied) {
+  if (copied && showLabel && !staticLabel) {
     classes.push('copy-button--copied');
   }
   if (className) {
     classes.push(className);
   }
 
-  const accessibleLabel = copied ? copiedLabel : label;
+  const baseLabel = label;
+  const statusLabel = copied ? copiedLabel : baseLabel;
+  const visualLabel = showLabel ? (staticLabel ? baseLabel : statusLabel) : undefined;
+  const accessibleLabel = statusLabel;
 
   return (
     <button
       type="button"
       className={classes.join(' ')}
       onClick={handleCopy}
-      aria-live="polite"
+      aria-live={showLabel ? 'polite' : undefined}
       aria-label={accessibleLabel}
       title={accessibleLabel}
-      data-label={accessibleLabel}
+      data-label={showLabel ? visualLabel : baseLabel}
     >
-      <span aria-hidden="true" className="copy-button__emoji">
-        {value}
-      </span>
-      {showLabel ? <span className="copy-button__text">{accessibleLabel}</span> : null}
+      {hideValue ? null : (
+        <span aria-hidden="true" className="copy-button__emoji">
+          {value}
+        </span>
+      )}
+      {showLabel ? <span className="copy-button__text">{visualLabel}</span> : null}
     </button>
   );
 }
