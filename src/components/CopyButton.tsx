@@ -41,6 +41,9 @@ export function CopyButton({
   if (!showLabel) {
     classes.push('copy-button--icon');
   }
+  if (copied) {
+    classes.push('copy-button--copied');
+  }
   if (className) {
     classes.push(className);
   }
@@ -55,6 +58,7 @@ export function CopyButton({
       aria-live="polite"
       aria-label={accessibleLabel}
       title={accessibleLabel}
+      data-label={accessibleLabel}
     >
       <span aria-hidden="true" className="copy-button__emoji">
         {value}

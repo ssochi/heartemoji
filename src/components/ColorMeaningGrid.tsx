@@ -19,7 +19,7 @@ export function ColorMeaningGrid({ locale, items }: ColorMeaningGridProps) {
           </header>
           <p>{item.description[locale]}</p>
           <ul className="color-card__keywords">
-            {item.keywords.slice(0, 4).map((keyword) => (
+            {item.keywords[locale].slice(0, 4).map((keyword) => (
               <li key={keyword}>#{keyword}</li>
             ))}
           </ul>

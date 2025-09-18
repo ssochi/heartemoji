@@ -26,7 +26,7 @@ export function EmojiCard({ emoji, dictionary, locale }: EmojiCardProps) {
       <h2 className="card-title">{content?.name ?? emoji.meaning}</h2>
       <p className="card-description">{content?.meaning ?? emoji.meaning}</p>
       <div className="card-keywords">
-        {emoji.keywords.slice(0, 3).map((keyword) => (
+        {emoji.keywords[locale].slice(0, 3).map((keyword) => (
           <span key={keyword}>{keyword}</span>
         ))}
       </div>

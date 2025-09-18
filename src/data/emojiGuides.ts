@@ -2,7 +2,7 @@ import type { Locale } from '@/lib/i18n';
 
 export type EmojiGuide = {
   slug: string;
-  aliases: string[];
+  aliases: Record<Locale, string[]>;
   meaningBullets: Record<Locale, string[]>;
   usageIdeas: Record<Locale, string[]>;
   combos: string[];
@@ -11,7 +11,11 @@ export type EmojiGuide = {
 export const EMOJI_GUIDES: Record<string, EmojiGuide> = {
   'red-heart': {
     slug: 'red-heart',
-    aliases: ['heart emoji', 'love heart emoji', 'red emoji heart'],
+    aliases: {
+      en: ['heart emoji', 'love heart emoji', 'red emoji heart'],
+      zh: ['爱心表情', '红色爱心', '红心 emoji'],
+      es: ['emoji de corazón', 'emoji corazón rojo', 'corazón rojo']
+    },
     meaningBullets: {
       en: [
         'Represents romantic love, gratitude, and heartfelt appreciation.',
@@ -34,7 +38,11 @@ export const EMOJI_GUIDES: Record<string, EmojiGuide> = {
   },
   'black-heart': {
     slug: 'black-heart',
-    aliases: ['black heart emoji meaning', 'dark heart emoji', 'black emoji heart'],
+    aliases: {
+      en: ['black heart emoji meaning', 'dark heart emoji', 'black emoji heart'],
+      zh: ['黑色爱心含义', '暗黑爱心', '黑心 emoji'],
+      es: ['significado corazón negro', 'emoji corazón negro', 'corazón oscuro']
+    },
     meaningBullets: {
       en: [
         'Signals gothic aesthetics, dry humor, or bittersweet emotion.',
@@ -53,7 +61,11 @@ export const EMOJI_GUIDES: Record<string, EmojiGuide> = {
   },
   'blue-heart': {
     slug: 'blue-heart',
-    aliases: ['blue heart emoji meaning', 'blue emoji heart', 'blue heart meaning emoji'],
+    aliases: {
+      en: ['blue heart emoji meaning', 'blue emoji heart', 'blue heart meaning emoji'],
+      zh: ['蓝色爱心含义', '蓝心 emoji', '蓝色爱心代表'],
+      es: ['significado corazón azul', 'emoji corazón azul', 'corazón azul significado']
+    },
     meaningBullets: {
       en: [
         'Communicates loyalty, support, and calm care.',
@@ -72,7 +84,11 @@ export const EMOJI_GUIDES: Record<string, EmojiGuide> = {
   },
   'pink-heart': {
     slug: 'pink-heart',
-    aliases: ['heart emoji pink', 'pink heart emoji meaning', 'pink emoji heart'],
+    aliases: {
+      en: ['heart emoji pink', 'pink heart emoji meaning', 'pink emoji heart'],
+      zh: ['粉色爱心 emoji', '粉红爱心含义', '粉心表情'],
+      es: ['emoji corazón rosa', 'significado corazón rosa', 'corazón rosado emoji']
+    },
     meaningBullets: {
       en: [
         'Represents sweet affection, gentle support, and self-care reminders.',
@@ -91,7 +107,11 @@ export const EMOJI_GUIDES: Record<string, EmojiGuide> = {
   },
   'white-heart': {
     slug: 'white-heart',
-    aliases: ['white heart emoji meaning', 'white heart emoji copy paste', 'white emoji heart'],
+    aliases: {
+      en: ['white heart emoji meaning', 'white heart emoji copy paste', 'white emoji heart'],
+      zh: ['白色爱心含义', '白心复制', '白色爱心表情'],
+      es: ['significado corazón blanco', 'emoji corazón blanco', 'copiar corazón blanco']
+    },
     meaningBullets: {
       en: [
         'Embodies pure intentions, memorial tributes, and minimalist design.',
@@ -110,7 +130,11 @@ export const EMOJI_GUIDES: Record<string, EmojiGuide> = {
   },
   'heart-eyes-emoji': {
     slug: 'heart-eyes-emoji',
-    aliases: ['heart eyes emoji', 'heart eye emoji', 'heart on eyes emoji'],
+    aliases: {
+      en: ['heart eyes emoji', 'heart eye emoji', 'heart on eyes emoji'],
+      zh: ['爱心眼表情', '爱心眼 emoji', '眼睛冒爱心'],
+      es: ['emoji ojos de corazón', 'ojos con corazones', 'emoji corazones en los ojos']
+    },
     meaningBullets: {
       en: ['Expresses instant infatuation and excitement.', 'Fastest way to react to jaw-dropping outfits, performances, or pet photos.', 'Provides dramatic positive feedback in comment sections.'],
       zh: ['表示瞬间爱上或超级喜欢。', '最适合回覆惊艳的穿搭、演出或宠物贴文。', '在留言区能快速传达高度喜爱。'],
@@ -125,7 +149,11 @@ export const EMOJI_GUIDES: Record<string, EmojiGuide> = {
   },
   'cat-heart-eyes': {
     slug: 'cat-heart-eyes',
-    aliases: ['cat heart eyes emoji', 'heart eyes cat emoji'],
+    aliases: {
+      en: ['cat heart eyes emoji', 'heart eyes cat emoji'],
+      zh: ['猫咪爱心眼', '爱心眼猫咪'],
+      es: ['emoji gato ojos de corazón', 'gato con ojos de corazón']
+    },
     meaningBullets: {
       en: ['A kawaii alternative to 😍, perfect for pet parents.', 'Gives your reaction a playful, feline spin.', 'Transforms cute content into extra-adorable moments.'],
       zh: ['比 😍 更可爱的猫咪版本，特别适合宠物爸妈。', '让你的回应多一点俏皮猫系风格。', '看到超萌事物时加倍可爱。'],
@@ -140,7 +168,11 @@ export const EMOJI_GUIDES: Record<string, EmojiGuide> = {
   },
   'finger-heart': {
     slug: 'finger-heart',
-    aliases: ['finger heart emoji', 'hand heart emoji', 'mini heart emoji'],
+    aliases: {
+      en: ['finger heart emoji', 'hand heart emoji', 'mini heart emoji'],
+      zh: ['指心手势', '手比爱心', '迷你爱心'],
+      es: ['emoji finger heart', 'mano con corazón', 'mini corazón']
+    },
     meaningBullets: {
       en: ['Inspired by Korean finger hearts that symbolize tiny yet meaningful love.', 'Signals fandom gratitude, backstage selfies, or supportive shout-outs.', 'Visually pairs with sparkles and pastel hearts.'],
       zh: ['源自韩国指心手势，小巧却充满心意。', '常见于粉丝感谢、后台合照或打气留言。', '与闪亮或粉彩爱心搭配最可爱。'],
@@ -155,7 +187,11 @@ export const EMOJI_GUIDES: Record<string, EmojiGuide> = {
   },
   'heart-outline': {
     slug: 'heart-outline',
-    aliases: ['heart outline emoji', 'text heart emoji', 'outline of a heart emoji'],
+    aliases: {
+      en: ['heart outline emoji', 'text heart emoji', 'outline of a heart emoji'],
+      zh: ['空心爱心 emoji', '文字爱心', '爱心轮廓符号'],
+      es: ['emoji corazón delineado', 'corazón de texto', 'contorno de corazón']
+    },
     meaningBullets: {
       en: ['A text-style heart used for minimalist love notes or typography.', 'Perfect for aesthetic bios, captions, and playlist names.', 'References heart emoji text art and outlined heart emoji queries.'],
       zh: ['文字风格的空心爱心，适合极简告白或排版。', '用在简介、标题或歌单名称都很合适。', '呼应“文字爱心符号”“空心爱心”的搜寻需求。'],

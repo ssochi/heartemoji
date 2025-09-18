@@ -44,6 +44,7 @@ export function generateMetadata({ params }: EmojiPageProps): Metadata {
 
   const dictionary = getDictionary(locale);
   const content = resolveEmojiContent(dictionary.emojiContent[emoji.slug], emoji, locale);
+  const keywordList = emoji.keywords[locale] ?? emoji.keywords.en;
 
   const canonical = `${locale === defaultLocale ? '' : `/${locale}`}/emoji/${emoji.slug}`;
   const alternates = locales.reduce<Record<string, string>>((acc, currentLocale) => {
@@ -56,7 +57,7 @@ export function generateMetadata({ params }: EmojiPageProps): Metadata {
   return {
     title: `${content.name} — Heart Emojis`,
     description,
-    keywords: emoji.keywords,
+    keywords: keywordList,
     alternates: {
       canonical,
       languages: alternates
@@ -86,6 +87,7 @@ export default function EmojiDetailPage({ params }: EmojiPageProps) {
 
   const dictionary = getDictionary(locale);
   const content = resolveEmojiContent(dictionary.emojiContent[emoji.slug], emoji, locale);
+  const keywordList = emoji.keywords[locale] ?? emoji.keywords.en;
   const related = getRelatedEmojis(emoji.slug);
   const guide = getEmojiGuide(emoji.slug);
   const colorCard = COLOR_GUIDE.find((entry) => entry.slugs.includes(emoji.slug));
@@ -101,7 +103,7 @@ export default function EmojiDetailPage({ params }: EmojiPageProps) {
     inLanguage: localeCodes[locale],
     url: `${siteUrl}${canonical}`,
     identifier: emoji.unicode,
-    keywords: emoji.keywords
+    keywords: keywordList
   };
 
   return (
@@ -146,7 +148,7 @@ export default function EmojiDetailPage({ params }: EmojiPageProps) {
           </div>
           <p>{colorCard.description[locale]}</p>
           <ul className="color-card__keywords">
-            {colorCard.keywords.slice(0, 4).map((keyword) => (
+            {colorCard.keywords[locale].slice(0, 4).map((keyword) => (
               <li key={keyword}>#{keyword}</li>
             ))}
           </ul>
@@ -192,7 +194,7 @@ export default function EmojiDetailPage({ params }: EmojiPageProps) {
             </div>
           </div>
           <p className="guide-block__aliases">
-            <strong>{dictionary.detail.alsoSearched}:</strong> {guide.aliases.join(', ')}
+            <strong>{dictionary.detail.alsoSearched}:</strong> {guide.aliases[locale].join(', ')}
           </p>
         </section>
       ) : null}

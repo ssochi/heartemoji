@@ -31,7 +31,7 @@ export function FaqAccordion({ locale }: FaqAccordionProps) {
               <div className="faq-item__content">
                 <p>{entry.answer}</p>
                 <div className="faq-item__keywords" aria-hidden="true">
-                  {faq.keywords.map((keyword) => (
+                  {faq.keywords[locale].map((keyword) => (
                     <span key={keyword}>#{keyword}</span>
                   ))}
                 </div>
