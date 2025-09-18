@@ -1,0 +1,156 @@
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
+import { AdSlot } from '@/components/AdSlot';
+import { CopyButton } from '@/components/CopyButton';
+import { LanguageSwitcher } from '@/components/LanguageSwitcher';
+import { getDictionary } from '@/data/dictionaries';
+import { HEART_EMOJIS, getEmojiBySlug, getRelatedEmojis } from '@/data/emojis';
+import { defaultLocale, getLocaleFromParam, locales, type Locale } from '@/lib/i18n';
+import { toneDescriptions, toneLabels } from '@/lib/tone';
+
+const siteUrl = 'https://heartemojis.org';
+
+const localeCodes: Record<Locale, string> = {
+  en: 'en-US',
+  zh: 'zh-CN'
+};
+
+type EmojiPageProps = {
+  params: {
+    locale: string;
+    slug: string;
+  };
+};
+
+export function generateStaticParams() {
+  return locales.flatMap((locale) =>
+    HEART_EMOJIS.map((emoji) => ({
+      locale,
+      slug: emoji.slug
+    }))
+  );
+}
+
+export function generateMetadata({ params }: EmojiPageProps): Metadata {
+  const locale = getLocaleFromParam(params.locale);
+  const emoji = getEmojiBySlug(params.slug);
+  if (!emoji) {
+    return { title: 'Emoji not found' };
+  }
+
+  const dictionary = getDictionary(locale);
+  const content = dictionary.emojiContent[emoji.slug] ?? {
+    name: emoji.meaning,
+    meaning: emoji.meaning,
+    usage: emoji.usage
+  };
+
+  const canonical = `${locale === defaultLocale ? '' : `/${locale}`}/emoji/${emoji.slug}`;
+  const alternates = locales.reduce<Record<string, string>>((acc, currentLocale) => {
+    acc[currentLocale] = `${currentLocale === defaultLocale ? '' : `/${currentLocale}`}/emoji/${emoji.slug}`;
+    return acc;
+  }, {});
+
+  const description = `${content.meaning} ${content.usage}`.trim();
+
+  return {
+    title: `${content.name} — Heart Emojis`,
+    description,
+    keywords: emoji.keywords,
+    alternates: {
+      canonical,
+      languages: alternates
+    },
+    openGraph: {
+      title: content.name,
+      description,
+      url: `${siteUrl}${canonical}`,
+      type: 'article',
+      locale: localeCodes[locale]
+    },
+    twitter: {
+      card: 'summary',
+      title: content.name,
+      description
+    }
+  };
+}
+
+export default function EmojiDetailPage({ params }: EmojiPageProps) {
+  const locale = getLocaleFromParam(params.locale);
+  const emoji = getEmojiBySlug(params.slug);
+
+  if (!emoji) {
+    notFound();
+  }
+
+  const dictionary = getDictionary(locale);
+  const content = dictionary.emojiContent[emoji.id] ?? {
+    name: emoji.meaning,
+    meaning: emoji.meaning,
+    usage: emoji.usage
+  };
+  const related = getRelatedEmojis(emoji.slug);
+  const toneLabel = toneLabels[locale][emoji.tone];
+  const toneDescription = toneDescriptions[locale][emoji.tone];
+  const canonical = `${locale === defaultLocale ? '' : `/${locale}`}/emoji/${emoji.slug}`;
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'DefinedTerm',
+    name: content.name,
+    alternateName: emoji.meaning,
+    description: content.meaning,
+    inLanguage: localeCodes[locale],
+    url: `${siteUrl}${canonical}`,
+    identifier: emoji.unicode,
+    keywords: emoji.keywords
+  };
+
+  return (
+    <div className="detail-wrapper">
+      <LanguageSwitcher currentLocale={locale} dictionary={dictionary} path={`emoji/${emoji.slug}`} />
+      <article className="detail-hero">
+        <div className="card-header">
+          <span className="emoji-preview" aria-hidden="true">
+            {emoji.emoji}
+          </span>
+          <CopyButton value={emoji.emoji} label={dictionary.common.copy} copiedLabel={dictionary.common.copied} />
+        </div>
+        <div className="detail-body">
+          <h1 className="hero-title">{content.name}</h1>
+          <p className="card-description">{content.meaning}</p>
+          <p className="card-description">{content.usage}</p>
+          <div className="detail-meta">
+            <div className="detail-meta-item">
+              <strong>{dictionary.detail.unicodeLabel}</strong>
+              <span>{emoji.unicode}</span>
+            </div>
+            <div className="detail-meta-item">
+              <strong>{toneLabel}</strong>
+              <span>{toneDescription}</span>
+            </div>
+          </div>
+          <Link href={`/${locale}`} className="card-link">
+            ← {dictionary.common.backToList}
+          </Link>
+        </div>
+      </article>
+
+      <section>
+        <h2 className="section-heading">{dictionary.detail.relatedHeading}</h2>
+        <div className="related-grid">
+          {related.map((item) => (
+            <Link key={item.id} href={`/${locale}/emoji/${item.slug}`}>
+              {dictionary.emojiContent[item.slug]?.name ?? item.meaning}
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <AdSlot label={dictionary.common.adPlaceholder} slotId="detail-bottom" />
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+    </div>
+  );
+}
