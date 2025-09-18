@@ -21,6 +21,8 @@ export type Dictionary = {
       copy: string;
       textArt: string;
       generator: string;
+      more: string;
+      fun: string;
     };
   };
   home: {
@@ -102,7 +104,9 @@ const en: Dictionary = {
       colors: 'Color meanings',
       copy: 'Copy packs',
       textArt: 'Text art',
-      generator: 'Heart generator'
+      generator: 'Heart generator',
+      more: 'More',
+      fun: 'Fun'
     }
   },
   home: {
@@ -406,7 +410,9 @@ const zh: Dictionary = {
       colors: '颜色含义',
       copy: '复制合集',
       textArt: '字符艺术',
-      generator: '心形生成器'
+      generator: '心形生成器',
+      more: '更多',
+      fun: '有趣工具'
     }
   },
   home: {
@@ -702,7 +708,9 @@ const dictionaries: Record<Locale, Dictionary> = {
         colors: 'Significados de color',
         copy: 'Packs para copiar',
         textArt: 'Arte de texto',
-        generator: 'Generador de corazones'
+        generator: 'Generador de corazones',
+        more: 'Más',
+        fun: 'Diversión'
       }
     },
     home: {
