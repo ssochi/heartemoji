@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { AdSlot } from '@/components/AdSlot';
-import { ColorMeaningGrid } from '@/components/ColorMeaningGrid';
 import { CopyBundles } from '@/components/CopyBundles';
 import { EmojiCard } from '@/components/EmojiCard';
 import { FaqAccordion } from '@/components/FaqAccordion';
@@ -10,7 +9,6 @@ import { QuickCopyPanel } from '@/components/QuickCopyPanel';
 import { TextArtShowcase } from '@/components/TextArtShowcase';
 import { HEART_EMOJIS } from '@/data/emojis';
 import { getDictionary } from '@/data/dictionaries';
-import { COLOR_GUIDE } from '@/data/keywordContent';
 import { defaultLocale, getLocaleFromParam, locales, type Locale } from '@/lib/i18n';
 
 const siteUrl = 'https://heartemojis.org';
@@ -120,16 +118,6 @@ export default function LocaleHomePage({ params }: LocaleHomePageProps) {
             <EmojiCard key={emoji.id} emoji={emoji} dictionary={dictionary} locale={locale} />
           ))}
         </div>
-      </section>
-
-      <section id="color-meanings" aria-labelledby="color-meanings-heading">
-        <h2 className="section-heading" id="color-meanings-heading">
-          {dictionary.home.colorHeading}
-        </h2>
-        <p className="card-description">
-          {dictionary.home.colorDescription}
-        </p>
-        <ColorMeaningGrid locale={locale} items={COLOR_GUIDE} />
       </section>
 
       <section id="copy-bundles" aria-labelledby="copy-bundles-heading">
