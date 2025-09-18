@@ -6,11 +6,12 @@ import { CopyButton } from './CopyButton';
 interface CopyBundlesProps {
   dictionary: Dictionary;
   locale: Locale;
+  className?: string;
 }
 
-export function CopyBundles({ dictionary, locale }: CopyBundlesProps) {
+export function CopyBundles({ dictionary, locale, className }: CopyBundlesProps) {
   return (
-    <div className="bundle-grid">
+    <div className={className ?? 'bundle-grid'}>
       {COPY_BUNDLES.map((bundle) => (
         <article key={bundle.id} className="bundle-card">
           <h3>{bundle.title[locale]}</h3>

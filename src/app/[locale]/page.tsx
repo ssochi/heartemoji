@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { AdSlot } from '@/components/AdSlot';
-import { CopyBundles } from '@/components/CopyBundles';
 import { EmojiCard } from '@/components/EmojiCard';
 import { FaqAccordion } from '@/components/FaqAccordion';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
@@ -120,14 +119,6 @@ export default function LocaleHomePage({ params }: LocaleHomePageProps) {
         </div>
       </section>
 
-      <section id="copy-bundles" aria-labelledby="copy-bundles-heading">
-        <h2 className="section-heading" id="copy-bundles-heading">
-          {dictionary.home.copyHeading}
-        </h2>
-        <p className="card-description">{dictionary.home.copyDescription}</p>
-        <CopyBundles dictionary={dictionary} locale={locale} />
-      </section>
-
       <section id="text-art" aria-labelledby="text-art-heading">
         <h2 className="section-heading" id="text-art-heading">
           {dictionary.home.textArtHeading}
@@ -136,7 +127,14 @@ export default function LocaleHomePage({ params }: LocaleHomePageProps) {
         <TextArtShowcase dictionary={dictionary} />
       </section>
 
-      <section className="cta-panel" aria-label={dictionary.common.nav.generator}>
+      <section className="cta-panel" aria-label="Call to action">
+        <div className="cta-card">
+          <h3>{dictionary.pages.copy.title}</h3>
+          <p>{dictionary.home.copyDescription}</p>
+          <Link className="cta-button" href={`/${locale}/copy-paste`}>
+            {dictionary.common.nav.copy}
+          </Link>
+        </div>
         <div className="cta-card">
           <h3>{dictionary.pages.generator.title}</h3>
           <p>{dictionary.pages.generator.description}</p>

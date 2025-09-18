@@ -61,7 +61,7 @@ export default function CopyPage({ params }: CopyPageProps) {
         <h2 className="section-heading" id="bundles-intro">
           {dictionary.pages.copy.bundlesIntro}
         </h2>
-        <CopyBundles dictionary={dictionary} locale={locale} />
+        <CopyBundles dictionary={dictionary} locale={locale} className="bundle-grid bundle-grid--spacious" />
       </section>
 
       <section aria-labelledby="color-guide-ref" id="color-guide-ref">
@@ -78,6 +78,23 @@ export default function CopyPage({ params }: CopyPageProps) {
             </li>
           ))}
         </ul>
+      </section>
+
+      <section className="cta-panel" aria-label="Related tools">
+        <div className="cta-card">
+          <h3>{dictionary.pages.textArt.title}</h3>
+          <p>{dictionary.pages.textArt.description}</p>
+          <Link className="cta-button" href={`/${locale}/text-art`}>
+            {dictionary.common.nav.textArt}
+          </Link>
+        </div>
+        <div className="cta-card">
+          <h3>{dictionary.pages.generator.title}</h3>
+          <p>{dictionary.pages.generator.description}</p>
+          <Link className="cta-button" href={`/${locale}/generator/200`}>
+            {dictionary.common.nav.generator}
+          </Link>
+        </div>
       </section>
     </div>
   );

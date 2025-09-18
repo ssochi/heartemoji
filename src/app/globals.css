@@ -169,6 +169,7 @@ button {
   padding: 0;
   margin: 1rem 0 0;
   list-style: none;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 }
 
 .inline-color-list a {
@@ -179,6 +180,10 @@ button {
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.75);
   border: 1px solid rgba(255, 77, 109, 0.18);
+}
+
+.inline-color-list span {
+  font-size: 1.2rem;
 }
 
 .card {
@@ -621,6 +626,10 @@ button {
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
+.bundle-grid--spacious {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
 .bundle-card {
   background: rgba(255, 255, 255, 0.88);
   border-radius: 1.5rem;
@@ -629,6 +638,11 @@ button {
   display: grid;
   gap: 0.9rem;
   box-shadow: var(--shadow-card);
+}
+
+.bundle-card p {
+  margin: 0;
+  color: var(--text-secondary);
 }
 
 .bundle-card__preview {
@@ -651,6 +665,9 @@ button {
 
 .cta-panel {
   margin: clamp(2rem, 6vw, 3rem) 0;
+  display: grid;
+  gap: var(--grid-gap);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
 .cta-card {
@@ -666,6 +683,11 @@ button {
 .cta-card h3 {
   margin: 0;
   font-size: clamp(1.3rem, 3vw, 1.6rem);
+}
+
+.cta-card p {
+  margin: 0;
+  color: var(--text-secondary);
 }
 
 .cta-button {
