@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useId, useMemo, useRef, useState } from 'react';
 import type { Dictionary } from '@/data/dictionaries';
 import { locales, type Locale } from '@/lib/i18n';
 
@@ -30,38 +30,52 @@ function buildLocalizedPath(pathname: string | null) {
 
 export function HeaderNav({ locale, dictionary }: HeaderNavProps) {
   const pathname = usePathname();
-  const navRef = useRef<HTMLDivElement | null>(null);
+  const navWrapperRef = useRef<HTMLDivElement | null>(null);
   const homeLinkRef = useRef<HTMLAnchorElement | null>(null);
+  const mobileToggleRef = useRef<HTMLButtonElement | null>(null);
   const [openMenu, setOpenMenu] = useState<MenuKey>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const previousFocusRef = useRef<HTMLElement | null>(null);
   const [keyboardMode, setKeyboardMode] = useState(false);
+  const reactNavId = useId().replace(/:/g, '');
+  const navId = `site-nav-${locale}-${reactNavId}`;
 
   useEffect(() => {
     setOpenMenu(null);
+    setMobileOpen(false);
     previousFocusRef.current = null;
   }, [pathname]);
 
   useEffect(() => {
     function handlePointer(event: MouseEvent | TouchEvent) {
-      if (!navRef.current?.contains(event.target as Node)) {
+      if (!navWrapperRef.current?.contains(event.target as Node)) {
         setOpenMenu(null);
+        if (mobileOpen) {
+          setMobileOpen(false);
+        }
         previousFocusRef.current = null;
       }
     }
 
     function handleKey(event: KeyboardEvent) {
       if (event.key === 'Escape') {
-        setOpenMenu(null);
-        if (previousFocusRef.current) {
-          previousFocusRef.current.focus();
+        if (mobileOpen) {
+          setMobileOpen(false);
+          mobileToggleRef.current?.focus();
+        } else {
+          setOpenMenu(null);
+          if (previousFocusRef.current) {
+            previousFocusRef.current.focus();
+          }
+          previousFocusRef.current = null;
         }
-        previousFocusRef.current = null;
       }
     }
 
     function handleFocus(event: FocusEvent) {
-      if (!navRef.current?.contains(event.target as Node)) {
+      if (!navWrapperRef.current?.contains(event.target as Node)) {
         setOpenMenu(null);
+        setMobileOpen(false);
         previousFocusRef.current = null;
       }
     }
@@ -69,15 +83,15 @@ export function HeaderNav({ locale, dictionary }: HeaderNavProps) {
     document.addEventListener('mousedown', handlePointer);
     document.addEventListener('touchstart', handlePointer);
     document.addEventListener('keydown', handleKey);
-    window.addEventListener('focusin', handleFocus as any);
+    document.addEventListener('focusin', handleFocus as any);
 
     return () => {
       document.removeEventListener('mousedown', handlePointer);
       document.removeEventListener('touchstart', handlePointer);
       document.removeEventListener('keydown', handleKey);
-      window.removeEventListener('focusin', handleFocus as any);
+      document.removeEventListener('focusin', handleFocus as any);
     };
-  }, []);
+  }, [mobileOpen]);
 
   useEffect(() => {
     function handleKeydown(event: KeyboardEvent) {
@@ -99,6 +113,19 @@ export function HeaderNav({ locale, dictionary }: HeaderNavProps) {
     };
   }, []);
 
+  useEffect(() => {
+    const media = window.matchMedia('(max-width: 720px)');
+    function handleChange() {
+      if (!media.matches) {
+        setMobileOpen(false);
+      }
+    }
+
+    handleChange();
+    media.addEventListener('change', handleChange);
+    return () => media.removeEventListener('change', handleChange);
+  }, []);
+
   const toggleMenu = (menu: Exclude<MenuKey, null>) => {
     setOpenMenu((prev) => {
       if (prev === menu) {
@@ -111,12 +138,20 @@ export function HeaderNav({ locale, dictionary }: HeaderNavProps) {
     });
   };
 
-  const closeMenu = () => {
-    if (openMenu) {
-      setOpenMenu(null);
-      previousFocusRef.current?.focus();
-      previousFocusRef.current = null;
-    }
+  const toggleMobile = () => {
+    setMobileOpen((prev) => {
+      if (prev) {
+        setOpenMenu(null);
+        previousFocusRef.current = null;
+      }
+      return !prev;
+    });
+  };
+
+  const handleNavigate = () => {
+    setOpenMenu(null);
+    setMobileOpen(false);
+    previousFocusRef.current = null;
   };
 
   const generatorHref = `/${locale}/generator/200`;
@@ -130,26 +165,53 @@ export function HeaderNav({ locale, dictionary }: HeaderNavProps) {
   );
 
   const funLinks = useMemo(
-    () => [{ href: generatorHref, label: dictionary.common.nav.generator }],
-    [dictionary.common.nav.generator, generatorHref]
+    () => [
+      { href: `/${locale}/fun/emoji-fish-tank`, label: dictionary.common.nav.fishTank },
+      { href: generatorHref, label: dictionary.common.nav.generator }
+    ],
+    [dictionary.common.nav.fishTank, dictionary.common.nav.generator, generatorHref, locale]
   );
 
   const basePath = buildLocalizedPath(pathname);
 
   return (
-    <nav
-      className={`site-nav${keyboardMode ? ' site-nav--keyboard' : ''}`}
-      aria-label="Primary navigation"
-      ref={navRef}
+    <div
+      className={`site-nav-wrapper${mobileOpen ? ' site-nav-wrapper--open' : ''}${keyboardMode ? ' site-nav-wrapper--keyboard' : ''}`}
+      ref={navWrapperRef}
     >
-      <Link className="site-nav__link" href={`/${locale}`} ref={homeLinkRef}>
-        {dictionary.common.nav.home}
-      </Link>
+      <button
+        type="button"
+        className="site-nav__toggle"
+        aria-controls={navId}
+        aria-expanded={mobileOpen}
+        onClick={toggleMobile}
+        ref={mobileToggleRef}
+      >
+        <span className="site-nav__toggle-icon" aria-hidden="true">
+          <span />
+          <span />
+          <span />
+        </span>
+        <span className="site-nav__toggle-label">
+          {mobileOpen ? dictionary.common.nav.close : dictionary.common.nav.menu}
+        </span>
+      </button>
 
-      <div className={`nav-dropdown${openMenu === 'more' ? ' nav-dropdown--open' : ''}`}>
+      <nav
+        id={navId}
+        className={`site-nav${keyboardMode ? ' site-nav--keyboard' : ''}${mobileOpen ? ' site-nav--mobile-open' : ''}`}
+        aria-label="Primary navigation"
+      >
+        <div className="site-nav__item">
+          <Link className="site-nav__button" href={`/${locale}`} ref={homeLinkRef} onClick={handleNavigate}>
+            {dictionary.common.nav.home}
+          </Link>
+        </div>
+
+        <div className={`site-nav__item nav-dropdown${openMenu === 'more' ? ' nav-dropdown--open' : ''}`}>
         <button
           type="button"
-          className="nav-dropdown__trigger"
+          className="site-nav__button nav-dropdown__trigger"
           aria-haspopup="true"
           aria-expanded={openMenu === 'more'}
           onClick={() => toggleMenu('more')}
@@ -164,7 +226,7 @@ export function HeaderNav({ locale, dictionary }: HeaderNavProps) {
               href={item.href}
               className="nav-dropdown__link"
               role="menuitem"
-              onClick={closeMenu}
+              onClick={handleNavigate}
             >
               {item.label}
             </Link>
@@ -172,10 +234,10 @@ export function HeaderNav({ locale, dictionary }: HeaderNavProps) {
         </div>
       </div>
 
-      <div className={`nav-dropdown${openMenu === 'fun' ? ' nav-dropdown--open' : ''}`}>
+      <div className={`site-nav__item nav-dropdown${openMenu === 'fun' ? ' nav-dropdown--open' : ''}`}>
         <button
           type="button"
-          className="nav-dropdown__trigger"
+          className="site-nav__button nav-dropdown__trigger"
           aria-haspopup="true"
           aria-expanded={openMenu === 'fun'}
           onClick={() => toggleMenu('fun')}
@@ -190,7 +252,7 @@ export function HeaderNav({ locale, dictionary }: HeaderNavProps) {
               href={item.href}
               className="nav-dropdown__link"
               role="menuitem"
-              onClick={closeMenu}
+              onClick={handleNavigate}
             >
               {item.label}
             </Link>
@@ -198,10 +260,12 @@ export function HeaderNav({ locale, dictionary }: HeaderNavProps) {
         </div>
       </div>
 
-      <div className={`nav-dropdown nav-dropdown--languages${openMenu === 'languages' ? ' nav-dropdown--open' : ''}`}>
+      <div
+        className={`site-nav__item nav-dropdown nav-dropdown--languages${openMenu === 'languages' ? ' nav-dropdown--open' : ''}`}
+      >
         <button
           type="button"
-          className="nav-dropdown__trigger nav-dropdown__trigger--languages"
+          className="site-nav__button nav-dropdown__trigger nav-dropdown__trigger--languages"
           aria-haspopup="true"
           aria-expanded={openMenu === 'languages'}
           onClick={() => toggleMenu('languages')}
@@ -221,7 +285,7 @@ export function HeaderNav({ locale, dictionary }: HeaderNavProps) {
                 className={`nav-dropdown__link${isActive ? ' nav-dropdown__link--active' : ''}`}
                 role="menuitemradio"
                 aria-checked={isActive}
-                onClick={closeMenu}
+                onClick={handleNavigate}
               >
                 {localeNames[targetLocale]}
               </Link>
@@ -229,6 +293,13 @@ export function HeaderNav({ locale, dictionary }: HeaderNavProps) {
           })}
         </div>
       </div>
-    </nav>
+      </nav>
+
+      <div
+        className={`site-nav__backdrop${mobileOpen ? ' site-nav__backdrop--visible' : ''}`}
+        aria-hidden="true"
+        onClick={() => setMobileOpen(false)}
+      />
+    </div>
   );
 }

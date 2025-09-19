@@ -23,6 +23,9 @@ export type Dictionary = {
       generator: string;
       more: string;
       fun: string;
+      fishTank: string;
+      menu: string;
+      close: string;
     };
   };
   home: {
@@ -86,6 +89,24 @@ export type Dictionary = {
       previewLabel: string;
       toast: string;
     };
+    fun: {
+      fishTank: {
+        title: string;
+        description: string;
+        intro: string[];
+        embedHeading: string;
+        embedDescription: string;
+        embedVariants: Array<{
+          id: 'full' | 'compact';
+          label: string;
+          hint: string;
+          note?: string;
+        }>;
+        embedCopyLabel: string;
+        embedCopied: string;
+        embedNote: string;
+      };
+    };
   };
   emojiContent: Record<string, EmojiDictionaryEntry>;
 };
@@ -106,7 +127,10 @@ const en: Dictionary = {
       textArt: 'Text art',
       generator: 'Heart generator',
       more: 'More',
-      fun: 'Fun'
+      fun: 'Fun',
+      fishTank: 'Emoji fish tank',
+      menu: 'Menu',
+      close: 'Close'
     }
   },
   home: {
@@ -180,6 +204,34 @@ const en: Dictionary = {
       emojiHelper: 'Tap a different heart to change the vibe of your string.',
       previewLabel: 'Live preview',
       toast: 'Copied! {count} × {emoji} ready to paste.'
+    },
+    fun: {
+      fishTank: {
+        title: 'Emoji fish tank',
+        description:
+          'A living aquarium rendered entirely with emoji characters. Schools glide, bubbles rise, and coral sways without taxing performance.',
+        intro: [
+          'Every creature, coral, and bubble is animated with subtle loops so the tank feels alive while staying gentle on the GPU.',
+          'Drop it into livestream overlays, community hubs, slides, or vision boards whenever you need a soothing, looping visual.'
+        ],
+        embedHeading: 'Embed it anywhere',
+        embedDescription: 'Pick the size you need and paste the snippet into Notion, blogs, livestream overlays, or digital signage.',
+        embedVariants: [
+          {
+            id: 'full',
+            label: 'Full width',
+            hint: 'Max-width 720px — ideal for article bodies and hero sections.'
+          },
+          {
+            id: 'compact',
+            label: 'Half width',
+            hint: 'Max-width 360px — perfect for sidebars, chat overlays, or multi-column grids.'
+          }
+        ],
+        embedCopyLabel: 'Copy iframe code',
+        embedCopied: 'Embed code copied!',
+        embedNote: 'The fish tank is responsive, adapts to any container, respects reduced-motion settings, and keeps a smooth frame rate.'
+      }
     }
   },
   emojiContent: {
@@ -412,7 +464,10 @@ const zh: Dictionary = {
       textArt: '字符艺术',
       generator: '心形生成器',
       more: '更多',
-      fun: '有趣工具'
+      fun: '有趣工具',
+      fishTank: 'Emoji 鱼缸',
+      menu: '菜单',
+      close: '关闭'
     }
   },
   home: {
@@ -475,6 +530,33 @@ const zh: Dictionary = {
       emojiHelper: '点击不同的爱心，就能快速切换成喜欢的风格。',
       previewLabel: '即时预览',
       toast: '{count} 个 {emoji} 已复制，马上粘贴。'
+    },
+    fun: {
+      fishTank: {
+        title: 'Emoji 鱼缸',
+        description: '一个完全由 emoji 组成的活力水族箱，让鱼儿、气泡与珊瑚持续律动且不卡顿。',
+        intro: [
+          '每一条鱼、每株水草与每颗气泡都用细腻的动画驱动，视觉灵动却轻量，不会拖慢设备性能。',
+          '适合嵌入直播画面、社群页面、Notion 看板或课程投影片，为观众带来放松的循环视觉。'
+        ],
+        embedHeading: '嵌入到任何地方',
+        embedDescription: '选择合适的尺寸，把 iframe 片段贴到 Notion、博客、直播画面或其他网页。',
+        embedVariants: [
+          {
+            id: 'full',
+            label: '标准宽度',
+            hint: '最大宽度 720px，适合文章主体或单栏页面。'
+          },
+          {
+            id: 'compact',
+            label: '半宽版本',
+            hint: '最大宽度 360px，适合侧边栏、聊天覆盖层或多栏排版。'
+          }
+        ],
+        embedCopyLabel: '复制 iframe 代码',
+        embedCopied: '嵌入代码已复制！',
+        embedNote: '鱼缸会自适应容器大小，尊重减少动效的系统设置，并保持顺滑的帧率。'
+      }
     }
   },
   emojiContent: {
@@ -710,7 +792,10 @@ const dictionaries: Record<Locale, Dictionary> = {
         textArt: 'Arte de texto',
         generator: 'Generador de corazones',
         more: 'Más',
-        fun: 'Diversión'
+        fun: 'Diversión',
+        fishTank: 'Acuario emoji',
+        menu: 'Menú',
+        close: 'Cerrar'
       }
     },
     home: {
@@ -783,6 +868,34 @@ const dictionaries: Record<Locale, Dictionary> = {
         emojiHelper: 'Toca cualquier corazón para ajustar el tono de tu cadena.',
         previewLabel: 'Vista previa en vivo',
         toast: '¡Copiaste {count} × {emoji}! Pégalo cuando quieras.'
+      },
+      fun: {
+        fishTank: {
+          title: 'Acuario emoji',
+          description:
+            'Un acuario vivo creado solo con caracteres emoji. Los cardúmenes nadan, las burbujas suben y el coral se mueve sin sacrificar rendimiento.',
+          intro: [
+            'Cada pez, coral y burbuja tiene animaciones suaves para mantener la sensación de vida mientras todo sigue siendo ligero para el navegador.',
+            'Úsalo para amenizar transmisiones en vivo, hubs comunitarios, tableros de Notion o presentaciones cuando necesites un loop relajante.'
+          ],
+          embedHeading: 'Incrústalo donde quieras',
+          embedDescription: 'Elige el tamaño adecuado y copia el iframe para usarlo en Notion, blogs, overlays de streaming o señalización digital.',
+          embedVariants: [
+            {
+              id: 'full',
+              label: 'Ancho completo',
+              hint: 'Máximo 720px — ideal para cuerpos de artículos o secciones principales.'
+            },
+            {
+              id: 'compact',
+              label: 'Media anchura',
+              hint: 'Máximo 360px — perfecto para barras laterales, overlays de chat o diseños en columnas.'
+            }
+          ],
+          embedCopyLabel: 'Copiar código iframe',
+          embedCopied: '¡Código insertado copiado!',
+          embedNote: 'El acuario es responsivo, respeta la preferencia de movimiento reducido y mantiene una animación fluida.'
+        }
       }
     },
     emojiContent: {

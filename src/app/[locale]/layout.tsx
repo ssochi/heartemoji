@@ -42,6 +42,7 @@ export default function LocaleLayout({ children, params }: LocaleLayoutProps) {
         <div className="site-footer__links">
           <Link href={`/${locale}/copy-paste`}>{dictionary.common.nav.copy}</Link>
           <Link href={`/${locale}/text-art`}>{dictionary.common.nav.textArt}</Link>
+          <Link href={`/${locale}/fun/emoji-fish-tank`}>{dictionary.common.nav.fishTank}</Link>
           <Link href={`/${locale}/generator/200`}>{dictionary.common.nav.generator}</Link>
           <Link href={`/${locale}/copy-paste#color-guide-ref`}>{dictionary.common.nav.colors}</Link>
         </div>

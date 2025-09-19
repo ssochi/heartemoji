@@ -4,7 +4,7 @@ import { defaultLocale, locales } from '@/lib/i18n';
 
 const siteUrl = 'https://heartemojis.org';
 const generatorCounts = [50, 100, 200, 300, 500, 1000];
-const localeStaticPaths = ['', '/copy-paste', '/text-art'];
+const localeStaticPaths = ['', '/copy-paste', '/text-art', '/fun/emoji-fish-tank'];
 
 function localePrefix(locale: string) {
   return locale === defaultLocale ? '' : `/${locale}`;
@@ -43,6 +43,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
         changeFrequency: 'weekly',
         priority: 0.7
       });
+    });
+  });
+
+  ['/embed/emoji-fish-tank', '/embed/emoji-fish-tank/compact'].forEach((path) => {
+    entries.push({
+      url: `${siteUrl}${path}`,
+      lastModified: timestamp,
+      changeFrequency: 'weekly',
+      priority: 0.4
     });
   });
 
