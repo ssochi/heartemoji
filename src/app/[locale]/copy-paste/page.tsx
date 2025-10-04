@@ -14,7 +14,7 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { locale: string } }): Metadata {
   const locale = getLocaleFromParam(params.locale);
   const dictionary = getDictionary(locale);
-  const canonical = `${locale === defaultLocale ? '' : `/${locale}`}/copy-paste`;
+  const canonical = `/${locale}/copy-paste`;
 
   return {
     title: dictionary.pages.copy.title,
@@ -22,7 +22,7 @@ export function generateMetadata({ params }: { params: { locale: string } }): Me
     alternates: {
       canonical,
       languages: locales.reduce<Record<string, string>>((acc, lang) => {
-        acc[lang] = `${lang === defaultLocale ? '' : `/${lang}`}/copy-paste`;
+        acc[lang] = `/${lang}/copy-paste`;
         return acc;
       }, {})
     },

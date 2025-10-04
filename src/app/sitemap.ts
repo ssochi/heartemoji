@@ -7,7 +7,7 @@ const generatorCounts = [50, 100, 200, 300, 500, 1000];
 const localeStaticPaths = ['', '/copy-paste', '/text-art', '/fun/emoji-fish-tank'];
 
 function localePrefix(locale: string) {
-  return locale === defaultLocale ? '' : `/${locale}`;
+  return `/${locale}`;
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {

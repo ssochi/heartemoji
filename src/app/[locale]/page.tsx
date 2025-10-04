@@ -26,11 +26,11 @@ export function generateMetadata({ params }: { params: { locale: string } }): Me
   const dictionary = getDictionary(locale);
 
   const alternates = locales.reduce<Record<string, string>>((acc, currentLocale) => {
-    acc[currentLocale] = currentLocale === defaultLocale ? '/' : `/${currentLocale}`;
+    acc[currentLocale] = `/${currentLocale}`;
     return acc;
   }, {});
 
-  const canonical = locale === defaultLocale ? '/' : `/${locale}`;
+  const canonical = `/${locale}`;
 
   return {
     title: dictionary.home.heroTitle,
@@ -70,6 +70,15 @@ export default function LocaleHomePage({ params }: LocaleHomePageProps) {
     emoji: emoji.emoji,
     name: dictionary.emojiContent[emoji.slug]?.name ?? emoji.meaning
   }));
+  const itemList = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: HEART_EMOJIS.slice(0, 10).map((emoji, idx) => ({
+      '@type': 'ListItem',
+      position: idx + 1,
+      url: `${siteUrl}/${locale}/emoji/${emoji.slug}`
+    }))
+  };
 
   return (
     <div>
@@ -159,6 +168,7 @@ export default function LocaleHomePage({ params }: LocaleHomePageProps) {
         </h2>
         <FaqAccordion locale={locale} />
       </section>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemList) }} />
     </div>
   );
 }

@@ -27,7 +27,7 @@ export function generateMetadata({ params }: { params: { locale: string; count: 
   const locale = getLocaleFromParam(params.locale);
   const dictionary = getDictionary(locale);
   const count = sanitizeCount(params.count);
-  const canonical = `${locale === defaultLocale ? '' : `/${locale}`}/generator/${count}`;
+  const canonical = `/${locale}/generator/${count}`;
 
   return {
     title: `${dictionary.pages.generator.title} — ${count}`,
@@ -35,7 +35,7 @@ export function generateMetadata({ params }: { params: { locale: string; count: 
     alternates: {
       canonical,
       languages: locales.reduce<Record<string, string>>((acc, lang) => {
-        acc[lang] = `${lang === defaultLocale ? '' : `/${lang}`}/generator/${count}`;
+        acc[lang] = `/${lang}/generator/${count}`;
         return acc;
       }, {})
     },

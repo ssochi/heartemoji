@@ -45,11 +45,11 @@ export function generateMetadata({ params }: EmojiPageProps): Metadata {
   const content = resolveEmojiContent(dictionary.emojiContent[emoji.slug], emoji, locale);
   const keywordList = emoji.keywords[locale] ?? emoji.keywords.en;
 
-  const canonical = `${locale === defaultLocale ? '' : `/${locale}`}/emoji/${emoji.slug}`;
   const alternates = locales.reduce<Record<string, string>>((acc, currentLocale) => {
-    acc[currentLocale] = `${currentLocale === defaultLocale ? '' : `/${currentLocale}`}/emoji/${emoji.slug}`;
+    acc[currentLocale] = `/${currentLocale}/emoji/${emoji.slug}`;
     return acc;
   }, {});
+  const canonical = `/${locale}/emoji/${emoji.slug}`;
 
   const description = `${content.meaning} ${content.usage}`.trim();
 
@@ -92,7 +92,7 @@ export default function EmojiDetailPage({ params }: EmojiPageProps) {
   const colorCard = COLOR_GUIDE.find((entry) => entry.slugs.includes(emoji.slug));
   const toneLabel = toneLabels[locale][emoji.tone];
   const toneDescription = toneDescriptions[locale][emoji.tone];
-  const canonical = `${locale === defaultLocale ? '' : `/${locale}`}/emoji/${emoji.slug}`;
+  const canonical = `/${locale}/emoji/${emoji.slug}`;
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'DefinedTerm',

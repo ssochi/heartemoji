@@ -29,10 +29,12 @@ export const metadata: Metadata = {
     images: ['/og-heartemojis.svg']
   },
   alternates: {
-    canonical: '/',
+    canonical: '/en',
     languages: {
-      en: '/',
-      zh: '/zh'
+      en: '/en',
+      zh: '/zh',
+      es: '/es',
+      'x-default': '/en'
     }
   }
 };

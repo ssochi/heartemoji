@@ -13,7 +13,7 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { locale: string } }): Metadata {
   const locale = getLocaleFromParam(params.locale);
   const dictionary = getDictionary(locale);
-  const canonical = `${locale === defaultLocale ? '' : `/${locale}`}/text-art`;
+  const canonical = `/${locale}/text-art`;
 
   return {
     title: dictionary.pages.textArt.title,
@@ -21,7 +21,7 @@ export function generateMetadata({ params }: { params: { locale: string } }): Me
     alternates: {
       canonical,
       languages: locales.reduce<Record<string, string>>((acc, lang) => {
-        acc[lang] = `${lang === defaultLocale ? '' : `/${lang}`}/text-art`;
+        acc[lang] = `/${lang}/text-art`;
         return acc;
       }, {})
     },
