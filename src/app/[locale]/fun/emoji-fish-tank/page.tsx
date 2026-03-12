@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { EmojiFishTank } from '@/components/EmojiFishTank';
 import { CopyButton } from '@/components/CopyButton';
 import { getDictionary } from '@/data/dictionaries';
-import { defaultLocale, getLocaleFromParam, locales } from '@/lib/i18n';
+import { buildLanguageAlternates, getLocaleFromParam, locales } from '@/lib/i18n';
 
 const siteUrl = 'https://heartemojis.org';
 const EMBED_PATHS = {
@@ -29,17 +29,14 @@ function buildEmbedCode(variant: 'full' | 'compact'): string {
 export function generateMetadata({ params }: { params: { locale: string } }): Metadata {
   const locale = getLocaleFromParam(params.locale);
   const dictionary = getDictionary(locale);
-  const canonical = `${locale === defaultLocale ? '' : `/${locale}`}/fun/emoji-fish-tank`;
+  const canonical = `/${locale}/fun/emoji-fish-tank`;
 
   return {
     title: dictionary.pages.fun.fishTank.title,
     description: dictionary.pages.fun.fishTank.description,
     alternates: {
       canonical,
-      languages: locales.reduce<Record<string, string>>((acc, lang) => {
-        acc[lang] = `${lang === defaultLocale ? '' : `/${lang}`}/fun/emoji-fish-tank`;
-        return acc;
-      }, {})
+      languages: buildLanguageAlternates('/fun/emoji-fish-tank')
     },
     openGraph: {
       title: dictionary.pages.fun.fishTank.title,

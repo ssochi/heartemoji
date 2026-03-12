@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { TextArtShowcase } from '@/components/TextArtShowcase';
 import { getDictionary } from '@/data/dictionaries';
-import { defaultLocale, getLocaleFromParam, locales, type Locale } from '@/lib/i18n';
+import { buildLanguageAlternates, getLocaleFromParam, locales } from '@/lib/i18n';
 
 const siteUrl = 'https://heartemojis.org';
 
@@ -20,10 +20,7 @@ export function generateMetadata({ params }: { params: { locale: string } }): Me
     description: dictionary.pages.textArt.description,
     alternates: {
       canonical,
-      languages: locales.reduce<Record<string, string>>((acc, lang) => {
-        acc[lang] = `/${lang}/text-art`;
-        return acc;
-      }, {})
+      languages: buildLanguageAlternates('/text-art')
     },
     openGraph: {
       title: dictionary.pages.textArt.title,

@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
 import { MegaHeartGenerator } from '@/components/MegaHeartGenerator';
 import { getDictionary } from '@/data/dictionaries';
-import { defaultLocale, getLocaleFromParam, locales, type Locale } from '@/lib/i18n';
+import { buildLanguageAlternates, getLocaleFromParam, locales } from '@/lib/i18n';
 
 const siteUrl = 'https://heartemojis.org';
 const PRESET_COUNTS = [50, 100, 200, 300, 500, 1000];
+const INDEXABLE_COUNTS = new Set([200, 1000]);
 
 export function generateStaticParams() {
   return locales.flatMap((locale) =>
@@ -28,17 +29,16 @@ export function generateMetadata({ params }: { params: { locale: string; count: 
   const dictionary = getDictionary(locale);
   const count = sanitizeCount(params.count);
   const canonical = `/${locale}/generator/${count}`;
+  const isIndexable = INDEXABLE_COUNTS.has(count);
 
   return {
     title: `${dictionary.pages.generator.title} — ${count}`,
     description: dictionary.pages.generator.description,
     alternates: {
       canonical,
-      languages: locales.reduce<Record<string, string>>((acc, lang) => {
-        acc[lang] = `/${lang}/generator/${count}`;
-        return acc;
-      }, {})
+      languages: buildLanguageAlternates(`/generator/${count}`)
     },
+    robots: isIndexable ? { index: true, follow: true } : { index: false, follow: true },
     openGraph: {
       title: `${dictionary.pages.generator.title} (${count})`,
       description: dictionary.pages.generator.description,

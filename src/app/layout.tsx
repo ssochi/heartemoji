@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
+import { buildLanguageAlternates } from '@/lib/i18n';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -30,12 +31,7 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: '/en',
-    languages: {
-      en: '/en',
-      zh: '/zh',
-      es: '/es',
-      'x-default': '/en'
-    }
+    languages: buildLanguageAlternates()
   }
 };
 

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { CopyBundles } from '@/components/CopyBundles';
 import { getDictionary } from '@/data/dictionaries';
 import { COLOR_GUIDE } from '@/data/keywordContent';
-import { defaultLocale, getLocaleFromParam, locales, type Locale } from '@/lib/i18n';
+import { buildLanguageAlternates, getLocaleFromParam, locales } from '@/lib/i18n';
 
 const siteUrl = 'https://heartemojis.org';
 
@@ -21,10 +21,7 @@ export function generateMetadata({ params }: { params: { locale: string } }): Me
     description: dictionary.pages.copy.description,
     alternates: {
       canonical,
-      languages: locales.reduce<Record<string, string>>((acc, lang) => {
-        acc[lang] = `/${lang}/copy-paste`;
-        return acc;
-      }, {})
+      languages: buildLanguageAlternates('/copy-paste')
     },
     openGraph: {
       title: dictionary.pages.copy.title,
@@ -77,6 +74,30 @@ export default function CopyPage({ params }: CopyPageProps) {
           ))}
         </ul>
       </section>
+
+      {locale === 'es' ? (
+        <section className="section-frame section-frame--soft" aria-labelledby="popular-searches-es">
+          <div className="section-intro">
+            <span className="section-kicker">SEO</span>
+            <h2 className="section-heading" id="popular-searches-es">
+              Búsquedas populares en español
+            </h2>
+            <p className="section-copy">
+              Estas dos páginas responden consultas reales con intención clara de copiar y pegar.
+            </p>
+          </div>
+          <div className="search-related-grid">
+            <Link href="/es/copiar/1000-corazones-para-copiar-y-pegar" className="search-related-card">
+              <strong>1000 corazones para copiar y pegar</strong>
+              <span>Bloques largos listos para mensajes, publicaciones y comentarios.</span>
+            </Link>
+            <Link href="/es/copiar/corazones-para-whatsapp" className="search-related-card">
+              <strong>Corazones para WhatsApp</strong>
+              <span>Selecciones por amor, amistad, estados, grupos y estilos minimalistas.</span>
+            </Link>
+          </div>
+        </section>
+      ) : null}
 
       <section className="cta-panel" aria-label="Related tools">
         <div className="cta-card">

@@ -12,3 +12,17 @@ export function getLocaleFromParam(value: string | undefined): Locale {
   }
   return defaultLocale;
 }
+
+export function getLocalePath(locale: Locale, suffix = '') {
+  return `/${locale}${suffix}`;
+}
+
+export function buildLanguageAlternates(suffix = '') {
+  return locales.reduce<Record<string, string>>(
+    (acc, locale) => {
+      acc[locale] = getLocalePath(locale, suffix);
+      return acc;
+    },
+    { 'x-default': getLocalePath(defaultLocale, suffix) }
+  );
+}

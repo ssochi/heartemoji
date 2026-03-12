@@ -7,7 +7,7 @@ import { getDictionary } from '@/data/dictionaries';
 import { HEART_EMOJIS, getEmojiBySlug, getRelatedEmojis, type HeartEmoji } from '@/data/emojis';
 import { COLOR_GUIDE } from '@/data/keywordContent';
 import { getEmojiGuide } from '@/data/emojiGuides';
-import { defaultLocale, getLocaleFromParam, locales, type Locale } from '@/lib/i18n';
+import { buildLanguageAlternates, getLocaleFromParam, locales, type Locale } from '@/lib/i18n';
 import { toneDescriptions, toneLabels } from '@/lib/tone';
 
 const siteUrl = 'https://heartemojis.org';
@@ -45,10 +45,6 @@ export function generateMetadata({ params }: EmojiPageProps): Metadata {
   const content = resolveEmojiContent(dictionary.emojiContent[emoji.slug], emoji, locale);
   const keywordList = emoji.keywords[locale] ?? emoji.keywords.en;
 
-  const alternates = locales.reduce<Record<string, string>>((acc, currentLocale) => {
-    acc[currentLocale] = `/${currentLocale}/emoji/${emoji.slug}`;
-    return acc;
-  }, {});
   const canonical = `/${locale}/emoji/${emoji.slug}`;
 
   const description = `${content.meaning} ${content.usage}`.trim();
@@ -59,7 +55,7 @@ export function generateMetadata({ params }: EmojiPageProps): Metadata {
     keywords: keywordList,
     alternates: {
       canonical,
-      languages: alternates
+      languages: buildLanguageAlternates(`/emoji/${emoji.slug}`)
     },
     openGraph: {
       title: content.name,
@@ -104,6 +100,33 @@ export default function EmojiDetailPage({ params }: EmojiPageProps) {
     identifier: emoji.unicode,
     keywords: keywordList
   };
+  const breadcrumbStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Heart Emojis',
+        item: `${siteUrl}/${locale}`
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: content.name,
+        item: `${siteUrl}${canonical}`
+      }
+    ]
+  };
+  const spanishSearchLinks: Partial<Record<string, Array<{ href: string; label: string }>>> = {
+    'red-heart': [
+      { href: '/es/copiar/1000-corazones-para-copiar-y-pegar', label: '1000 corazones para copiar y pegar' },
+      { href: '/es/copiar/corazones-para-whatsapp', label: 'Corazones para WhatsApp' }
+    ],
+    'pink-heart': [{ href: '/es/copiar/corazones-para-whatsapp', label: 'Corazones para WhatsApp' }],
+    'white-heart': [{ href: '/es/copiar/corazones-para-whatsapp', label: 'Corazones para WhatsApp' }]
+  };
+  const prioritySpanishLinks = locale === 'es' ? spanishSearchLinks[emoji.slug] ?? [] : [];
 
   return (
     <div className="detail-page">
@@ -208,9 +231,32 @@ export default function EmojiDetailPage({ params }: EmojiPageProps) {
         </div>
       </section>
 
+      {prioritySpanishLinks.length ? (
+        <section className="section-frame section-frame--soft" aria-labelledby="busquedas-relacionadas-es">
+          <div className="section-intro">
+            <span className="section-kicker">Búsquedas relacionadas</span>
+            <h2 className="section-heading" id="busquedas-relacionadas-es">
+              Más páginas útiles para copiar corazones
+            </h2>
+          </div>
+          <div className="search-related-grid">
+            {prioritySpanishLinks.map((link) => (
+              <Link key={link.href} href={link.href} className="search-related-card">
+                <strong>{link.label}</strong>
+                <span>Abre una página optimizada para copiar, pegar y comparar estilos de corazones.</span>
+              </Link>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
       <AdSlot label={dictionary.common.adPlaceholder} slotId="detail-bottom" />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbStructuredData) }}
+      />
     </div>
   );
 }

@@ -25,7 +25,9 @@ export function FaqAccordion({ locale }: FaqAccordionProps) {
               aria-expanded={open}
             >
               <span>{entry.question}</span>
-              <span aria-hidden="true">{open ? '−' : '+'}</span>
+              <span className="faq-item__icon" aria-hidden="true">
+                {open ? '−' : '+'}
+              </span>
             </button>
             {open ? (
               <div className="faq-item__content">

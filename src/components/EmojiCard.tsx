@@ -23,12 +23,14 @@ export function EmojiCard({ emoji, dictionary, locale }: EmojiCardProps) {
         </span>
         <CopyButton value={emoji.emoji} label={dictionary.common.copy} copiedLabel={dictionary.common.copied} />
       </div>
-      <h2 className="card-title">{content?.name ?? emoji.meaning}</h2>
-      <p className="card-description">{content?.meaning ?? emoji.meaning}</p>
-      <div className="card-keywords">
-        {emoji.keywords[locale].slice(0, 3).map((keyword) => (
-          <span key={keyword}>{keyword}</span>
-        ))}
+      <div className="card-body">
+        <h2 className="card-title">{content?.name ?? emoji.meaning}</h2>
+        <p className="card-description">{content?.meaning ?? emoji.meaning}</p>
+        <div className="card-keywords">
+          {emoji.keywords[locale].slice(0, 3).map((keyword) => (
+            <span key={keyword}>{keyword}</span>
+          ))}
+        </div>
       </div>
       <div className="card-meta">
         <span className="tag">{toneLabel}</span>
