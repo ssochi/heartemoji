@@ -185,6 +185,177 @@ export const EMOJI_GUIDES: Record<string, EmojiGuide> = {
     },
     combos: ['🫰🫶', '🫰✨', '🫰🩷💖']
   },
+  'sparkling-heart': {
+    slug: 'sparkling-heart',
+    aliases: {
+      en: ['sparkling heart emoji', 'sparkly heart emoji', 'glitter heart emoji'],
+      zh: ['闪亮爱心', '亮晶晶爱心', '闪闪爱心 emoji'],
+      es: ['emoji corazón brillante', 'corazón con destellos', 'emoji corazón brillante']
+    },
+    meaningBullets: {
+      en: ['Feels extra sweet, glamorous, and celebration-ready.', 'Popular in beauty content, birthday captions, and fandom edits.', 'Signals affection with a polished, high-energy finish.'],
+      zh: ['带有更闪耀、更精致的甜蜜感。', '常见于美妆内容、生日贴文与粉丝剪辑。', '比一般爱心更适合表达“闪闪发亮的喜欢”。'],
+      es: ['Se siente dulce, brillante y lista para celebrar.', 'Aparece mucho en contenidos de belleza, cumpleaños y edits de fandom.', 'Expresa cariño con un acabado más glamuroso y llamativo.']
+    },
+    usageIdeas: {
+      en: ['Add it to launch posts that need a polished glow.', 'Use it in birthday wishes or glitter-heavy captions.', 'Pair it with pastel hearts for dreamy fan edits.'],
+      zh: ['适合新品发布或需要高级感的贴文。', '生日祝福、闪亮风 caption 都很常用。', '和粉彩爱心一起用，特别适合梦幻应援内容。'],
+      es: ['Úsalo en lanzamientos que necesiten un brillo más pulido.', 'Funciona muy bien en felicitaciones de cumpleaños o captions con glitter.', 'Combínalo con corazones pastel para edits soñadores.']
+    },
+    combos: ['💖✨', '💖🌟🥰', '💖🎀✨']
+  },
+  'love-letter': {
+    slug: 'love-letter',
+    aliases: {
+      en: ['love letter emoji', 'heart envelope emoji', 'valentine letter emoji'],
+      zh: ['情书表情', '爱心信封', '情书 emoji'],
+      es: ['emoji carta de amor', 'sobre con corazón', 'emoji carta corazón']
+    },
+    meaningBullets: {
+      en: ['Turns affection into a message, invitation, or confession.', 'Frequently used around Valentine’s Day, anniversaries, and heartfelt announcements.', 'Feels more personal than a plain heart because it implies written words.'],
+      zh: ['把爱意变成一封讯息、邀请或告白。', '情人节、纪念日与重要宣布时特别常见。', '比单纯的爱心更有“认真写给你”的感觉。'],
+      es: ['Convierte el cariño en un mensaje, una invitación o una confesión.', 'Se usa mucho en San Valentín, aniversarios y anuncios emotivos.', 'Se siente más personal que un corazón simple porque sugiere palabras escritas.']
+    },
+    usageIdeas: {
+      en: ['Use it for romantic notes, save-the-dates, or soft launch captions.', 'Drop it in DMs when you want to sound intentional and heartfelt.', 'Pair it with 💋 or ❤️ for classic Valentine styling.'],
+      zh: ['适合告白、婚礼邀请或恋爱官宣。', '私讯里想显得认真又温柔时很好用。', '和 💋、❤️ 搭配，就是经典情书氛围。'],
+      es: ['Úsalo en notas románticas, invitaciones o captions de soft launch.', 'En DMs funciona muy bien cuando quieres sonar intencional y afectuoso.', 'Combina perfecto con 💋 o ❤️ para un look clásico de San Valentín.']
+    },
+    combos: ['💌❤️', '💌💋💕', '💌✨🫶']
+  },
+  'face-with-hearts': {
+    slug: 'face-with-hearts',
+    aliases: {
+      en: ['face with hearts emoji', 'smiling face with hearts', 'heart face emoji'],
+      zh: ['爱心环绕笑脸', '笑脸爱心表情', '被爱包围表情'],
+      es: ['cara con corazones', 'emoji carita con corazones', 'smiling face with hearts emoji']
+    },
+    meaningBullets: {
+      en: ['Shows warm affection, gratitude, and a soft “I feel loved” vibe.', 'Less dramatic than 😍 and more tender than a plain heart reaction.', 'Works especially well for wholesome updates and caring replies.'],
+      zh: ['表达被爱包围的温柔、满足与感谢。', '没有 😍 那么夸张，但比普通爱心更有拥抱感。', '特别适合温暖近况与贴心回覆。'],
+      es: ['Muestra afecto cálido, gratitud y una vibra suave de “me siento querido”.', 'Es menos dramático que 😍 y más tierno que una reacción con un corazón simple.', 'Funciona muy bien en respuestas cariñosas y actualizaciones wholesome.']
+    },
+    usageIdeas: {
+      en: ['Reply to supportive messages with a softer heart-forward tone.', 'Use it in thank-you posts, friend appreciation, or cozy life updates.', 'Pair it with 🫶 or 🤍 when you want comfort more than hype.'],
+      zh: ['回复鼓励讯息时，比单纯爱心更有温度。', '感谢朋友、分享日常小确幸时都很适合。', '和 🫶、🤍 一起用，会更偏安慰与陪伴。'],
+      es: ['Responde a mensajes de apoyo con un tono más suave y afectuoso.', 'Va muy bien en posts de agradecimiento, amistades o updates acogedores.', 'Combínalo con 🫶 o 🤍 cuando quieras consuelo más que hype.']
+    },
+    combos: ['🥰🩷', '🥰🤍✨', '🥰🫶💌']
+  },
+  'hugging-heart': {
+    slug: 'hugging-heart',
+    aliases: {
+      en: ['hugging heart emoji', 'virtual hug emoji', 'heart hug emoji'],
+      zh: ['拥抱爱心表情', '虚拟抱抱 emoji', '抱抱爱心'],
+      es: ['emoji abrazo corazón', 'abrazo virtual emoji', 'corazón abrazo']
+    },
+    meaningBullets: {
+      en: ['Feels like sending a hug, reassurance, and emotional support from afar.', 'Common in check-ins, recovery notes, and “thinking of you” messages.', 'Softens conversations that need care without sounding overly dramatic.'],
+      zh: ['像是在隔着屏幕送出一个抱抱与安慰。', '常见于关心近况、康复祝福与“想到你了”的讯息。', '适合需要温柔支持、又不想太夸张的场景。'],
+      es: ['Se siente como enviar un abrazo, calma y apoyo emocional a distancia.', 'Aparece en mensajes de seguimiento, recuperación y “estoy pensando en ti”.', 'Suaviza conversaciones que necesitan cuidado sin sonar demasiado dramáticas.']
+    },
+    usageIdeas: {
+      en: ['Use it when a friend needs comfort more than advice.', 'Add it to supportive replies after stressful weeks or sad news.', 'Pair it with ❤️‍🩹 for healing-focused messages.'],
+      zh: ['朋友需要安慰时，比讲道理更有用。', '对方压力大或遇到坏消息时，加上它会更贴心。', '和 ❤️‍🩹 搭配，特别适合疗愈语境。'],
+      es: ['Úsalo cuando una amistad necesite consuelo más que consejos.', 'Funciona muy bien tras semanas duras o noticias tristes.', 'Combínalo con ❤️‍🩹 en mensajes de apoyo y sanación.']
+    },
+    combos: ['🤗🤍', '🤗🫶💌', '🤗❤️‍🩹✨']
+  },
+  'love-you-gesture': {
+    slug: 'love-you-gesture',
+    aliases: {
+      en: ['love you hand sign emoji', 'i love you gesture emoji', 'asl love you emoji'],
+      zh: ['我爱你手势', '爱你手势 emoji', '手语我爱你'],
+      es: ['emoji gesto te amo', 'mano te quiero emoji', 'emoji lenguaje de señas amor']
+    },
+    meaningBullets: {
+      en: ['Represents the ASL-inspired “I love you” hand sign.', 'Carries more intention than a casual wave or thumbs-up.', 'Often used in concert culture, inclusive messaging, and affectionate sign-offs.'],
+      zh: ['代表手语里“我爱你”的手势。', '比挥手或点赞更有明确爱意与心意。', '常见于演唱会文化、包容表达与温柔收尾。'],
+      es: ['Representa el gesto inspirado en ASL para decir “te amo”.', 'Tiene más intención que un saludo casual o un pulgar arriba.', 'Se usa mucho en conciertos, mensajes inclusivos y despedidas cariñosas.']
+    },
+    usageIdeas: {
+      en: ['Use it in fan posts, accessibility-aware content, or loving goodbyes.', 'Pair it with ❤️ when you want a direct “I love you” signal.', 'Works well in creator communities that rely on gesture-heavy reactions.'],
+      zh: ['适合粉丝贴文、无障碍友善内容或充满爱意的道别。', '和 ❤️ 一起用时，会更像直接说“我爱你”。', '在常用手势互动的创作者社群里也很自然。'],
+      es: ['Úsalo en posts de fandom, contenidos inclusivos o despedidas cariñosas.', 'Con ❤️ transmite un “te amo” mucho más directo.', 'También funciona muy bien en comunidades de creadores con reacciones gestuales.']
+    },
+    combos: ['🤟❤️', '🤟🫶✨', '🤟🎸💜']
+  },
+  'light-blue-heart': {
+    slug: 'light-blue-heart',
+    aliases: {
+      en: ['light blue heart emoji', 'baby blue heart emoji', 'sky blue heart emoji'],
+      zh: ['浅蓝爱心', '淡蓝爱心 emoji', '天空蓝爱心'],
+      es: ['emoji corazón celeste', 'corazón azul claro', 'emoji corazón azul bebé']
+    },
+    meaningBullets: {
+      en: ['Feels airy, calm, and softly supportive.', 'Often chosen for sky aesthetics, peaceful moods, and platonic care.', 'Lands gentler than 💙 while still feeling sincere.'],
+      zh: ['带有天空感、平静感与轻柔支持。', '常用于晴空美学、平和情绪与朋友间的关怀。', '比 💙 更轻盈，但依然真诚。'],
+      es: ['Se siente ligero, calmado y suavemente afectuoso.', 'Suele elegirse para estéticas de cielo, moods tranquilos y apoyo platónico.', 'Es más ligero que 💙, pero sigue sonando sincero.']
+    },
+    usageIdeas: {
+      en: ['Use it in calm check-ins, dreamy edits, or gentle encouragement.', 'Pair it with 🤍 for cloud-like palettes and soft branding.', 'Works well when you want affection without romantic pressure.'],
+      zh: ['适合温柔问候、做梦感剪辑或轻轻打气。', '和 🤍 一起用时，很适合云朵系配色与清淡品牌风格。', '想表达关心但不想太像恋爱语气时很好用。'],
+      es: ['Úsalo en check-ins tranquilos, edits soñadores o mensajes de ánimo suave.', 'Combina con 🤍 para paletas tipo nube o branding delicado.', 'Va perfecto cuando quieres mostrar cariño sin presión romántica.']
+    },
+    combos: ['🩵☁️✨', '🩵🤍💙', '🩵🫧🌤️']
+  },
+  'purple-heart': {
+    slug: 'purple-heart',
+    aliases: {
+      en: ['purple heart emoji', 'purple heart meaning', 'violet heart emoji'],
+      zh: ['紫色爱心', '紫心 emoji', '紫色爱心含义'],
+      es: ['emoji corazón morado', 'significado corazón morado', 'corazón violeta emoji']
+    },
+    meaningBullets: {
+      en: ['Blends admiration, creativity, and fandom loyalty.', 'Can hint at luxury, mystery, or artistic taste depending on context.', 'In some contexts it also nods to the Purple Heart military honor.'],
+      zh: ['融合了崇拜、创意与粉丝应援感。', '也可能带出高级感、神秘感或艺术气质。', '在特定语境下，还会让人联想到紫心勋章。'],
+      es: ['Mezcla admiración, creatividad y lealtad de fandom.', 'Según el contexto puede sugerir lujo, misterio o gusto artístico.', 'En ciertos casos también alude a la condecoración Purple Heart.']
+    },
+    usageIdeas: {
+      en: ['Use it in fan communities, music edits, or glamorous branding.', 'Pair it with ✨ when you want a regal or dreamy finish.', 'Works well for posts that need admiration more than romance.'],
+      zh: ['适合饭圈应援、音乐剪辑或带一点华丽感的品牌内容。', '和 ✨ 搭配时，会更有王室或梦幻气质。', '适合表达欣赏、敬意，而不只是恋爱意味。'],
+      es: ['Úsalo en comunidades de fandom, edits musicales o branding glamuroso.', 'Con ✨ consigue un acabado más regio o soñador.', 'Va muy bien en posts que buscan admiración más que romance.']
+    },
+    combos: ['💜✨🎤', '💜🫶💜', '💜👑✨']
+  },
+  'heart-exclamation': {
+    slug: 'heart-exclamation',
+    aliases: {
+      en: ['heart exclamation emoji', 'heart punctuation emoji', 'red heart exclamation'],
+      zh: ['爱心惊叹号', '感叹爱心 emoji', '爱心标点'],
+      es: ['emoji corazón exclamación', 'signo de exclamación corazón', 'corazón con exclamación']
+    },
+    meaningBullets: {
+      en: ['Adds loving emphasis, urgency, or excited punctuation.', 'Feels more expressive than a plain exclamation point and sharper than a full heart.', 'Often used in announcements, shout-outs, and playful hype.'],
+      zh: ['像是把爱意和惊叹号合在一起。', '比普通感叹号更有感情，也比完整爱心更像一句强调。', '常用于公告、打 call、热情提醒与夸夸。'],
+      es: ['Une cariño con énfasis y un toque de urgencia o entusiasmo.', 'Se siente más expresivo que un signo de exclamación normal y más directo que un corazón completo.', 'Se usa mucho en anuncios, shout-outs y mensajes de hype.']
+    },
+    usageIdeas: {
+      en: ['Use it in captions where you want affection plus emphasis.', 'Great for concert reactions, launch announcements, or friend shout-outs.', 'Pair it with ❤️ or ✨ to make short lines pop harder.'],
+      zh: ['适合想表达“有爱又很激动”的短句。', '演出应援、新品宣布、朋友夸夸都很好用。', '和 ❤️、✨ 搭配时，短标题会更有冲击。'],
+      es: ['Úsalo cuando quieras cariño y énfasis al mismo tiempo.', 'Funciona muy bien en reacciones a conciertos, lanzamientos o shout-outs.', 'Con ❤️ o ✨ hace que las frases cortas destaquen mucho más.']
+    },
+    combos: ['❣️❣️❣️', '❣️✨📣', '❤️❣️💥']
+  },
+  'star-struck-heart': {
+    slug: 'star-struck-heart',
+    aliases: {
+      en: ['star struck emoji', 'dazzled heart eyes emoji', 'wow love emoji'],
+      zh: ['星星爱心眼', '惊艳爱心表情', '超爱 wow 表情'],
+      es: ['emoji deslumbrado enamorado', 'emoji wow corazón', 'cara fascinada con amor']
+    },
+    meaningBullets: {
+      en: ['Shows dazzled excitement when something feels bigger than a normal crush reaction.', 'Works for performances, viral drops, and moments that feel unreal.', 'Feels louder and more spectacle-driven than 😍 or 🥰.'],
+      zh: ['表示被惊艳到、震撼到的喜欢。', '很适合演出、爆款发布或“太夸张了吧”的瞬间。', '比 😍、🥰 都更偏舞台感与 spectacle。'],
+      es: ['Muestra emoción deslumbrada cuando algo supera la típica reacción de crush.', 'Sirve para actuaciones, lanzamientos virales y momentos casi irreales.', 'Suena más ruidoso y espectacular que 😍 o 🥰.']
+    },
+    usageIdeas: {
+      en: ['Use it for stage photos, luxury reveals, and “I cannot believe this” replies.', 'Pair it with ✨ or 🔥 for full hype energy.', 'Great in fandom posts when admiration becomes awe.'],
+      zh: ['适合舞台照、奢华发布与“我不敢相信”的回复。', '和 ✨、🔥 一起用，会更有爆发感。', '在饭圈语境里，特别适合从喜欢升级到惊叹。'],
+      es: ['Úsalo en fotos de escenario, reveals de lujo y respuestas tipo “no me lo creo”.', 'Con ✨ o 🔥 consigue una energía de hype total.', 'Va genial en fandoms cuando la admiración se vuelve asombro.']
+    },
+    combos: ['🤩💖', '🤩✨🔥', '🤩💫🩷']
+  },
   'heart-outline': {
     slug: 'heart-outline',
     aliases: {
