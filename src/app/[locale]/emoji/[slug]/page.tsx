@@ -120,11 +120,18 @@ export default function EmojiDetailPage({ params }: EmojiPageProps) {
   };
   const spanishSearchLinks: Partial<Record<string, Array<{ href: string; label: string }>>> = {
     'red-heart': [
+      { href: '/es/copiar/corazones-para-copiar-y-pegar', label: 'Corazones para copiar y pegar' },
       { href: '/es/copiar/1000-corazones-para-copiar-y-pegar', label: '1000 corazones para copiar y pegar' },
       { href: '/es/copiar/corazones-para-whatsapp', label: 'Corazones para WhatsApp' }
     ],
-    'pink-heart': [{ href: '/es/copiar/corazones-para-whatsapp', label: 'Corazones para WhatsApp' }],
-    'white-heart': [{ href: '/es/copiar/corazones-para-whatsapp', label: 'Corazones para WhatsApp' }]
+    'pink-heart': [
+      { href: '/es/copiar/corazones-para-copiar-y-pegar', label: 'Corazones para copiar y pegar' },
+      { href: '/es/copiar/corazones-para-whatsapp', label: 'Corazones para WhatsApp' }
+    ],
+    'white-heart': [
+      { href: '/es/copiar/corazones-para-copiar-y-pegar', label: 'Corazones para copiar y pegar' },
+      { href: '/es/copiar/corazones-para-whatsapp', label: 'Corazones para WhatsApp' }
+    ]
   };
   const prioritySpanishLinks = locale === 'es' ? spanishSearchLinks[emoji.slug] ?? [] : [];
 

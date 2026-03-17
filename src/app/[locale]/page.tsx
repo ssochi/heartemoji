@@ -195,18 +195,17 @@ export default function LocaleHomePage({ params }: LocaleHomePageProps) {
               Páginas que ya están captando búsquedas en español
             </h2>
             <p className="section-copy">
-              Accesos rápidos a dos consultas con intención alta: cadenas largas para copiar y corazones listos
-              para WhatsApp.
+              Accesos rápidos a la página hub principal y a la cadena larga que ya está trayendo clics.
             </p>
           </div>
           <div className="search-related-grid">
+            <Link href="/es/copiar/corazones-para-copiar-y-pegar" className="search-related-card">
+              <strong>Corazones para copiar y pegar</strong>
+              <span>La página principal para comparar estilos, símbolos y longitudes en español.</span>
+            </Link>
             <Link href="/es/copiar/1000-corazones-para-copiar-y-pegar" className="search-related-card">
               <strong>1000 corazones para copiar y pegar</strong>
               <span>Copia bloques largos para WhatsApp, Instagram, TikTok y comentarios.</span>
-            </Link>
-            <Link href="/es/copiar/corazones-para-whatsapp" className="search-related-card">
-              <strong>Corazones para WhatsApp</strong>
-              <span>Combos para mensajes, estados, grupos y biografías dentro de WhatsApp.</span>
             </Link>
           </div>
         </section>

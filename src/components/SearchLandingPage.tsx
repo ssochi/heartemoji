@@ -10,7 +10,7 @@ export function SearchLandingPage({ page }: SearchLandingPageProps) {
   return (
     <div className="page-layout search-landing">
       <header className="page-hero search-landing-hero">
-        <span className="section-kicker">SEO Landing</span>
+        <span className="section-kicker">Copiar y pegar</span>
         <h1>{page.h1}</h1>
         {page.intro.map((paragraph) => (
           <p key={paragraph}>{paragraph}</p>

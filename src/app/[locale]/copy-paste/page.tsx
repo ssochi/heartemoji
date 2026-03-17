@@ -83,10 +83,23 @@ export default function CopyPage({ params }: CopyPageProps) {
               Búsquedas populares en español
             </h2>
             <p className="section-copy">
-              Estas dos páginas responden consultas reales con intención clara de copiar y pegar.
+              Estas páginas responden consultas reales con intención clara de copiar y pegar, desde el término
+              genérico hasta longitudes concretas.
             </p>
           </div>
           <div className="search-related-grid">
+            <Link href="/es/copiar/corazones-para-copiar-y-pegar" className="search-related-card">
+              <strong>Corazones para copiar y pegar</strong>
+              <span>El hub principal para estilos, símbolos, longitudes y rutas rápidas.</span>
+            </Link>
+            <Link href="/es/copiar/100-corazones-para-copiar-y-pegar" className="search-related-card">
+              <strong>100 corazones para copiar y pegar</strong>
+              <span>Una versión corta, ligera y práctica para chats, estados y comentarios.</span>
+            </Link>
+            <Link href="/es/copiar/500-corazones-para-copiar-y-pegar" className="search-related-card">
+              <strong>500 corazones para copiar y pegar</strong>
+              <span>Una cadena intermedia que ya encaja mejor en estados y captions largos.</span>
+            </Link>
             <Link href="/es/copiar/1000-corazones-para-copiar-y-pegar" className="search-related-card">
               <strong>1000 corazones para copiar y pegar</strong>
               <span>Bloques largos listos para mensajes, publicaciones y comentarios.</span>

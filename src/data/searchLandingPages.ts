@@ -44,6 +44,18 @@ function spacedPattern(sequence: string[], count: number) {
   return Array.from({ length: count }, (_, index) => sequence[index % sequence.length]).join('');
 }
 
+const red100 = repeatEmoji('❤️', 100);
+const pink100 = repeatEmoji('🩷', 100);
+const sparkle100 = repeatEmoji('💖', 100);
+const black100 = repeatEmoji('🖤', 100);
+const mixed100 = spacedPattern(['❤️', '🩷', '💖', '💕', '💞'], 100);
+
+const red500 = repeatEmoji('❤️', 500);
+const pink500 = repeatEmoji('🩷', 500);
+const sparkle500 = repeatEmoji('💖', 500);
+const black500 = repeatEmoji('🖤', 500);
+const mixed500 = spacedPattern(['❤️', '🩷', '💖', '💕', '💞'], 500);
+
 const red1000 = repeatEmoji('❤️', 1000);
 const pink1000 = repeatEmoji('🩷', 1000);
 const sparkle1000 = repeatEmoji('💖', 1000);
@@ -53,21 +65,375 @@ const mixed1000 = spacedPattern(['❤️', '🩷', '💖', '💕', '💞'], 1000
 
 export const SEARCH_LANDING_PAGES: SearchLandingPageEntry[] = [
   {
-    slug: '1000-corazones-para-copiar-y-pegar',
-    title: '1000 corazones para copiar y pegar',
+    slug: 'corazones-para-copiar-y-pegar',
+    title: 'Corazones para copiar y pegar',
     description:
-      'Copia 1000 corazones para WhatsApp, Instagram, TikTok o mensajes largos. Encuentra versiones en rojo, rosa, negro y mezclas listas para pegar.',
+      'Encuentra corazones para copiar y pegar en WhatsApp, Instagram y redes: bonitos, aesthetic, minimalistas, románticos y listos para usar.',
+    h1: 'Corazones para copiar y pegar',
+    intro: [
+      'Aquí tienes una selección de corazones para copiar y pegar sin perder tiempo buscando combinaciones que sí se vean bien en WhatsApp, Instagram, TikTok o en tus publicaciones.',
+      'Esta página funciona como hub principal: reúne corazones clásicos, bonitos, minimalistas y aesthetic, y además te lleva a versiones específicas de 100, 500, 1000 corazones y a la guía para WhatsApp.'
+    ],
+    heroHighlights: ['WhatsApp', 'Instagram', 'TikTok', 'Bonitos', 'Aesthetic', 'Símbolos'],
+    sections: [
+      {
+        id: 'corazones-mas-usados',
+        eyebrow: 'Lo más copiado',
+        title: 'Corazones más usados para copiar al instante',
+        description:
+          'Estos bloques cubren la mayoría de usos rápidos: respuestas románticas, publicaciones suaves, mensajes amistosos y estados visuales.',
+        snippets: [
+          {
+            title: 'Clásicos',
+            value: '❤️ ❤️❤️ ❤️❤️❤️',
+            description: 'La versión más reconocible para amor, agradecimiento y mensajes directos.'
+          },
+          {
+            title: 'Bonitos y suaves',
+            value: '🩷💖💕💞',
+            description: 'Encajan bien en mensajes tiernos, estados cute o publicaciones románticas.'
+          },
+          {
+            title: 'Amistad y apoyo',
+            value: '💛💚🩵💙',
+            description: 'Funcionan mejor cuando quieres cariño sin que suene demasiado romántico.'
+          },
+          {
+            title: 'Minimalistas',
+            value: '♡ ♡ ♡',
+            description: 'Ideales para nombres, bios o estados con estilo más limpio.'
+          },
+          {
+            title: 'Dark aesthetic',
+            value: '🖤🩶🤍',
+            description: 'Útiles para un look sobrio, elegante o más visual.'
+          },
+          {
+            title: 'Corazón símbolo',
+            value: '♥︎ ♡ ❣︎ ❤',
+            description: 'Combinación de símbolos y corazones que también sirve para texto puro.'
+          }
+        ]
+      },
+      {
+        id: 'por-estilo',
+        eyebrow: 'Por estilo',
+        title: 'Corazones para copiar según el estilo que buscas',
+        description:
+          'Si no solo quieres un corazón cualquiera, sino una estética concreta, estas combinaciones te ayudan a elegir más rápido.',
+        snippets: [
+          {
+            title: 'Románticos',
+            value: '❤️💋💌💕',
+            description: 'Pensados para pareja, aniversarios y respuestas con intención clara.'
+          },
+          {
+            title: 'Bonitos',
+            value: '🩷🌷💖✨',
+            description: 'Más dulces, decorativos y cercanos al tono “cute”.'
+          },
+          {
+            title: 'Aesthetic',
+            value: '🤍🩶🖤 ✧',
+            description: 'Una mezcla limpia y visual para captions, bios o estados.'
+          },
+          {
+            title: 'Coloridos',
+            value: '❤️🧡💛💚💙💜',
+            description: 'Más energía y presencia visual para posts o comentarios.'
+          }
+        ]
+      },
+      {
+        id: 'atajos-especificos',
+        eyebrow: 'Atajos',
+        title: 'Ve directo a la versión que necesitas',
+        description:
+          'Si ya sabes cuántos corazones quieres o si los necesitas para una app concreta, estas rutas te llevan a páginas más específicas.',
+        bullets: [
+          '100 corazones para copiar y pegar si buscas una cadena más corta y ligera.',
+          '500 corazones para copiar y pegar si quieres impacto sin llenar tanto la pantalla.',
+          '1000 corazones para copiar y pegar si buscas una pared visual para comentarios, estados o fans.',
+          'Corazones para WhatsApp si quieres bloques pensados para chats, estados y grupos.'
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: '¿Dónde puedo usar estos corazones para copiar y pegar?',
+        answer:
+          'Puedes pegarlos en WhatsApp, Instagram, TikTok, comentarios, estados, nombres decorativos, bios o cualquier app que acepte emojis o símbolos.'
+      },
+      {
+        question: '¿Qué corazones son mejores para WhatsApp?',
+        answer:
+          'Para WhatsApp suelen funcionar muy bien los bloques cortos y claros. Si buscas algo específico para chats, estados o grupos, conviene abrir la página de corazones para WhatsApp.'
+      },
+      {
+        question: '¿Qué diferencia hay entre corazones bonitos, aesthetic y minimalistas?',
+        answer:
+          'Los corazones bonitos suelen ser más tiernos y coloridos, los aesthetic buscan una combinación visual concreta y los minimalistas usan menos elementos para verse más limpios.'
+      },
+      {
+        question: '¿Puedo copiar un solo corazón símbolo y no una cadena completa?',
+        answer:
+          'Sí. Esta página incluye tanto cadenas como símbolos sueltos, por ejemplo ♥︎, ♡, ❣︎ o ❤, para que elijas según el contexto.'
+      },
+      {
+        question: '¿Esta página es distinta de la biblioteca general de copy paste?',
+        answer:
+          'Sí. La biblioteca general reúne packs y herramientas; esta página está enfocada en la consulta directa “corazones para copiar y pegar” y te da atajos rápidos según longitud o uso.'
+      }
+    ],
+    relatedLinks: [
+      {
+        href: '/es/copiar/100-corazones-para-copiar-y-pegar',
+        label: '100 corazones para copiar y pegar',
+        description: 'Versión corta y fácil de usar en mensajes, estados y comentarios.'
+      },
+      {
+        href: '/es/copiar/500-corazones-para-copiar-y-pegar',
+        label: '500 corazones para copiar y pegar',
+        description: 'Una cadena intermedia para más impacto sin llegar a 1000.'
+      },
+      {
+        href: '/es/copiar/1000-corazones-para-copiar-y-pegar',
+        label: '1000 corazones para copiar y pegar',
+        description: 'La versión larga que ya está captando clics y búsquedas en español.'
+      },
+      {
+        href: '/es/copiar/corazones-para-whatsapp',
+        label: 'Corazones para WhatsApp',
+        description: 'Combos pensados para mensajes, grupos, estados y perfiles.'
+      }
+    ]
+  },
+  {
+    slug: '100-corazones-para-copiar-y-pegar',
+    title: '100 corazones para copiar y pegar',
+    description:
+      'Copia 100 corazones para WhatsApp, estados, comentarios y mensajes. Versiones rojas, rosas, brillantes, negras y mezcladas listas para pegar.',
+    h1: '100 corazones para copiar y pegar',
+    intro: [
+      'Si 1000 corazones te parecen demasiado, esta versión corta es más práctica para chats, estados y comentarios que necesitan verse bonitos sin ocupar toda la pantalla.',
+      'Aquí tienes bloques de 100 corazones en varios estilos para que copies justo la intensidad que necesitas: romántica, cute, brillante, oscura o mezclada.'
+    ],
+    heroHighlights: ['Mensajes', 'Estados', 'Comentarios', 'Corto', 'Ligero', 'WhatsApp'],
+    sections: [
+      {
+        id: 'bloques-100',
+        eyebrow: 'Listos para pegar',
+        title: 'Bloques de 100 corazones más útiles',
+        description:
+          'Estas versiones son lo bastante largas para verse visuales, pero siguen siendo cómodas para chats, captions y respuestas rápidas.',
+        snippets: [
+          {
+            title: '100 corazones rojos',
+            value: red100,
+            description: 'La versión más directa para amor, celebración o respuestas enfáticas.'
+          },
+          {
+            title: '100 corazones rosas',
+            value: pink100,
+            description: 'Más suave y dulce; ideal para un tono cercano o tierno.'
+          },
+          {
+            title: '100 corazones brillantes',
+            value: sparkle100,
+            description: 'Añade más energía visual a captions, respuestas o publicaciones.'
+          },
+          {
+            title: '100 corazones negros',
+            value: black100,
+            description: 'Mejor para estilos sobrios, dark o combinaciones aesthetic.'
+          },
+          {
+            title: '100 corazones mezclados',
+            value: mixed100,
+            description: 'Combina varios estilos para que la cadena no se vea plana.'
+          }
+        ]
+      },
+      {
+        id: 'cuando-usar-100',
+        eyebrow: 'Uso recomendado',
+        title: 'Cuándo conviene usar 100 corazones y no 500 o 1000',
+        description:
+          'La versión de 100 suele verse mejor cuando el espacio es más limitado o cuando quieres acompañar una frase sin que el bloque se convierta en el único protagonista.',
+        bullets: [
+          'Mensajes de WhatsApp donde buscas un gesto visual claro, pero todavía legible.',
+          'Estados cortos o captions donde una cadena larga sería excesiva.',
+          'Comentarios rápidos en TikTok o Instagram cuando quieres responder con energía.',
+          'Firmas decorativas o pruebas visuales antes de usar una cadena más larga.'
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: '¿100 corazones se ven bien en WhatsApp?',
+        answer:
+          'Sí. De hecho, 100 corazones suelen ser más cómodos para WhatsApp que bloques mucho más largos, porque siguen teniendo impacto visual sin saturar tanto el chat.'
+      },
+      {
+        question: '¿Qué diferencia hay entre 100 corazones y 500 corazones?',
+        answer:
+          '100 corazones son más prácticos y ligeros para mensajes cortos. 500 corazones ya producen un efecto visual mucho más grande y ocupan bastante más espacio.'
+      },
+      {
+        question: '¿Puedo usar 100 corazones en estados o comentarios?',
+        answer:
+          'Sí. Son una buena opción para estados, captions y comentarios porque equilibran visibilidad con legibilidad.'
+      },
+      {
+        question: '¿Qué color de corazón conviene más para esta longitud?',
+        answer:
+          'Depende del tono. Rojo para amor clásico, rosa para ternura, negro para un look sobrio y mezclado si quieres algo más llamativo.'
+      }
+    ],
+    relatedLinks: [
+      {
+        href: '/es/copiar/corazones-para-copiar-y-pegar',
+        label: 'Corazones para copiar y pegar',
+        description: 'Vuelve al hub principal y compara estilos y usos.'
+      },
+      {
+        href: '/es/copiar/500-corazones-para-copiar-y-pegar',
+        label: '500 corazones para copiar y pegar',
+        description: 'Sube de intensidad con una cadena más larga.'
+      },
+      {
+        href: '/es/copiar/1000-corazones-para-copiar-y-pegar',
+        label: '1000 corazones para copiar y pegar',
+        description: 'La versión completa para impactos visuales más fuertes.'
+      },
+      {
+        href: '/es/copiar/corazones-para-whatsapp',
+        label: 'Corazones para WhatsApp',
+        description: 'Bloques pensados directamente para chats, estados y grupos.'
+      }
+    ]
+  },
+  {
+    slug: '500-corazones-para-copiar-y-pegar',
+    title: '500 corazones para copiar y pegar',
+    description:
+      'Copia 500 corazones para WhatsApp, TikTok, Instagram y comentarios largos. Versiones rojas, rosas, brillantes, negras y mezcladas listas para usar.',
+    h1: '500 corazones para copiar y pegar',
+    intro: [
+      '500 corazones son un punto medio perfecto cuando 100 se sienten pocos y 1000 ya ocupan demasiado. Esta longitud funciona muy bien en publicaciones, comentarios largos y estados llamativos.',
+      'Preparamos varias versiones para que copies cadenas medianas con más presencia visual: románticas, suaves, brillantes, oscuras o mezcladas.'
+    ],
+    heroHighlights: ['WhatsApp', 'TikTok', 'Instagram', 'Comentarios', 'Estados', 'Impacto medio'],
+    sections: [
+      {
+        id: 'bloques-500',
+        eyebrow: 'Impacto visual',
+        title: 'Bloques de 500 corazones listos para copiar',
+        description:
+          'Estas cadenas medianas mantienen el efecto visual de una pared de corazones, pero resultan más manejables que una versión de 1000.',
+        snippets: [
+          {
+            title: '500 corazones rojos',
+            value: red500,
+            description: 'La opción clásica para mensajes intensos, respuestas y publicaciones emotivas.'
+          },
+          {
+            title: '500 corazones rosas',
+            value: pink500,
+            description: 'Más suave y romántica; se ve muy bien en estados o textos cute.'
+          },
+          {
+            title: '500 corazones brillantes',
+            value: sparkle500,
+            description: 'Ideal para un toque más decorativo en TikTok o Instagram.'
+          },
+          {
+            title: '500 corazones negros',
+            value: black500,
+            description: 'Una cadena más sobria para estilos dark o aesthetic.'
+          },
+          {
+            title: '500 corazones mezclados',
+            value: mixed500,
+            description: 'Aporta variedad visual sin llegar a ser una pared tan extensa como la de 1000.'
+          }
+        ]
+      },
+      {
+        id: 'donde-queda-mejor',
+        eyebrow: 'Cuándo usarlo',
+        title: 'Dónde se ve mejor una cadena de 500 corazones',
+        description:
+          'Si buscas equilibrio entre impacto visual y practicidad, 500 corazones encajan muy bien en estos escenarios.',
+        bullets: [
+          'Comentarios largos en TikTok o Instagram cuando quieres que la respuesta destaque.',
+          'Estados con tono romántico o celebratorio donde 1000 sería demasiado largo.',
+          'Mensajes especiales en WhatsApp cuando quieres exagerar un poco sin ocupar todo el chat.',
+          'Publicaciones de fandom, cumpleaños o aniversarios donde una cadena media luce mejor.'
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: '¿500 corazones sirven para WhatsApp?',
+        answer:
+          'Sí. Funcionan bien en chats y estados si quieres un bloque llamativo, aunque siguen ocupando bastante espacio. Son un buen punto medio entre 100 y 1000.'
+      },
+      {
+        question: '¿500 corazones son mejores que 1000 para comentarios?',
+        answer:
+          'En muchos casos sí, porque mantienen un efecto visual fuerte pero resultan más fáciles de leer y menos excesivos dentro de un comentario.'
+      },
+      {
+        question: '¿Cuál es la ventaja de 500 corazones frente a 100?',
+        answer:
+          '500 corazones tienen más presencia y llaman más la atención. 100 corazones son más ligeros; 500 ya generan una pared visual mucho más clara.'
+      },
+      {
+        question: '¿Puedo copiar solo una parte del bloque de 500?',
+        answer:
+          'Sí. Aunque el bloque completo ya viene listo, puedes pegarlo y recortar la cantidad si necesitas una longitud intermedia.'
+      }
+    ],
+    relatedLinks: [
+      {
+        href: '/es/copiar/corazones-para-copiar-y-pegar',
+        label: 'Corazones para copiar y pegar',
+        description: 'Compara esta longitud con el hub general y otros estilos.'
+      },
+      {
+        href: '/es/copiar/100-corazones-para-copiar-y-pegar',
+        label: '100 corazones para copiar y pegar',
+        description: 'Una alternativa más corta y ligera para chats rápidos.'
+      },
+      {
+        href: '/es/copiar/1000-corazones-para-copiar-y-pegar',
+        label: '1000 corazones para copiar y pegar',
+        description: 'La versión larga para un efecto todavía más extremo.'
+      },
+      {
+        href: '/es/copiar/corazones-para-whatsapp',
+        label: 'Corazones para WhatsApp',
+        description: 'Más opciones por tipo de uso dentro de WhatsApp.'
+      }
+    ]
+  },
+  {
+    slug: '1000-corazones-para-copiar-y-pegar',
+    title: '1000 corazones para copiar y pegar en WhatsApp',
+    description:
+      'Copia 1000 corazones para copiar y pegar en WhatsApp, Instagram o TikTok. También cubre la búsqueda “mil corazones para copiar y pegar” con versiones listas para usar.',
     h1: '1000 corazones para copiar y pegar',
     intro: [
-      'Si necesitas una cadena larga de corazones para sorprender en WhatsApp, decorar una publicación o llenar un comentario especial, aquí tienes versiones listas para copiar al instante.',
+      'Si buscas 1000 corazones para copiar y pegar en WhatsApp o incluso “mil corazones para copiar y pegar”, esta página reúne las versiones más útiles para mensajes largos, publicaciones y comentarios que quieren causar impacto.',
       'Preparamos opciones en rojo, rosa, brillante, negro y multicolor para que no tengas que generar nada manualmente. Solo toca el bloque que te guste y pégalo donde quieras.'
     ],
-    heroHighlights: ['WhatsApp', 'Instagram', 'TikTok', 'Estados', 'Comentarios', 'Nombres decorativos'],
+    heroHighlights: ['WhatsApp', 'Instagram', 'TikTok', 'Mil corazones', 'Estados', 'Comentarios'],
     sections: [
       {
         id: 'bloques-principales',
         eyebrow: 'Copiar al instante',
-        title: 'Bloques de 1000 corazones listos para pegar',
+        title: '1000 corazones para copiar y pegar en WhatsApp y redes',
         description:
           'Estas son las versiones más buscadas. Cada bloque tiene 1000 corazones completos y funciona bien para mensajes largos, estados, comentarios o composiciones visuales.',
         snippets: [
@@ -108,11 +474,11 @@ export const SEARCH_LANDING_PAGES: SearchLandingPageEntry[] = [
         eyebrow: 'Versiones cortas',
         title: 'Variantes por cantidad para no saturar el mensaje',
         description:
-          'No siempre necesitas una cadena de 1000. Estas versiones cortas son útiles cuando el espacio es limitado o quieres una intensidad más moderada.',
+          'No siempre necesitas una cadena de 1000 o mil corazones. Estas versiones cortas son útiles cuando el espacio es limitado o quieres una intensidad más moderada.',
         snippets: [
           {
             title: '100 corazones',
-            value: repeatEmoji('❤️', 100),
+            value: red100,
             description: 'Buena opción para un mensaje corto o una respuesta visual que no se vea excesiva.'
           },
           {
@@ -122,7 +488,7 @@ export const SEARCH_LANDING_PAGES: SearchLandingPageEntry[] = [
           },
           {
             title: '500 corazones',
-            value: repeatEmoji('❤️', 500),
+            value: red500,
             description: 'Un punto medio útil para TikTok, Instagram o publicaciones de fans.'
           },
           {
@@ -153,9 +519,14 @@ export const SEARCH_LANDING_PAGES: SearchLandingPageEntry[] = [
           'Solo pulsa el botón de copiar en cualquiera de los bloques. El texto se guarda en tu portapapeles y luego puedes abrir WhatsApp y pegarlo en un chat, estado o grupo.'
       },
       {
-        question: '¿1000 corazones funcionan en WhatsApp, Instagram y TikTok?',
+        question: '¿Mil corazones para copiar y pegar es lo mismo que 1000 corazones?',
         answer:
-          'Sí, pero el resultado visual puede variar según la app y el dispositivo. WhatsApp y la mayoría de redes los muestran bien, aunque una cadena tan larga puede ocupar mucho espacio en pantalla.'
+          'Sí. La búsqueda “mil corazones para copiar y pegar” apunta a la misma intención que “1000 corazones para copiar y pegar”, así que aquí encontrarás ambas variantes resueltas en una sola página.'
+      },
+      {
+        question: '¿1000 corazones para copiar y pegar en WhatsApp funcionan bien?',
+        answer:
+          'Sí, aunque una cadena tan larga ocupa bastante espacio. Funciona mejor en mensajes muy visuales, estados llamativos o publicaciones donde quieres un efecto exagerado.'
       },
       {
         question: '¿Por qué algunos corazones se ven diferente en iPhone y Android?',
@@ -175,24 +546,24 @@ export const SEARCH_LANDING_PAGES: SearchLandingPageEntry[] = [
     ],
     relatedLinks: [
       {
-        href: '/es/copy-paste',
-        label: 'Más packs de corazones para copiar',
-        description: 'Explora más combinaciones listas para pegar.'
+        href: '/es/copiar/corazones-para-copiar-y-pegar',
+        label: 'Corazones para copiar y pegar',
+        description: 'El hub principal para comparar estilos, símbolos y longitudes.'
       },
       {
-        href: '/es/generator/1000',
-        label: 'Generador de 1000 corazones',
-        description: 'Crea tu propia versión larga con otro estilo de corazón.'
+        href: '/es/copiar/100-corazones-para-copiar-y-pegar',
+        label: '100 corazones para copiar y pegar',
+        description: 'La versión más corta y práctica para mensajes rápidos.'
       },
       {
-        href: '/es/emoji/red-heart',
-        label: 'Significado del corazón rojo',
-        description: 'Consulta cuándo usar el corazón rojo clásico.'
+        href: '/es/copiar/500-corazones-para-copiar-y-pegar',
+        label: '500 corazones para copiar y pegar',
+        description: 'Una cadena intermedia para estados, comentarios y captions.'
       },
       {
-        href: '/es/text-art',
-        label: 'Corazones de texto y ASCII',
-        description: 'Opciones para bios, nombres y publicaciones sin emoji gráfico.'
+        href: '/es/copiar/corazones-para-whatsapp',
+        label: 'Corazones para WhatsApp',
+        description: 'Combos específicos para chats, estados, grupos y perfiles.'
       }
     ]
   },
@@ -371,6 +742,16 @@ export const SEARCH_LANDING_PAGES: SearchLandingPageEntry[] = [
     ],
     relatedLinks: [
       {
+        href: '/es/copiar/corazones-para-copiar-y-pegar',
+        label: 'Corazones para copiar y pegar',
+        description: 'Compara esta guía específica con el hub principal de corazones.'
+      },
+      {
+        href: '/es/copiar/100-corazones-para-copiar-y-pegar',
+        label: '100 corazones para copiar y pegar',
+        description: 'Versión corta para chats y estados donde menos es más.'
+      },
+      {
         href: '/es/emoji/pink-heart',
         label: 'Significado del corazón rosa',
         description: 'Cuándo usarlo en chats tiernos, crushes y mensajes suaves.'
@@ -379,16 +760,6 @@ export const SEARCH_LANDING_PAGES: SearchLandingPageEntry[] = [
         href: '/es/emoji/white-heart',
         label: 'Significado del corazón blanco',
         description: 'Una opción limpia y minimalista para estados o perfiles.'
-      },
-      {
-        href: '/es/copy-paste',
-        label: 'Biblioteca completa para copiar y pegar',
-        description: 'Más paquetes y combinaciones listas para WhatsApp y redes.'
-      },
-      {
-        href: '/es/text-art',
-        label: 'Símbolos y corazones de texto',
-        description: 'Perfectos para bios, nombres o estados con menos saturación visual.'
       }
     ]
   }
