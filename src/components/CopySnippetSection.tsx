@@ -3,9 +3,11 @@ import { CopySnippetCard } from './CopySnippetCard';
 
 interface CopySnippetSectionProps {
   section: SearchLandingSection;
+  copyLabel: string;
+  copiedLabel: string;
 }
 
-export function CopySnippetSection({ section }: CopySnippetSectionProps) {
+export function CopySnippetSection({ section, copyLabel, copiedLabel }: CopySnippetSectionProps) {
   return (
     <section className="search-landing-section" aria-labelledby={section.id}>
       <div className="section-intro">
@@ -19,7 +21,12 @@ export function CopySnippetSection({ section }: CopySnippetSectionProps) {
       {section.snippets?.length ? (
         <div className="snippet-grid">
           {section.snippets.map((snippet) => (
-            <CopySnippetCard key={`${section.id}-${snippet.title}`} snippet={snippet} />
+            <CopySnippetCard
+              key={`${section.id}-${snippet.title}`}
+              snippet={snippet}
+              copyLabel={copyLabel}
+              copiedLabel={copiedLabel}
+            />
           ))}
         </div>
       ) : null}

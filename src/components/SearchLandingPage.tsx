@@ -1,21 +1,66 @@
 import Link from 'next/link';
 import type { SearchLandingPageEntry } from '@/data/searchLandingPages';
+import type { Locale } from '@/lib/i18n';
 import { CopySnippetSection } from './CopySnippetSection';
 
 interface SearchLandingPageProps {
   page: SearchLandingPageEntry;
+  locale: Locale;
 }
 
-export function SearchLandingPage({ page }: SearchLandingPageProps) {
+const landingUiCopy: Record<
+  Locale,
+  {
+    heroKicker: string;
+    heroPillsLabel: string;
+    faqHeading: string;
+    relatedKicker: string;
+    relatedHeading: string;
+    copyLabel: string;
+    copiedLabel: string;
+  }
+> = {
+  en: {
+    heroKicker: 'Copy and paste',
+    heroPillsLabel: 'Top use cases',
+    faqHeading: 'Frequently asked questions',
+    relatedKicker: 'Keep exploring',
+    relatedHeading: 'Related pages',
+    copyLabel: 'Copy',
+    copiedLabel: 'Copied'
+  },
+  zh: {
+    heroKicker: '复制与粘贴',
+    heroPillsLabel: '高频用途',
+    faqHeading: '常见问题',
+    relatedKicker: '继续浏览',
+    relatedHeading: '相关页面',
+    copyLabel: '复制',
+    copiedLabel: '已复制'
+  },
+  es: {
+    heroKicker: 'Copiar y pegar',
+    heroPillsLabel: 'Usos destacados',
+    faqHeading: 'Preguntas frecuentes',
+    relatedKicker: 'Sigue explorando',
+    relatedHeading: 'Enlaces relacionados',
+    copyLabel: 'Copiar',
+    copiedLabel: 'Copiado'
+  }
+};
+
+export function SearchLandingPage({ page, locale }: SearchLandingPageProps) {
+  const labels = landingUiCopy[locale];
+
   return (
     <div className="page-layout search-landing">
       <header className="page-hero search-landing-hero">
-        <span className="section-kicker">Copiar y pegar</span>
+        <span className="section-kicker">{labels.heroKicker}</span>
         <h1>{page.h1}</h1>
         {page.intro.map((paragraph) => (
           <p key={paragraph}>{paragraph}</p>
         ))}
-        <ul className="hero-pill-list" aria-label="Usos destacados">
+        <ul className="hero-pill-list" aria-label={labels.heroPillsLabel}>
           {page.heroHighlights.map((item) => (
             <li key={item} className="hero-pill">
               {item}
@@ -25,14 +70,19 @@ export function SearchLandingPage({ page }: SearchLandingPageProps) {
       </header>
 
       {page.sections.map((section) => (
-        <CopySnippetSection key={section.id} section={section} />
+        <CopySnippetSection
+          key={section.id}
+          section={section}
+          copyLabel={labels.copyLabel}
+          copiedLabel={labels.copiedLabel}
+        />
       ))}
 
       <section className="section-frame section-frame--faq" aria-labelledby="search-landing-faq">
         <div className="section-intro">
           <span className="section-kicker">FAQ</span>
           <h2 className="section-heading" id="search-landing-faq">
-            Preguntas frecuentes
+            {labels.faqHeading}
           </h2>
         </div>
         <div className="faq-accordion">
@@ -54,9 +104,9 @@ export function SearchLandingPage({ page }: SearchLandingPageProps) {
 
       <section className="section-frame section-frame--soft" aria-labelledby="search-landing-related">
         <div className="section-intro">
-          <span className="section-kicker">Sigue explorando</span>
+          <span className="section-kicker">{labels.relatedKicker}</span>
           <h2 className="section-heading" id="search-landing-related">
-            Enlaces relacionados
+            {labels.relatedHeading}
           </h2>
         </div>
         <div className="search-related-grid">

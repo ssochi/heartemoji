@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { HEART_EMOJIS } from '@/data/emojis';
+import { getSearchLandingCollection } from '@/data/searchLandingCollections';
 import { SEARCH_LANDING_PAGES } from '@/data/searchLandingPages';
 import { getLocalePath, locales } from '@/lib/i18n';
 
@@ -46,6 +47,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
         });
       });
     }
+
+    getSearchLandingCollection(locale).forEach((page) => {
+      entries.push({
+        url: `${prefix}/copy-paste/${page.slug}`,
+        changeFrequency: 'weekly',
+        priority: 0.84
+      });
+    });
   });
 
   return entries;

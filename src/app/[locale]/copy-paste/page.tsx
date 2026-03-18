@@ -3,9 +3,30 @@ import Link from 'next/link';
 import { CopyBundles } from '@/components/CopyBundles';
 import { getDictionary } from '@/data/dictionaries';
 import { COLOR_GUIDE } from '@/data/keywordContent';
+import { getSearchLandingCollection } from '@/data/searchLandingCollections';
 import { buildLanguageAlternates, getLocaleFromParam, locales } from '@/lib/i18n';
 
 const siteUrl = 'https://heartemojis.org';
+
+const searchLandingCopy = {
+  en: {
+    kicker: 'Search intent',
+    heading: 'High-intent heart pages',
+    description:
+      'These pages target specific copy-and-paste jobs such as bios, usernames, platform formatting, and text-style heart symbols.'
+  },
+  zh: {
+    kicker: '搜索入口',
+    heading: '高意图爱心页面',
+    description: '这些页面更贴近真实搜索需求，比如昵称、简介、平台场景和文字版爱心符号。'
+  },
+  es: {
+    kicker: 'Nuevas rutas',
+    heading: 'Páginas de alta intención',
+    description:
+      'Estas rutas responden búsquedas más concretas: bios, nombres, símbolos de texto y estilos visuales más específicos.'
+  }
+} as const;
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -41,6 +62,8 @@ type CopyPageProps = {
 export default function CopyPage({ params }: CopyPageProps) {
   const locale = getLocaleFromParam(params.locale);
   const dictionary = getDictionary(locale);
+  const searchLandingPages = getSearchLandingCollection(locale);
+  const landingCopy = searchLandingCopy[locale];
 
   return (
     <div className="page-layout">
@@ -58,6 +81,26 @@ export default function CopyPage({ params }: CopyPageProps) {
         </h2>
         <CopyBundles dictionary={dictionary} locale={locale} className="bundle-grid bundle-grid--spacious" />
       </section>
+
+      {searchLandingPages.length ? (
+        <section className="section-frame section-frame--soft" aria-labelledby="search-landing-shortcuts">
+          <div className="section-intro">
+            <span className="section-kicker">{landingCopy.kicker}</span>
+            <h2 className="section-heading" id="search-landing-shortcuts">
+              {landingCopy.heading}
+            </h2>
+            <p className="section-copy">{landingCopy.description}</p>
+          </div>
+          <div className="search-related-grid">
+            {searchLandingPages.map((page) => (
+              <Link key={page.slug} href={`/${locale}/copy-paste/${page.slug}`} className="search-related-card">
+                <strong>{page.h1}</strong>
+                <span>{page.description}</span>
+              </Link>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       <section aria-labelledby="color-guide-ref" id="color-guide-ref">
         <h2 className="section-heading" id="color-guide-ref">

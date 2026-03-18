@@ -2,10 +2,11 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { SearchLandingPage } from '@/components/SearchLandingPage';
 import {
-  SEARCH_LANDING_PAGES,
-  getSearchLandingPageBySlug
-} from '@/data/searchLandingPages';
-import { getLocaleFromParam } from '@/lib/i18n';
+  getSearchLandingCollection,
+  getSearchLandingCollectionPage
+} from '@/data/searchLandingCollections';
+import { getDictionary } from '@/data/dictionaries';
+import { getLocaleFromParam, locales, type Locale } from '@/lib/i18n';
 
 const siteUrl = 'https://heartemojis.org';
 
@@ -16,18 +17,26 @@ type SearchLandingRouteProps = {
   };
 };
 
+const openGraphLocaleMap: Record<Locale, string> = {
+  en: 'en_US',
+  zh: 'zh_CN',
+  es: 'es_ES'
+};
+
 export function generateStaticParams() {
-  return SEARCH_LANDING_PAGES.map((page) => ({
-    locale: 'es',
-    slug: page.slug
-  }));
+  return locales.flatMap((locale) =>
+    getSearchLandingCollection(locale).map((page) => ({
+      locale,
+      slug: page.slug
+    }))
+  );
 }
 
 export function generateMetadata({ params }: SearchLandingRouteProps): Metadata {
   const locale = getLocaleFromParam(params.locale);
-  const page = getSearchLandingPageBySlug(params.slug);
+  const page = getSearchLandingCollectionPage(locale, params.slug);
 
-  if (locale !== 'es' || !page) {
+  if (!page) {
     return {
       title: 'Not found',
       robots: {
@@ -37,7 +46,7 @@ export function generateMetadata({ params }: SearchLandingRouteProps): Metadata 
     };
   }
 
-  const canonical = `/es/copiar/${page.slug}`;
+  const canonical = `/${locale}/copy-paste/${page.slug}`;
 
   return {
     title: page.title,
@@ -47,17 +56,13 @@ export function generateMetadata({ params }: SearchLandingRouteProps): Metadata 
       follow: true
     },
     alternates: {
-      canonical,
-      languages: {
-        es: canonical,
-        'x-default': canonical
-      }
+      canonical
     },
     openGraph: {
       title: page.title,
       description: page.description,
       url: `${siteUrl}${canonical}`,
-      locale: 'es_ES',
+      locale: openGraphLocaleMap[locale],
       type: 'article'
     },
     twitter: {
@@ -70,17 +75,18 @@ export function generateMetadata({ params }: SearchLandingRouteProps): Metadata 
 
 export default function SearchLandingRoute({ params }: SearchLandingRouteProps) {
   const locale = getLocaleFromParam(params.locale);
-  const page = getSearchLandingPageBySlug(params.slug);
+  const page = getSearchLandingCollectionPage(locale, params.slug);
 
-  if (locale !== 'es' || !page) {
+  if (!page) {
     notFound();
   }
 
-  const canonical = `/es/copiar/${page.slug}`;
+  const dictionary = getDictionary(locale);
+  const canonical = `/${locale}/copy-paste/${page.slug}`;
   const faqStructuredData = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    inLanguage: 'es',
+    inLanguage: locale,
     mainEntity: page.faqs.map((faq) => ({
       '@type': 'Question',
       name: faq.question,
@@ -97,14 +103,14 @@ export default function SearchLandingRoute({ params }: SearchLandingRouteProps) 
       {
         '@type': 'ListItem',
         position: 1,
-        name: 'Heart Emojis',
-        item: `${siteUrl}/es`
+        name: dictionary.common.nav.home,
+        item: `${siteUrl}/${locale}`
       },
       {
         '@type': 'ListItem',
         position: 2,
-        name: 'Copiar corazones',
-        item: `${siteUrl}/es/copy-paste`
+        name: dictionary.pages.copy.title,
+        item: `${siteUrl}/${locale}/copy-paste`
       },
       {
         '@type': 'ListItem',
@@ -117,7 +123,7 @@ export default function SearchLandingRoute({ params }: SearchLandingRouteProps) 
 
   return (
     <>
-      <SearchLandingPage page={page} locale="es" />
+      <SearchLandingPage page={page} locale={locale} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }} />
       <script
         type="application/ld+json"
