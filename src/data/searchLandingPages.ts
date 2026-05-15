@@ -210,13 +210,13 @@ export const SEARCH_LANDING_PAGES: SearchLandingPageEntry[] = [
   },
   {
     slug: '100-corazones-para-copiar-y-pegar',
-    title: '100 corazones para copiar y pegar',
+    title: '100 corazones para copiar y pegar en WhatsApp',
     description:
-      'Copia 100 corazones para WhatsApp, estados, comentarios y mensajes. Versiones rojas, rosas, brillantes, negras y mezcladas listas para pegar.',
+      'Copia 100 corazones para copiar y pegar en WhatsApp, estados, comentarios y mensajes. Versiones rojas, rosas, brillantes, negras y mezcladas listas para usar.',
     h1: '100 corazones para copiar y pegar',
     intro: [
-      'Si 1000 corazones te parecen demasiado, esta versión corta es más práctica para chats, estados y comentarios que necesitan verse bonitos sin ocupar toda la pantalla.',
-      'Aquí tienes bloques de 100 corazones en varios estilos para que copies justo la intensidad que necesitas: romántica, cute, brillante, oscura o mezclada.'
+      'Si buscas 100 corazones para copiar y pegar en WhatsApp, esta versión corta es más práctica para chats, estados y comentarios que necesitan verse bonitos sin ocupar toda la pantalla.',
+      'Aquí tienes bloques de 100 corazones listos para copiar en varios estilos: romántico, cute, brillante, oscuro o mezclado.'
     ],
     heroHighlights: ['Mensajes', 'Estados', 'Comentarios', 'Corto', 'Ligero', 'WhatsApp'],
     sections: [
@@ -315,13 +315,13 @@ export const SEARCH_LANDING_PAGES: SearchLandingPageEntry[] = [
   },
   {
     slug: '500-corazones-para-copiar-y-pegar',
-    title: '500 corazones para copiar y pegar',
+    title: '500 corazones para copiar y pegar en WhatsApp',
     description:
-      'Copia 500 corazones para WhatsApp, TikTok, Instagram y comentarios largos. Versiones rojas, rosas, brillantes, negras y mezcladas listas para usar.',
+      'Copia 500 corazones para copiar y pegar en WhatsApp, TikTok, Instagram y comentarios largos. Versiones rojas, rosas, brillantes, negras y mezcladas listas para usar.',
     h1: '500 corazones para copiar y pegar',
     intro: [
-      '500 corazones son un punto medio perfecto cuando 100 se sienten pocos y 1000 ya ocupan demasiado. Esta longitud funciona muy bien en publicaciones, comentarios largos y estados llamativos.',
-      'Preparamos varias versiones para que copies cadenas medianas con más presencia visual: románticas, suaves, brillantes, oscuras o mezcladas.'
+      '500 corazones para copiar y pegar en WhatsApp son un punto medio útil cuando 100 se sienten pocos y 1000 ya ocupan demasiado. Esta longitud funciona muy bien en publicaciones, comentarios largos y estados llamativos.',
+      'Preparamos varias versiones listas para copiar: románticas, suaves, brillantes, oscuras o mezcladas.'
     ],
     heroHighlights: ['WhatsApp', 'TikTok', 'Instagram', 'Comentarios', 'Estados', 'Impacto medio'],
     sections: [
@@ -574,8 +574,8 @@ export const SEARCH_LANDING_PAGES: SearchLandingPageEntry[] = [
       'Encuentra corazones para WhatsApp listos para copiar y pegar: amor, amistad, estados, nombres de grupo, estilos minimalistas y versiones aesthetic.',
     h1: 'Corazones para WhatsApp: copiar y pegar',
     intro: [
-      'Si buscas corazones para WhatsApp que se vean bien en mensajes, estados, nombres de grupo o biografías, aquí tienes selecciones rápidas pensadas para cada situación.',
-      'En lugar de copiar una sola cadena genérica, puedes elegir bloques para amor, amistad, grupos, estados y estilos aesthetic. Así el resultado se ve más natural dentro de la app.'
+      'Si buscas corazones para WhatsApp listos para copiar y pegar, aquí tienes selecciones rápidas para mensajes, estados, nombres de grupo y biografías.',
+      'En lugar de copiar una sola cadena genérica, puedes elegir bloques para amor, amistad, grupos, estados y estilos aesthetic. Así el resultado se ve más natural dentro de la app. Si necesitas una cadena larga, elige 100, 500 o 1000 corazones según cuánto espacio quieras ocupar.'
     ],
     heroHighlights: ['Mensajes', 'Estados', 'Grupos', 'Bio', 'Amistad', 'Amor'],
     sections: [

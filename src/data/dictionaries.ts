@@ -181,12 +181,12 @@ const en: Dictionary = {
   },
   pages: {
     copy: {
-      title: 'Heart emoji copy and paste library',
+      title: 'Heart Emoji Copy and Paste',
       description:
-        'Curated heart emoji copy and paste collections for romance, friendship, gradients, fandoms, and minimalist designs.',
+        'Copy heart emojis, heart symbols, and heart combinations instantly for messages, bios, captions, comments, and profiles.',
       bundlesIntro:
-        'Choose a pack below to instantly copy emoji hearts tailored for different moods and storytelling styles.',
-      toast: 'Copied! Heart combo ready to paste.'
+        'Start with the most-used hearts, then choose a themed pack for romance, friendship, gradients, fandoms, or minimalist designs.',
+      toast: 'Copied! Heart emoji ready to paste.'
     },
     textArt: {
       title: 'Heart text emoji & ASCII art',

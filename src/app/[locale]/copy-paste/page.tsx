@@ -1,12 +1,30 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { CopyBundles } from '@/components/CopyBundles';
+import { CopyButton } from '@/components/CopyButton';
 import { getDictionary } from '@/data/dictionaries';
 import { COLOR_GUIDE } from '@/data/keywordContent';
 import { getSearchLandingCollection } from '@/data/searchLandingCollections';
 import { buildLanguageAlternates, getLocaleFromParam, locales } from '@/lib/i18n';
 
 const siteUrl = 'https://heartemojis.org';
+
+const englishQuickCopyItems = [
+  { label: 'Red heart emoji', value: '❤️' },
+  { label: 'Pink heart emoji', value: '🩷' },
+  { label: 'Sparkling heart emoji', value: '💖' },
+  { label: 'Two hearts emoji', value: '💕' },
+  { label: 'Revolving hearts emoji', value: '💞' },
+  { label: 'Black heart emoji', value: '🖤' },
+  { label: 'White heart emoji', value: '🤍' },
+  { label: 'Outline heart symbol', value: '♡' },
+  { label: 'Classic heart symbol', value: '♥' },
+  { label: 'Romantic heart combo', value: '❤️💕💌' },
+  { label: 'Soft heart combo', value: '🩷💖💕' },
+  { label: 'Friendship heart combo', value: '💛💚🩵' },
+  { label: 'Aesthetic heart combo', value: '🤍🩶♡' },
+  { label: 'Text heart combo', value: '♡ ♥︎ ❣' }
+];
 
 const searchLandingCopy = {
   en: {
@@ -74,6 +92,38 @@ export default function CopyPage({ params }: CopyPageProps) {
           {dictionary.pages.textArt.title}
         </Link>
       </header>
+
+      {locale === 'en' ? (
+        <section className="section-frame quick-copy-strip" aria-labelledby="popular-heart-copy">
+          <div className="section-intro">
+            <span className="section-kicker">Copy now</span>
+            <h2 className="section-heading" id="popular-heart-copy">
+              Popular heart emojis to copy
+            </h2>
+            <p className="section-copy">
+              Tap a heart or short combo, then paste it into a message, bio, caption, comment, or profile.
+            </p>
+          </div>
+          <div className="quick-copy-strip__grid">
+            {englishQuickCopyItems.map((item) => (
+              <div key={item.label} className="quick-copy-strip__item">
+                <span className="quick-copy-strip__value" aria-hidden="true">
+                  {item.value}
+                </span>
+                <span className="quick-copy-strip__label">{item.label}</span>
+                <CopyButton
+                  value={item.value}
+                  label={dictionary.common.copy}
+                  copiedLabel={dictionary.common.copied}
+                  size="small"
+                  hideValue
+                  staticLabel
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       <section aria-labelledby="bundles-intro">
         <h2 className="section-heading" id="bundles-intro">

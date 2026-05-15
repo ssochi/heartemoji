@@ -1086,6 +1086,41 @@ textarea {
   line-height: 1.7;
 }
 
+.quick-copy-strip {
+  display: grid;
+  gap: 1rem;
+}
+
+.quick-copy-strip__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 0.75rem;
+}
+
+.quick-copy-strip__item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.8rem 0.9rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(227, 104, 89, 0.14);
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.82);
+}
+
+.quick-copy-strip__value {
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+.quick-copy-strip__label {
+  min-width: 0;
+  color: var(--text);
+  font-weight: 800;
+  line-height: 1.3;
+}
+
 .search-related-card {
   padding: 1.05rem 1.15rem;
   display: grid;
