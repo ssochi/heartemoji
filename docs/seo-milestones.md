@@ -54,6 +54,7 @@
   - `en/black-heart-on-instagram`
   - `en/pink-heart-in-texting`
   - `en/blue-heart-in-texting`
+- 已上线 Bio Generator 和 Caption Generator，并接入现有 `/[locale]/generator/[count]` 工具页
 - 下一步继续里程碑 3，补剩余高价值语境页，并决定是否扩到中文 / 西语版本
 
 ## 里程碑 0：搜索 landing 基础设施重构

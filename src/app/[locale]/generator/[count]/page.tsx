@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { HeartExpressionTools } from '@/components/HeartExpressionTools';
 import { MegaHeartGenerator } from '@/components/MegaHeartGenerator';
 import { getDictionary } from '@/data/dictionaries';
 import { buildLanguageAlternates, getLocaleFromParam, locales } from '@/lib/i18n';
@@ -68,6 +69,8 @@ export default function GeneratorPage({ params }: GeneratorPageProps) {
       </header>
 
       <MegaHeartGenerator dictionary={dictionary} initialCount={count} />
+
+      <HeartExpressionTools dictionary={dictionary} />
     </div>
   );
 }

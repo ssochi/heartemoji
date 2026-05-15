@@ -88,6 +88,33 @@ export type Dictionary = {
       emojiHelper: string;
       previewLabel: string;
       toast: string;
+      toolsKicker: string;
+      styles: {
+        romantic: string;
+        soft: string;
+        cute: string;
+        fandom: string;
+        dark: string;
+        aesthetic: string;
+      };
+      bio: {
+        title: string;
+        description: string;
+        inputLabel: string;
+        inputPlaceholder: string;
+        styleLabel: string;
+        outputHeading: string;
+        helperText: string;
+      };
+      caption: {
+        title: string;
+        description: string;
+        inputLabel: string;
+        inputPlaceholder: string;
+        styleLabel: string;
+        outputHeading: string;
+        helperText: string;
+      };
     };
     fun: {
       fishTank: {
@@ -203,7 +230,36 @@ const en: Dictionary = {
       emojiLabel: 'Choose heart style',
       emojiHelper: 'Tap a different heart to change the vibe of your string.',
       previewLabel: 'Live preview',
-      toast: 'Copied! {count} × {emoji} ready to paste.'
+      toast: 'Copied! {count} × {emoji} ready to paste.',
+      toolsKicker: 'Bio + captions',
+      styles: {
+        romantic: 'Romantic',
+        soft: 'Soft',
+        cute: 'Cute',
+        fandom: 'Fandom',
+        dark: 'Dark',
+        aesthetic: 'Aesthetic'
+      },
+      bio: {
+        title: 'Heart bio generator',
+        description:
+          'Turn a name, mood, or keyword into short heart bios, display names, and profile signatures.',
+        inputLabel: 'Name or keyword',
+        inputPlaceholder: 'luna, book club, soft nights',
+        styleLabel: 'Bio style',
+        outputHeading: 'Bio ideas ready to copy',
+        helperText: 'Use these in Instagram, TikTok, Discord, WhatsApp, or any profile field that supports symbols.'
+      },
+      caption: {
+        title: 'Heart caption generator',
+        description:
+          'Generate short heart captions for posts, comments, stories, fandom replies, and soft status updates.',
+        inputLabel: 'Topic or mood',
+        inputPlaceholder: 'date night, new photo, concert, best friend',
+        styleLabel: 'Caption style',
+        outputHeading: 'Caption ideas ready to copy',
+        helperText: 'Pick a style, add a topic, then copy the line that fits your post.'
+      }
     },
     fun: {
       fishTank: {
@@ -529,7 +585,34 @@ const zh: Dictionary = {
       emojiLabel: '选择心形样式',
       emojiHelper: '点击不同的爱心，就能快速切换成喜欢的风格。',
       previewLabel: '即时预览',
-      toast: '{count} 个 {emoji} 已复制，马上粘贴。'
+      toast: '{count} 个 {emoji} 已复制，马上粘贴。',
+      toolsKicker: '简介 + 文案',
+      styles: {
+        romantic: '浪漫',
+        soft: '温柔',
+        cute: '可爱',
+        fandom: '应援',
+        dark: '暗黑',
+        aesthetic: '氛围感'
+      },
+      bio: {
+        title: '爱心 bio 生成器',
+        description: '输入名字、关键词或心情，生成带爱心的简介、昵称和签名。',
+        inputLabel: '名字或关键词',
+        inputPlaceholder: '小满、读书会、温柔夜晚',
+        styleLabel: '简介风格',
+        outputHeading: '可复制的 bio 灵感',
+        helperText: '适合 Instagram、TikTok、Discord、微信状态或任何支持符号的个人资料。'
+      },
+      caption: {
+        title: '爱心文案生成器',
+        description: '为帖子、评论、状态、应援回复和日常分享生成短句。',
+        inputLabel: '主题或心情',
+        inputPlaceholder: '约会夜、新照片、演唱会、好朋友',
+        styleLabel: '文案风格',
+        outputHeading: '可复制的文案灵感',
+        helperText: '选择风格，输入主题，再复制最适合当前内容的一句。'
+      }
     },
     fun: {
       fishTank: {
@@ -867,7 +950,36 @@ const dictionaries: Record<Locale, Dictionary> = {
         emojiLabel: 'Elige el estilo de corazón',
         emojiHelper: 'Toca cualquier corazón para ajustar el tono de tu cadena.',
         previewLabel: 'Vista previa en vivo',
-        toast: '¡Copiaste {count} × {emoji}! Pégalo cuando quieras.'
+        toast: '¡Copiaste {count} × {emoji}! Pégalo cuando quieras.',
+        toolsKicker: 'Bios + captions',
+        styles: {
+          romantic: 'Romántico',
+          soft: 'Suave',
+          cute: 'Cute',
+          fandom: 'Fandom',
+          dark: 'Dark',
+          aesthetic: 'Aesthetic'
+        },
+        bio: {
+          title: 'Generador de bios con corazones',
+          description:
+            'Convierte un nombre, una idea o una palabra clave en bios, nombres de perfil y firmas con corazones.',
+          inputLabel: 'Nombre o palabra clave',
+          inputPlaceholder: 'luna, club de lectura, noches suaves',
+          styleLabel: 'Estilo de bio',
+          outputHeading: 'Ideas de bio listas para copiar',
+          helperText: 'Úsalas en Instagram, TikTok, Discord, WhatsApp o cualquier perfil que acepte símbolos.'
+        },
+        caption: {
+          title: 'Generador de captions con corazones',
+          description:
+            'Genera frases cortas con corazones para posts, comentarios, historias, fandoms y estados suaves.',
+          inputLabel: 'Tema o mood',
+          inputPlaceholder: 'cita, nueva foto, concierto, mejor amiga',
+          styleLabel: 'Estilo de caption',
+          outputHeading: 'Ideas de caption listas para copiar',
+          helperText: 'Elige un estilo, añade un tema y copia la frase que mejor encaje.'
+        }
       },
       fun: {
         fishTank: {
