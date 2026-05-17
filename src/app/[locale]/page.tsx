@@ -9,8 +9,7 @@ import { HEART_EMOJIS } from '@/data/emojis';
 import { getDictionary } from '@/data/dictionaries';
 import { FAQS } from '@/data/keywordContent';
 import { buildLanguageAlternates, getLocaleFromParam, locales, type Locale } from '@/lib/i18n';
-
-const siteUrl = 'https://heartemojis.org';
+import { SITE_URL } from '@/lib/site';
 
 const openGraphLocales: Record<Locale, string> = {
   en: 'en_US',
@@ -35,7 +34,7 @@ export function generateMetadata({ params }: { params: { locale: string } }): Me
       languages: buildLanguageAlternates()
     },
     openGraph: {
-      url: `${siteUrl}${canonical}`,
+      url: `${SITE_URL}${canonical}`,
       locale: openGraphLocales[locale],
       title: dictionary.home.heroTitle,
       description: dictionary.home.seoDescription,
@@ -72,7 +71,7 @@ export default function LocaleHomePage({ params }: LocaleHomePageProps) {
     itemListElement: HEART_EMOJIS.slice(0, 10).map((emoji, idx) => ({
       '@type': 'ListItem',
       position: idx + 1,
-      url: `${siteUrl}/${locale}/emoji/${emoji.slug}`
+      url: `${SITE_URL}/${locale}/emoji/${emoji.slug}`
     }))
   };
   const faqStructuredData = {

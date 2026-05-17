@@ -3,8 +3,8 @@ import { HEART_EMOJIS } from '@/data/emojis';
 import { getSearchLandingCollection } from '@/data/searchLandingCollections';
 import { SEARCH_LANDING_PAGES } from '@/data/searchLandingPages';
 import { getLocalePath, locales } from '@/lib/i18n';
+import { SITE_URL } from '@/lib/site';
 
-const siteUrl = 'https://heartemojis.org';
 const indexableGeneratorCounts = [200, 1000];
 const localeStaticPaths = ['', '/copy-paste', '/text-art', '/fun/emoji-fish-tank'];
 
@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
 
   locales.forEach((locale) => {
-    const prefix = `${siteUrl}${getLocalePath(locale)}`;
+    const prefix = `${SITE_URL}${getLocalePath(locale)}`;
 
     localeStaticPaths.forEach((path, index) => {
       entries.push({

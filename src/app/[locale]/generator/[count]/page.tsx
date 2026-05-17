@@ -3,8 +3,7 @@ import { HeartExpressionTools } from '@/components/HeartExpressionTools';
 import { MegaHeartGenerator } from '@/components/MegaHeartGenerator';
 import { getDictionary } from '@/data/dictionaries';
 import { buildLanguageAlternates, getLocaleFromParam, locales } from '@/lib/i18n';
-
-const siteUrl = 'https://heartemojis.org';
+import { SITE_URL } from '@/lib/site';
 const PRESET_COUNTS = [50, 100, 200, 300, 500, 1000];
 const INDEXABLE_COUNTS = new Set([200, 1000]);
 
@@ -43,7 +42,7 @@ export function generateMetadata({ params }: { params: { locale: string; count: 
     openGraph: {
       title: `${dictionary.pages.generator.title} (${count})`,
       description: dictionary.pages.generator.description,
-      url: `${siteUrl}${canonical}`,
+      url: `${SITE_URL}${canonical}`,
       type: 'article'
     }
   };

@@ -3,8 +3,7 @@ import Link from 'next/link';
 import { TextArtShowcase } from '@/components/TextArtShowcase';
 import { getDictionary } from '@/data/dictionaries';
 import { buildLanguageAlternates, getLocaleFromParam, locales } from '@/lib/i18n';
-
-const siteUrl = 'https://heartemojis.org';
+import { SITE_URL } from '@/lib/site';
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -25,7 +24,7 @@ export function generateMetadata({ params }: { params: { locale: string } }): Me
     openGraph: {
       title: dictionary.pages.textArt.title,
       description: dictionary.pages.textArt.description,
-      url: `${siteUrl}${canonical}`,
+      url: `${SITE_URL}${canonical}`,
       type: 'article'
     }
   };

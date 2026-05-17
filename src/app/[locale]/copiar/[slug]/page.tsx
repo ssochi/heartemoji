@@ -6,8 +6,7 @@ import {
   getSearchLandingPageBySlug
 } from '@/data/searchLandingPages';
 import { getLocaleFromParam } from '@/lib/i18n';
-
-const siteUrl = 'https://heartemojis.org';
+import { SITE_URL } from '@/lib/site';
 
 type SearchLandingRouteProps = {
   params: {
@@ -56,7 +55,7 @@ export function generateMetadata({ params }: SearchLandingRouteProps): Metadata 
     openGraph: {
       title: page.title,
       description: page.description,
-      url: `${siteUrl}${canonical}`,
+      url: `${SITE_URL}${canonical}`,
       locale: 'es_ES',
       type: 'article'
     },
@@ -98,19 +97,19 @@ export default function SearchLandingRoute({ params }: SearchLandingRouteProps) 
         '@type': 'ListItem',
         position: 1,
         name: 'Heart Emojis',
-        item: `${siteUrl}/es`
+        item: `${SITE_URL}/es`
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Copiar corazones',
-        item: `${siteUrl}/es/copy-paste`
+        item: `${SITE_URL}/es/copy-paste`
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: page.h1,
-        item: `${siteUrl}${canonical}`
+        item: `${SITE_URL}${canonical}`
       }
     ]
   };

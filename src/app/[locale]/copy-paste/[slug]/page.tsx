@@ -7,8 +7,7 @@ import {
 } from '@/data/searchLandingCollections';
 import { getDictionary } from '@/data/dictionaries';
 import { getLocaleFromParam, locales, type Locale } from '@/lib/i18n';
-
-const siteUrl = 'https://heartemojis.org';
+import { SITE_URL } from '@/lib/site';
 
 type SearchLandingRouteProps = {
   params: {
@@ -61,7 +60,7 @@ export function generateMetadata({ params }: SearchLandingRouteProps): Metadata 
     openGraph: {
       title: page.title,
       description: page.description,
-      url: `${siteUrl}${canonical}`,
+      url: `${SITE_URL}${canonical}`,
       locale: openGraphLocaleMap[locale],
       type: 'article'
     },
@@ -104,19 +103,19 @@ export default function SearchLandingRoute({ params }: SearchLandingRouteProps) 
         '@type': 'ListItem',
         position: 1,
         name: dictionary.common.nav.home,
-        item: `${siteUrl}/${locale}`
+        item: `${SITE_URL}/${locale}`
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: dictionary.pages.copy.title,
-        item: `${siteUrl}/${locale}/copy-paste`
+        item: `${SITE_URL}/${locale}/copy-paste`
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: page.h1,
-        item: `${siteUrl}${canonical}`
+        item: `${SITE_URL}${canonical}`
       }
     ]
   };

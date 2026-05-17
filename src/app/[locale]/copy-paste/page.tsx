@@ -6,8 +6,7 @@ import { getDictionary } from '@/data/dictionaries';
 import { COLOR_GUIDE } from '@/data/keywordContent';
 import { getSearchLandingCollection } from '@/data/searchLandingCollections';
 import { buildLanguageAlternates, getLocaleFromParam, locales } from '@/lib/i18n';
-
-const siteUrl = 'https://heartemojis.org';
+import { SITE_URL } from '@/lib/site';
 
 const englishQuickCopyItems = [
   { label: 'Red heart emoji', value: '❤️' },
@@ -65,7 +64,7 @@ export function generateMetadata({ params }: { params: { locale: string } }): Me
     openGraph: {
       title: dictionary.pages.copy.title,
       description: dictionary.pages.copy.description,
-      url: `${siteUrl}${canonical}`,
+      url: `${SITE_URL}${canonical}`,
       type: 'article'
     }
   };

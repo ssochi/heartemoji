@@ -3,8 +3,7 @@ import { EmojiFishTank } from '@/components/EmojiFishTank';
 import { CopyButton } from '@/components/CopyButton';
 import { getDictionary } from '@/data/dictionaries';
 import { buildLanguageAlternates, getLocaleFromParam, locales } from '@/lib/i18n';
-
-const siteUrl = 'https://heartemojis.org';
+import { SITE_URL } from '@/lib/site';
 const EMBED_PATHS = {
   full: '/embed/emoji-fish-tank',
   compact: '/embed/emoji-fish-tank/compact'
@@ -22,7 +21,7 @@ function buildEmbedCode(variant: 'full' | 'compact'): string {
   const path = EMBED_PATHS[variant];
   const { maxWidth, height } = EMBED_DIMENSIONS[variant];
   const borderRadius = variant === 'compact' ? 18 : 24;
-  const src = `${siteUrl}${path}`;
+  const src = `${SITE_URL}${path}`;
   return `<iframe src="${src}" title="Emoji fish tank" loading="lazy" allow="accelerometer; autoplay" style="width:100%;max-width:${maxWidth}px;height:${height}px;border:0;border-radius:${borderRadius}px;overflow:hidden;background:linear-gradient(135deg,#061a3a,#0b3a52);"></iframe>`;
 }
 
@@ -41,7 +40,7 @@ export function generateMetadata({ params }: { params: { locale: string } }): Me
     openGraph: {
       title: dictionary.pages.fun.fishTank.title,
       description: dictionary.pages.fun.fishTank.description,
-      url: `${siteUrl}${canonical}`,
+      url: `${SITE_URL}${canonical}`,
       type: 'article'
     }
   };
@@ -60,7 +59,7 @@ export default function FishTankPage({ params }: FishTankPageProps) {
   const embedVariants = content.embedVariants.map((variant) => {
     const code = buildEmbedCode(variant.id);
     const href = EMBED_PATHS[variant.id];
-    const link = `${siteUrl}${href}`;
+    const link = `${SITE_URL}${href}`;
     return { ...variant, code, href, link };
   });
 

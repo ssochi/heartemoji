@@ -9,9 +9,8 @@ import { HEART_EMOJIS, getEmojiBySlug, getRelatedEmojis, type HeartEmoji } from 
 import { getEmojiGuide } from '@/data/emojiGuides';
 import { COLOR_GUIDE } from '@/data/keywordContent';
 import { buildLanguageAlternates, getLocaleFromParam, locales, type Locale } from '@/lib/i18n';
+import { SITE_URL } from '@/lib/site';
 import { toneDescriptions, toneLabels } from '@/lib/tone';
-
-const siteUrl = 'https://heartemojis.org';
 
 const schemaLocales: Record<Locale, string> = {
   en: 'en-US',
@@ -176,7 +175,7 @@ export function generateMetadata({ params }: EmojiPageProps): Metadata {
   const canonical = `/${locale}/emoji/${emoji.slug}`;
 
   return {
-    title: `${title} | Heart Emojis`,
+    title,
     description,
     keywords: metadataKeywords,
     alternates: {
@@ -186,7 +185,7 @@ export function generateMetadata({ params }: EmojiPageProps): Metadata {
     openGraph: {
       title,
       description,
-      url: `${siteUrl}${canonical}`,
+      url: `${SITE_URL}${canonical}`,
       type: 'article',
       locale: openGraphLocales[locale],
       siteName: 'Heart Emojis'
@@ -238,7 +237,7 @@ export default function EmojiDetailPage({ params }: EmojiPageProps) {
     alternateName: emoji.meaning,
     description: buildQuickAnswer(locale, content, toneDescription, guideContent.aliases, colorCard),
     inLanguage: schemaLocales[locale],
-    url: `${siteUrl}${canonical}`,
+    url: `${SITE_URL}${canonical}`,
     identifier: emoji.unicode,
     keywords: uniqueStrings([...keywordList, ...guideContent.aliases]).slice(0, 12)
   };
@@ -250,13 +249,13 @@ export default function EmojiDetailPage({ params }: EmojiPageProps) {
         '@type': 'ListItem',
         position: 1,
         name: ui.breadcrumbHome,
-        item: `${siteUrl}/${locale}`
+        item: `${SITE_URL}/${locale}`
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: content.name,
-        item: `${siteUrl}${canonical}`
+        item: `${SITE_URL}${canonical}`
       }
     ]
   };

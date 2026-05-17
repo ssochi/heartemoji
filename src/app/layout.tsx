@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import { buildLanguageAlternates } from '@/lib/i18n';
+import { SITE_URL } from '@/lib/site';
 import './globals.css';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://heartemojis.org'),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: 'Heart Emojis — Copy & Explore Every Style',
     template: '%s | Heart Emojis'
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
     title: 'Heart Emojis — Copy & Explore Every Style',
     description:
       'Explore a curated, multilingual catalog of heart emojis. Copy any emoji instantly and learn when to use each symbol.',
-    url: 'https://heartemojis.org',
+    url: SITE_URL,
     siteName: 'Heart Emojis',
     images: [{ url: '/og-heartemojis.svg', width: 1200, height: 630, alt: 'Heart Emojis preview' }],
     locale: 'en_US',
